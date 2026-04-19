@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About Us — EduRise Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero-dark{padding:60px 40px;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff}
+  .hero-dark h1{font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;margin-bottom:12px}
+  .hero-dark p{color:rgba(255,255,255,.65);font-size:15px;max-width:560px;line-height:1.75}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .story-text h2{font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;margin-bottom:14px}
+  .story-text p{color:var(--text-muted);font-size:14px;line-height:1.8;margin-bottom:12px}
+  .story-visual{background:linear-gradient(135deg,#f0eeff,#f5f3ff);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border)}
+  .timeline{display:flex;flex-direction:column;gap:0}
+  .tl-item{display:flex;gap:16px;position:relative}
+  .tl-item::before{content:'';position:absolute;left:20px;top:40px;bottom:-20px;width:2px;background:var(--border)}
+  .tl-item:last-child::before{display:none}
+  .tl-dot{width:40px;height:40px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:800;flex-shrink:0;font-family:'Nunito',sans-serif;position:relative;z-index:1;box-shadow:0 0 0 4px var(--primary-light)}
+  .tl-content{padding:0 0 28px}
+  .tl-year{font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+  .tl-title{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:4px}
+  .tl-desc{font-size:12px;color:var(--text-muted);line-height:1.6}
+  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .value-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center;transition:all .2s}
+  .value-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+  .value-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px}
+  .value-card h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);margin-bottom:8px}
+  .value-card p{font-size:13px;color:var(--text-muted);line-height:1.65}
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .team-card{text-align:center;cursor:pointer}
+  .team-av{width:80px;height:80px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;font-family:'Nunito',sans-serif;transition:transform .2s;box-shadow:var(--shadow)}
+  .team-card:hover .team-av{transform:scale(1.08)}
+  .team-card h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:4px}
+  .team-card p{font-size:12px;color:var(--text-muted)}
+  .recognition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .recognition-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;text-align:center}
+  .recognition-card .icon{font-size:28px;margin-bottom:10px}
+  .recognition-card h4{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--text);margin-bottom:4px}
+  .recognition-card p{font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo"><div class="logo-icon">E</div><div class="logo-text"><span>Edu</span>Rise Academy</div></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="teachers.html">Teachers</a><a href="results.html">Results</a><a href="about.html" class="active">About Us</a><a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-btns">
+    <a href="contact.html" class="btn btn-outline btn-sm">Login</a>
+    <a href="courses.html" class="btn btn-primary btn-sm">Enroll Now →</a>
+  </div>
+</nav>
+
+<div class="hero-dark">
+  <div class="breadcrumb" style="color:rgba(255,255,255,.5)"><a href="index.html" style="color:rgba(255,255,255,.7)">Home</a><span style="color:rgba(255,255,255,.3)">›</span><span>About Us</span></div>
+  <h1>Empowering India's Future Leaders</h1>
+  <p>EduRise Academy was founded with a single mission — to make world-class coaching accessible to every student, regardless of background or location.</p>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">2018</div><div class="stat-label">Founded</div></div>
+  <div class="stat-item"><div class="stat-num">15,000+</div><div class="stat-label">Students Enrolled</div></div>
+  <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Expert Educators</div></div>
+  <div class="stat-item"><div class="stat-num">850+</div><div class="stat-label">IIT/NEET Selections</div></div>
+</div>
+
+<!-- OUR STORY -->
+<section class="section">
+  <div class="story-grid">
+    <div class="story-text">
+      <div class="section-tag" style="text-align:left">Our Story</div>
+      <h2>From a Small Classroom to India's Trusted Platform</h2>
+      <p>It started in 2018 with just 40 students and a dream — that every student in Nagpur deserves access to the same quality of coaching that students in big metros enjoy.</p>
+      <p>Our founder, a JEE topper from IIT Bombay, saw firsthand how students in Tier-2 & Tier-3 cities struggled to find quality guidance. EduRise Academy was born to bridge that gap.</p>
+      <p>Today, we've helped 15,000+ students from across Maharashtra and beyond achieve their dream ranks in JEE, NEET, UPSC, and board exams — and we're just getting started.</p>
+      <a href="contact.html" class="btn btn-primary" style="margin-top:8px">Join Our Mission →</a>
+    </div>
+    <div class="story-visual">
+      <h3 style="font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;margin-bottom:20px">Our Journey</h3>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot">18</div><div class="tl-content"><div class="tl-year">2018</div><div class="tl-title">EduRise Founded</div><div class="tl-desc">Started with 40 students and 3 teachers in a small classroom in Nagpur.</div></div></div>
+        <div class="tl-item"><div class="tl-dot">20</div><div class="tl-content"><div class="tl-year">2020</div><div class="tl-title">Online Platform Launch</div><div class="tl-desc">Launched digital platform during COVID — 2,000 students enrolled within 3 months.</div></div></div>
+        <div class="tl-item"><div class="tl-dot">22</div><div class="tl-content"><div class="tl-year">2022</div><div class="tl-title">Expanded to 10+ Courses</div><div class="tl-desc">Added UPSC, SSC, Banking and Foundation batches. Crossed 8,000 students.</div></div></div>
+        <div class="tl-item"><div class="tl-dot">24</div><div class="tl-content"><div class="tl-year">2024</div><div class="tl-title">15,000+ Students Strong</div><div class="tl-desc">Best results ever — 200+ IIT & 450+ NEET selections. AI-powered tools launched.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section" style="background:var(--bg)">
+  <div class="section-header">
+    <div class="section-tag">Our Values</div>
+    <h2>What We Stand For</h2>
+    <p>The principles that guide every decision we make at EduRise</p>
+  </div>
+  <div class="values-grid">
+    <div class="value-card"><div class="value-icon" style="background:#f0eeff">🎯</div><h3>Excellence First</h3><p>We never compromise on quality. Every teacher, every note, every test is crafted to the highest standard.</p></div>
+    <div class="value-card"><div class="value-icon" style="background:#f0fdf4">🤝</div><h3>Accessible Education</h3><p>World-class coaching shouldn't be a privilege. We offer scholarships, EMI options & free trials.</p></div>
+    <div class="value-card"><div class="value-icon" style="background:#fff7ed">❤️</div><h3>Student-First Mindset</h3><p>Every decision — from class timings to study material — is made with the student's success in mind.</p></div>
+    <div class="value-card"><div class="value-icon" style="background:#f5f3ff">💡</div><h3>Innovation in Learning</h3><p>AI-powered analytics, adaptive tests, and personalized insights keep us ahead of the curve.</p></div>
+    <div class="value-card"><div class="value-icon" style="background:#ecfeff">🌱</div><h3>Holistic Growth</h3><p>Beyond marks — we develop confidence, time management and problem-solving skills for life.</p></div>
+    <div class="value-card"><div class="value-icon" style="background:#fef2f2">🔒</div><h3>Trust & Transparency</h3><p>Honest pricing, genuine results, regular parent updates — no false promises, ever.</p></div>
+  </div>
+</section>
+
+<!-- LEADERSHIP TEAM -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">Leadership Team</div>
+    <h2>The People Behind EduRise</h2>
+    <p>A passionate team of educators and technologists on a mission to transform education</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card"><div class="team-av" style="background:linear-gradient(135deg,#7B6EE8,#7c3aed)">AK</div><h4>Amit Kumar</h4><p>Founder & CEO<br>IIT Bombay Alumnus</p></div>
+    <div class="team-card"><div class="team-av" style="background:linear-gradient(135deg,#16a34a,#059669)">RS</div><h4>Rekha Sharma</h4><p>Academic Director<br>AIIMS Delhi Alumna</p></div>
+    <div class="team-card"><div class="team-av" style="background:linear-gradient(135deg,#f97316,#ef4444)">VR</div><h4>Vinit Rao</h4><p>Head of Technology<br>IIT Madras Alumnus</p></div>
+    <div class="team-card"><div class="team-av" style="background:linear-gradient(135deg,#7c3aed,#db2777)">NJ</div><h4>Neha Joshi</h4><p>Student Success Head<br>MBA — IIM Bangalore</p></div>
+  </div>
+</section>
+
+<!-- RECOGNITIONS -->
+<section class="section" style="background:var(--bg)">
+  <div class="section-header">
+    <div class="section-tag">Awards & Recognition</div>
+    <h2>Recognized for Excellence</h2>
+  </div>
+  <div class="recognition-grid">
+    <div class="recognition-card"><div class="icon">🏆</div><h4>Best Ed-Tech Startup 2023</h4><p>Maharashtra Startup Awards</p></div>
+    <div class="recognition-card"><div class="icon">🌟</div><h4>Top 50 EdTech India 2024</h4><p>Education World Magazine</p></div>
+    <div class="recognition-card"><div class="icon">🎓</div><h4>Best JEE Coaching — Nagpur</h4><p>Times Education Survey 2024</p></div>
+    <div class="recognition-card"><div class="icon">💎</div><h4>Excellence in NEET Prep</h4><p>Medical Education Forum 2024</p></div>
+    <div class="recognition-card"><div class="icon">📱</div><h4>Best Learning App 2023</h4><p>EdTech Review India</p></div>
+    <div class="recognition-card"><div class="icon">🤝</div><h4>CSR Award — Free Coaching</h4><p>For underprivileged students</p></div>
+  </div>
+</section>
+
+<div class="cta-wrap" style="margin:0 40px 60px">
+  <h2 style="color:#fff;font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;margin-bottom:10px">Ready to Join the EduRise Family? 🚀</h2>
+  <p style="color:rgba(255,255,255,.8);margin-bottom:22px">Enroll today and take the first step towards your dream rank.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="courses.html" class="btn btn-white btn-lg">Explore Courses →</a>
+    <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">Contact Us</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="logo" style="display:inline-flex;margin-bottom:10px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a><p>India's trusted coaching for JEE, NEET & Boards.</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="results.html">Results</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Courses</h4><a href="courses.html">JEE</a><a href="courses.html">NEET</a><a href="courses.html">CBSE</a><a href="courses.html">UPSC</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="#">📍 Nagpur, MH</a><a href="#">📞 +91 98765 43210</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 EduRise Academy</p></div>
+</footer>
+</body>
+</html>
+
+

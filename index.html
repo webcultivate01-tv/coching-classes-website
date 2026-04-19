@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduRise Academy — Home</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* HERO SLIDER */
+  .hero-slider{position:relative;width:100%;overflow:hidden;background:#0f172a}
+  .hero-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+  .hero-slide{min-width:100%;height:360px;display:flex;align-items:center;justify-content:space-between;padding:0 70px;position:relative;overflow:hidden;flex-shrink:0;gap:40px}
+  .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.2) 50%,rgba(0,0,0,.4) 100%)}
+  .hero-slide-content{position:relative;z-index:2;flex:1}
+  .hero-slide-right{position:relative;z-index:2;flex:0 0 280px}
+  .hero-slide-tag{display:inline-block;background:rgba(255,255,255,.15);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:var(--radius-pill);margin-bottom:14px;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.2)}
+  .hero-slide h2{font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:10px}
+  .hero-slide h2 em{font-style:normal;color:#fbbf24}
+  .hero-slide p{color:rgba(255,255,255,.8);font-size:14px;line-height:1.7;margin-bottom:22px;max-width:440px}
+  .hero-slide-actions{display:flex;gap:12px;flex-wrap:wrap}
+  /* right card */
+  .slide-card{background:rgba(255,255,255,.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:20px;color:#fff}
+  .slide-card-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+  .slide-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .slide-stat{background:rgba(255,255,255,.1);border-radius:10px;padding:10px;text-align:center}
+  .slide-stat-num{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;line-height:1;color:#fbbf24}
+  .slide-stat-label{font-size:9px;color:rgba(255,255,255,.65);margin-top:3px}
+  .slide-features{display:flex;flex-direction:column;gap:8px}
+  .slide-feature{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.85)}
+  .slide-feature-dot{width:18px;height:18px;border-radius:50%;background:rgba(251,191,36,.25);border:1px solid rgba(251,191,36,.5);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;color:#fbbf24}
+  /* arrow buttons */
+  .slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all .2s}
+  .slider-arrow:hover{background:rgba(255,255,255,.3)}
+  .slider-prev{left:16px}
+  .slider-next{right:16px}
+  /* dots */
+  .slider-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10}
+  .slider-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .3s;border:none;padding:0}
+  .slider-dot.active{background:#fff;width:22px;border-radius:4px}
+
+  /* MARQUEE */
+  .marquee-wrap{background:var(--primary);padding:14px 0;overflow:hidden}
+  .marquee{display:flex;gap:0;animation:marquee 20s linear infinite;white-space:nowrap}
+  .marquee-item{padding:0 32px;color:rgba(255,255,255,.85);font-size:13px;font-weight:500;border-right:1px solid rgba(255,255,255,.2)}
+  .marquee-item span{color:#fff;font-weight:700}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  /* COURSES SECTION */
+  .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .course-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all .25s}
+  .course-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+  /* course thumb image */
+  .course-thumb{height:160px;position:relative;overflow:hidden}
+  .course-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+  .course-card:hover .course-thumb img{transform:scale(1.06)}
+  .course-thumb-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;padding:10px 14px;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 60%)}
+  .course-thumb-title{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:#fff}
+  .thumb-label{background:rgba(255,255,255,.2);backdrop-filter:blur(4px);color:#fff;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.3)}
+  .course-body{padding:16px}
+  .course-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .course-body h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);margin-bottom:6px}
+  .course-body p{font-size:12px;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
+  .course-info{display:flex;gap:14px;margin-bottom:14px;font-size:11px;color:var(--text-muted)}
+  .course-info span{display:flex;align-items:center;gap:4px}
+  .course-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px}
+  .course-price{display:flex;align-items:baseline;gap:6px}
+  .course-price .price-new{font-size:18px;font-weight:800;color:var(--primary);font-family:'Nunito',sans-serif}
+  .course-price .price-old{font-size:12px;color:var(--text-light);text-decoration:line-through}
+  .course-price .price-off{font-size:10px;font-weight:700;color:var(--green);background:var(--green-light);padding:2px 7px;border-radius:10px}
+
+  /* WHY US */
+  .why-bg{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);padding:60px 40px}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);overflow:hidden;transition:all .25s}
+  .why-card:hover{background:rgba(123,110,232,.15);border-color:rgba(123,110,232,.4);transform:translateY(-3px)}
+  .why-card-img{width:100%;height:110px;object-fit:cover;display:block;opacity:.85;transition:opacity .3s}
+  .why-card:hover .why-card-img{opacity:1}
+  .why-card-body{padding:16px}
+  .why-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
+  .why-card h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px;font-family:'Nunito',sans-serif}
+  .why-card p{font-size:11px;color:rgba(255,255,255,.5);line-height:1.6}
+
+  /* RESULTS */
+  .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;text-align:center;transition:all .2s}
+  .result-card:hover{box-shadow:var(--shadow);border-color:var(--primary)}
+  .result-avatar{width:60px;height:60px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;font-family:'Nunito',sans-serif}
+  .result-name{font-size:14px;font-weight:700;color:var(--text);font-family:'Nunito',sans-serif}
+  .result-exam{font-size:11px;color:var(--text-muted);margin-bottom:8px}
+  .result-score{font-size:13px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-block}
+
+  /* TESTIMONIALS */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .testi-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;transition:all .2s}
+  .testi-card:hover{box-shadow:var(--shadow);border-color:var(--border)}
+  .testi-stars{color:#f59e0b;font-size:14px;margin-bottom:12px}
+  .testi-text{font-size:13px;color:var(--text-muted);line-height:1.75;margin-bottom:16px;font-style:italic}
+  .testi-author{display:flex;align-items:center;gap:10px}
+  .testi-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+  .testi-name{font-size:13px;font-weight:600;color:var(--text);font-family:'Nunito',sans-serif}
+  .testi-course{font-size:11px;color:var(--text-muted)}
+
+  /* CTA */
+  .cta-wrap{background:linear-gradient(135deg,var(--primary) 0%,var(--purple) 100%);border-radius:var(--radius-lg);margin:0 40px;padding:50px;text-align:center;position:relative;overflow:hidden}
+  .cta-wrap::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+  .cta-wrap h2{font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;color:#fff;margin-bottom:10px;position:relative}
+  .cta-wrap p{color:rgba(255,255,255,.8);font-size:15px;margin-bottom:28px;position:relative}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+  .cta-note{margin-top:16px;font-size:12px;color:rgba(255,255,255,.6);position:relative}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">E</div>
+    <div class="logo-text"><span>Edu</span>Rise Academy</div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="results.html">Results</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-btns">
+    <a href="contact.html" class="btn btn-outline btn-sm">Login</a>
+    <a href="courses.html" class="btn btn-primary btn-sm">Enroll Now →</a>
+  </div>
+</nav>
+
+<!-- HERO SLIDER -->
+<div class="hero-slider" id="heroSlider">
+  <div class="hero-track" id="heroTrack">
+
+    <!-- Slide 1 -->
+    <div class="hero-slide" style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#7B6EE8 100%)">
+      <div class="hero-slide-content">
+        <div class="hero-slide-tag">🏆 India's #1 Coaching Platform</div>
+        <h2>Crack <em>JEE & NEET</em><br>with Confidence</h2>
+        <p>Live classes by IIT & AIIMS alumni. 200+ IIT selections in 2024. Start your journey today.</p>
+        <div class="hero-slide-actions">
+          <a href="courses.html" class="btn btn-primary btn-lg">Explore Courses →</a>
+          <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">Free Demo Class</a>
+        </div>
+      </div>
+      <div class="hero-slide-right">
+        <div class="slide-card">
+          <div class="slide-card-title">🚀 2024 Highlights</div>
+          <div class="slide-stats">
+            <div class="slide-stat"><div class="slide-stat-num">200+</div><div class="slide-stat-label">IIT Selections</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">98%</div><div class="slide-stat-label">Pass Rate</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">15k+</div><div class="slide-stat-label">Students</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">50+</div><div class="slide-stat-label">Educators</div></div>
+          </div>
+          <div class="slide-features">
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Live + Recorded Classes</div>
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Daily Practice Tests</div>
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>7-Day Free Trial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide" style="background:linear-gradient(135deg,#064e3b 0%,#065f46 50%,#16a34a 100%)">
+      <div class="hero-slide-content">
+        <div class="hero-slide-tag">🏥 NEET 2025 Batches Open</div>
+        <h2>Score <em>700+</em> in NEET<br>with Expert Guidance</h2>
+        <p>NCERT-based Biology, Physics & Chemistry. Full mock tests. AIIMS alumni faculty.</p>
+        <div class="hero-slide-actions">
+          <a href="courses.html" class="btn btn-lg" style="background:#fff;color:#16a34a;font-weight:700">Enroll Now →</a>
+          <a href="results.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">See Results</a>
+        </div>
+      </div>
+      <div class="hero-slide-right">
+        <div class="slide-card">
+          <div class="slide-card-title">🏥 NEET 2024 Results</div>
+          <div class="slide-stats">
+            <div class="slide-stat"><div class="slide-stat-num">450+</div><div class="slide-stat-label">NEET Qualifiers</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">698</div><div class="slide-stat-label">Top Score</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">3</div><div class="slide-stat-label">720/720 Scores</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">4.9★</div><div class="slide-stat-label">Faculty Rating</div></div>
+          </div>
+          <div class="slide-features">
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>NCERT Mastery Method</div>
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>90+ Full Mock Tests</div>
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>24/7 Doubt Support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide" style="background:linear-gradient(135deg,#431407 0%,#9a3412 50%,#f97316 100%)">
+      <div class="hero-slide-content">
+        <div class="hero-slide-tag">📚 New Batch — Class 11 & 12</div>
+        <h2>CBSE Boards + <em>JEE/NEET</em><br>Integrated Program</h2>
+        <p>Score 95%+ in boards while preparing for competitive exams simultaneously.</p>
+        <div class="hero-slide-actions">
+          <a href="courses.html" class="btn btn-lg" style="background:#fff;color:#f97316;font-weight:700">View Batches →</a>
+          <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">Book Free Demo</a>
+        </div>
+      </div>
+      <div class="hero-slide-right">
+        <div class="slide-card">
+          <div class="slide-card-title">📊 Board Results 2024</div>
+          <div class="slide-stats">
+            <div class="slide-stat"><div class="slide-stat-num">99.4%</div><div class="slide-stat-label">Top Score</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">5.8k</div><div class="slide-stat-label">Students</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">350+</div><div class="slide-stat-label">Lectures</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">45%</div><div class="slide-stat-label">Fee Discount</div></div>
+          </div>
+          <div class="slide-features">
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Boards + JEE/NEET Together</div>
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>PDF Notes Included</div>
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Parent Dashboard</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="hero-slide" style="background:linear-gradient(135deg,#1e1b4b 0%,#3730a3 50%,#7c3aed 100%)">
+      <div class="hero-slide-content">
+        <div class="hero-slide-tag">🎓 UPSC / SSC / Banking</div>
+        <h2>Clear <em>Government Exams</em><br>on Your First Attempt</h2>
+        <p>Expert faculty, current affairs, answer writing & full-length mock tests. Rank 112 IAS in 2024.</p>
+        <div class="hero-slide-actions">
+          <a href="courses.html" class="btn btn-lg" style="background:#fff;color:#7c3aed;font-weight:700">Start Preparing →</a>
+          <a href="teachers.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">Meet Teachers</a>
+        </div>
+      </div>
+      <div class="hero-slide-right">
+        <div class="slide-card">
+          <div class="slide-card-title">🏛️ Gov Exam Results 2024</div>
+          <div class="slide-stats">
+            <div class="slide-stat"><div class="slide-stat-num">Rank 112</div><div class="slide-stat-label">IAS Topper</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">200+</div><div class="slide-stat-label">SSC Selections</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">10yr</div><div class="slide-stat-label">Avg Experience</div></div>
+            <div class="slide-stat"><div class="slide-stat-num">4.7★</div><div class="slide-stat-label">Rating</div></div>
+          </div>
+          <div class="slide-features">
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Current Affairs Daily</div>
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Answer Writing Practice</div>
+            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Full Mock Test Series</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Arrows -->
+  <button class="slider-arrow slider-prev" onclick="heroSlide(-1)">&#8249;</button>
+  <button class="slider-arrow slider-next" onclick="heroSlide(1)">&#8250;</button>
+
+  <!-- Dots -->
+  <div class="slider-dots" id="sliderDots"></div>
+</div>
+
+<script>
+(function(){
+  let cur=0, total=4, timer;
+  const track=document.getElementById('heroTrack');
+  const dotsWrap=document.getElementById('sliderDots');
+
+  // build dots
+  for(let i=0;i<total;i++){
+    const d=document.createElement('button');
+    d.className='slider-dot'+(i===0?' active':'');
+    d.onclick=()=>goTo(i);
+    dotsWrap.appendChild(d);
+  }
+
+  function goTo(n){
+    cur=(n+total)%total;
+    track.style.transform=`translateX(-${cur*100}%)`;
+    document.querySelectorAll('.slider-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  }
+
+  window.heroSlide=function(dir){clearInterval(timer);goTo(cur+dir);startAuto();}
+
+  function startAuto(){timer=setInterval(()=>goTo(cur+1),4500);}
+  startAuto();
+})();
+</script>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <div class="marquee-item">🎉 JEE 2024 — <span>AIR 38</span> Rohan V.</div>
+    <div class="marquee-item">🏥 NEET 2024 — <span>Score 698</span> Priya M.</div>
+    <div class="marquee-item">🎓 CBSE Class 12 — <span>99.4%</span> Aarav S.</div>
+    <div class="marquee-item">🏆 UPSC 2024 — <span>Rank 112</span> Ananya K.</div>
+    <div class="marquee-item">⚙️ GATE 2024 — <span>AIR 28</span> Vikram R.</div>
+    <div class="marquee-item">🎉 JEE 2024 — <span>AIR 38</span> Rohan V.</div>
+    <div class="marquee-item">🏥 NEET 2024 — <span>Score 698</span> Priya M.</div>
+    <div class="marquee-item">🎓 CBSE Class 12 — <span>99.4%</span> Aarav S.</div>
+    <div class="marquee-item">🏆 UPSC 2024 — <span>Rank 112</span> Ananya K.</div>
+    <div class="marquee-item">⚙️ GATE 2024 — <span>AIR 28</span> Vikram R.</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">15,000+</div><div class="stat-label">Active Students</div></div>
+  <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Expert Educators</div></div>
+  <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">IIT Selections 2024</div></div>
+  <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Overall Pass Rate</div></div>
+</div>
+
+<!-- COURSES -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">Popular Courses</div>
+    <h2>Choose Your Path to Success</h2>
+    <p>Comprehensive programs for every goal — from school boards to top competitive exams</p>
+  </div>
+  <div class="courses-grid">
+    <a href="courses.html" style="text-decoration:none">
+    <div class="course-card card card-hover-blue">
+      <div class="course-thumb">
+        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80" alt="JEE Preparation">
+        <div class="course-thumb-overlay">
+          <span class="course-thumb-title">JEE</span>
+          <span class="thumb-label">Trending</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-meta"><span class="badge badge-blue">Engineering</span><span class="tag">⭐ 4.9</span></div>
+        <h3>JEE Mains & Advanced</h3>
+        <p>Complete prep with concept videos, DPPs, test series & live mentoring.</p>
+        <div class="course-info"><span>📚 500+ Lectures</span><span>📝 100+ Tests</span><span>👥 3.2k Students</span></div>
+        <div class="course-footer">
+          <div class="course-price"><span class="price-new">₹4,999</span><span class="price-old">₹8,999</span><span class="price-off">44% OFF</span></div>
+          <span class="btn btn-primary btn-sm">Enroll</span>
+        </div>
+      </div>
+    </div></a>
+    <a href="courses.html" style="text-decoration:none">
+    <div class="course-card card card-hover-blue">
+      <div class="course-thumb">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="NEET Preparation">
+        <div class="course-thumb-overlay">
+          <span class="course-thumb-title">NEET</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-meta"><span class="badge badge-green">Medical</span><span class="tag">⭐ 4.8</span></div>
+        <h3>NEET UG Preparation</h3>
+        <p>Biology, Physics & Chemistry — NCERT-based with full mock tests.</p>
+        <div class="course-info"><span>📚 480+ Lectures</span><span>📝 90+ Tests</span><span>👥 4.1k Students</span></div>
+        <div class="course-footer">
+          <div class="course-price"><span class="price-new">₹4,499</span><span class="price-old">₹7,999</span><span class="price-off">44% OFF</span></div>
+          <span class="btn btn-primary btn-sm">Enroll</span>
+        </div>
+      </div>
+    </div></a>
+    <a href="courses.html" style="text-decoration:none">
+    <div class="course-card card card-hover-blue">
+      <div class="course-thumb">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80" alt="CBSE Boards">
+        <div class="course-thumb-overlay">
+          <span class="course-thumb-title">CBSE</span>
+          <span class="thumb-label">New Batch</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <div class="course-meta"><span class="badge badge-orange">Boards</span><span class="tag">⭐ 4.7</span></div>
+        <h3>Class 11th & 12th CBSE</h3>
+        <p>Board mastery with integrated competitive exam preparation.</p>
+        <div class="course-info"><span>📚 350+ Lectures</span><span>📝 60+ Tests</span><span>👥 5.8k Students</span></div>
+        <div class="course-footer">
+          <div class="course-price"><span class="price-new">₹2,999</span><span class="price-old">₹5,499</span><span class="price-off">45% OFF</span></div>
+          <span class="btn btn-primary btn-sm">Enroll</span>
+        </div>
+      </div>
+    </div></a>
+  </div>
+  <div style="text-align:center;margin-top:28px">
+    <a href="courses.html" class="btn btn-outline">View All 12 Courses →</a>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-bg">
+  <div class="section-header">
+    <div class="section-tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.9)">Why EduRise?</div>
+    <h2 style="color:#fff">Everything You Need to Excel</h2>
+    <p style="color:rgba(255,255,255,.6)">A complete learning ecosystem designed for your success</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <img class="why-card-img" src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=400&q=80" alt="Live Classes">
+      <div class="why-card-body">
+        <div class="why-icon" style="background:rgba(123,110,232,.2)">📱</div>
+        <h4>Live & Recorded Classes</h4>
+        <p>Watch live or replay anytime on mobile, tablet or desktop</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <img class="why-card-img" src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=400&q=80" alt="Practice Tests">
+      <div class="why-card-body">
+        <div class="why-icon" style="background:rgba(22,163,74,.2)">📝</div>
+        <h4>Daily Practice (DPPs)</h4>
+        <p>Chapter-wise tests, weekly quizzes & full-length mock exams</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <img class="why-card-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=80" alt="Doubt Support">
+      <div class="why-card-body">
+        <div class="why-icon" style="background:rgba(249,115,22,.2)">💬</div>
+        <h4>24/7 Doubt Support</h4>
+        <p>Instant answers via chat or scheduled video doubt sessions</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <img class="why-card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="Smart Analytics">
+      <div class="why-card-body">
+        <div class="why-icon" style="background:rgba(124,58,237,.2)">📊</div>
+        <h4>Smart Analytics</h4>
+        <p>AI-powered progress tracking with personalized weak-area insights</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <img class="why-card-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="IIT Alumni">
+      <div class="why-card-body">
+        <div class="why-icon" style="background:rgba(8,145,178,.2)">🎓</div>
+        <h4>IIT & AIIMS Alumni</h4>
+        <p>Learn from 50+ teachers who've cracked the same exams</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <img class="why-card-img" src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=400&q=80" alt="Scholarship">
+      <div class="why-card-body">
+        <div class="why-icon" style="background:rgba(220,38,38,.2)">🏅</div>
+        <h4>Scholarship Tests</h4>
+        <p>Win upto 100% fee waiver via monthly scholarship exams</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <img class="why-card-img" src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&q=80" alt="Study Material">
+      <div class="why-card-body">
+        <div class="why-icon" style="background:rgba(123,110,232,.2)">📖</div>
+        <h4>Study Material</h4>
+        <p>PDF notes, formula sheets & revision booklets included</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <img class="why-card-img" src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=400&q=80" alt="Parent Dashboard">
+      <div class="why-card-body">
+        <div class="why-icon" style="background:rgba(22,163,74,.2)">🔔</div>
+        <h4>Parent Dashboard</h4>
+        <p>Real-time attendance, test scores & progress reports for parents</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOP RESULTS -->
+<section class="section" style="background:var(--bg)">
+  <div class="section-header">
+    <div class="section-tag">Hall of Fame</div>
+    <h2>Our Students' Top Results 2024</h2>
+    <p>Hundreds of students achieved their dream ranks with EduRise</p>
+  </div>
+  <div class="results-grid">
+    <div class="result-card"><div class="result-avatar" style="background:linear-gradient(135deg,#7B6EE8,#7c3aed)">RV</div><div class="result-name">Rohan Verma</div><div class="result-exam">JEE Advanced 2024</div><div class="result-score" style="background:#f0eeff;color:#7B6EE8">AIR 38</div></div>
+    <div class="result-card"><div class="result-avatar" style="background:linear-gradient(135deg,#16a34a,#059669)">PM</div><div class="result-name">Priya Mehta</div><div class="result-exam">NEET UG 2024</div><div class="result-score" style="background:#f0fdf4;color:#16a34a">Score 698</div></div>
+    <div class="result-card"><div class="result-avatar" style="background:linear-gradient(135deg,#f97316,#ef4444)">AS</div><div class="result-name">Aarav Sharma</div><div class="result-exam">CBSE Class 12</div><div class="result-score" style="background:#fff7ed;color:#f97316">99.4%</div></div>
+    <div class="result-card"><div class="result-avatar" style="background:linear-gradient(135deg,#7c3aed,#db2777)">AK</div><div class="result-name">Ananya Kulkarni</div><div class="result-exam">UPSC Civil Services</div><div class="result-score" style="background:#f5f3ff;color:#7c3aed">Rank 112</div></div>
+  </div>
+  <div style="text-align:center;margin-top:28px"><a href="results.html" class="btn btn-outline">See All Results →</a></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">Student Reviews</div>
+    <h2>What Our Students Say</h2>
+    <p>Genuine feedback from students who transformed their career</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"EduRise ke teachers bahut amazing hain. Har concept itne achhe se explain karte hain ki doubt hi nahi rehta. JEE mein AIR 38 aaya — completely EduRise ki wajah se!"</p>
+      <div class="testi-author"><div class="testi-av" style="background:#7B6EE8">RV</div><div><div class="testi-name">Rohan Verma</div><div class="testi-course">JEE Advanced • AIR 38</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"NEET preparation ke liye best platform! Biology ke notes aur daily tests ne mujhe 698 score karne mein help ki. Doubt sessions are a game changer."</p>
+      <div class="testi-author"><div class="testi-av" style="background:#16a34a">PM</div><div><div class="testi-name">Priya Mehta</div><div class="testi-course">NEET UG • Score 698</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Parents ko bhi regular updates milte hain — very transparent platform. Mera beta 12th mein 99.4% laya. Thank you EduRise team!"</p>
+      <div class="testi-author"><div class="testi-av" style="background:#f97316">SK</div><div><div class="testi-name">Sunita Kulkarni</div><div class="testi-course">Parent of Class 12 Student</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-wrap" style="margin-bottom:60px">
+  <h2>Start Your Success Journey Today 🚀</h2>
+  <p>Join 15,000+ students. 7-day free trial. No credit card required.</p>
+  <div class="cta-actions">
+    <a href="courses.html" class="btn btn-white btn-lg">Explore Courses →</a>
+    <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">Book Free Demo</a>
+  </div>
+  <div class="cta-note">✓ No credit card &nbsp;•&nbsp; ✓ Cancel anytime &nbsp;•&nbsp; ✓ Free study material</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="margin-bottom:10px;display:inline-flex"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a>
+      <p>India's trusted coaching platform for JEE, NEET, UPSC & Board exams. Learn from the best, score your best.</p>
+      <div class="social-links" style="margin-top:16px">
+        <a class="social-link" href="#">YT</a>
+        <a class="social-link" href="#">TG</a>
+        <a class="social-link" href="#">IG</a>
+        <a class="social-link" href="#">FB</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Courses</h4>
+      <a href="courses.html">JEE Preparation</a>
+      <a href="courses.html">NEET Preparation</a>
+      <a href="courses.html">CBSE Boards</a>
+      <a href="courses.html">UPSC / IAS</a>
+      <a href="courses.html">SSC / Banking</a>
+      <a href="courses.html">Foundation 9-10</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="teachers.html">Our Teachers</a>
+      <a href="results.html">Student Results</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Blog</a>
+      <a href="#">Scholarship Test</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="#">📍 Nagpur, Maharashtra</a>
+      <a href="#">📞 +91 98765 43210</a>
+      <a href="#">✉️ hello@edurise.in</a>
+      <a href="#">🕐 Mon–Sat, 9am–8pm</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 EduRise Academy. All rights reserved.</p>
+    <p>Privacy Policy &nbsp;•&nbsp; Terms of Service &nbsp;•&nbsp; Refund Policy</p>
+  </div>
+</footer>
+
+</body>
+</html>
+
+

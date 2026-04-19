@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Teachers — EduRise Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero{padding:50px 40px;background:linear-gradient(135deg,#f5f3ff 0%,#f0eeff 100%)}
+  .page-hero h1{font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;margin-bottom:8px}
+  .page-hero p{color:var(--text-muted);font-size:15px}
+  .teachers-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .teacher-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .25s;cursor:pointer;display:flex}
+  .teacher-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--primary)}
+  .teacher-photo-wrap{flex:0 0 180px;position:relative;overflow:hidden}
+  .teacher-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
+  .teacher-card:hover .teacher-photo-wrap img{transform:scale(1.05)}
+  .teacher-photo-wrap .t-subject-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);color:#fff;font-size:10px;font-weight:600;padding:4px 10px;border-radius:20px}
+  .teacher-body{padding:20px;flex:1;display:flex;flex-direction:column}
+  .teacher-name{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);margin-bottom:2px}
+  .teacher-subject{font-size:12px;color:var(--primary);font-weight:600;margin-bottom:6px}
+  .teacher-edu{font-size:11px;color:var(--text-muted);margin-bottom:12px;display:flex;align-items:center;gap:4px}
+  .teacher-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+  .t-stat{background:var(--bg);border-radius:8px;padding:8px 6px;text-align:center;border:1px solid var(--border)}
+  .t-stat-num{font-size:14px;font-weight:800;color:var(--text);font-family:'Nunito',sans-serif;line-height:1}
+  .t-stat-label{font-size:9px;color:var(--text-muted);margin-top:2px}
+  .teacher-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .teacher-stars{color:#f59e0b;font-size:13px;display:flex;align-items:center;gap:6px}
+  .teacher-bio{font-size:12px;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
+  .teacher-footer{display:flex;gap:8px;margin-top:auto}
+  .subject-filter{background:var(--white);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .subject-filter span{font-size:12px;font-weight:600;color:var(--text-muted)}
+  .s-btn{padding:6px 16px;border-radius:var(--radius-pill);border:1.5px solid var(--border);background:#fff;font-size:12px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
+  .s-btn:hover,.s-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;padding:20px}
+  .modal-overlay.show{display:flex}
+  .modal{background:#fff;border-radius:var(--radius-lg);padding:0;max-width:480px;width:100%;position:relative;overflow:hidden}
+  .modal-header{height:100px;position:relative}
+  .modal-av-wrap{position:absolute;bottom:-30px;left:24px}
+  .modal-av{width:70px;height:70px;border-radius:50%;border:4px solid #fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#fff;font-family:'Nunito',sans-serif}
+  .modal-close{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.3);border:none;width:28px;height:28px;border-radius:50%;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .modal-body{padding:40px 24px 24px}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo"><div class="logo-icon">E</div><div class="logo-text"><span>Edu</span>Rise Academy</div></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="teachers.html" class="active">Teachers</a><a href="results.html">Results</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-btns">
+    <a href="contact.html" class="btn btn-outline btn-sm">Login</a>
+    <a href="courses.html" class="btn btn-primary btn-sm">Enroll Now →</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Our Teachers</span></div>
+  <h1>Learn from the Best 🎓</h1>
+  <p>IIT & AIIMS alumni with proven track records. 50+ expert educators dedicated to your success.</p>
+</div>
+
+<div class="subject-filter">
+  <span>Subject:</span>
+  <button class="s-btn active" onclick="filterTeachers('all',this)">All</button>
+  <button class="s-btn" onclick="filterTeachers('physics',this)">Physics</button>
+  <button class="s-btn" onclick="filterTeachers('chemistry',this)">Chemistry</button>
+  <button class="s-btn" onclick="filterTeachers('maths',this)">Mathematics</button>
+  <button class="s-btn" onclick="filterTeachers('biology',this)">Biology</button>
+  <button class="s-btn" onclick="filterTeachers('social',this)">Social Science</button>
+</div>
+
+<section class="section">
+  <div class="teachers-grid" id="teachersGrid"></div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header" id="modal-cover">
+      <div class="modal-av-wrap"><div class="modal-av" id="modal-av"></div></div>
+      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('show')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex;align-items:start;justify-content:space-between;margin-bottom:10px">
+        <div><div style="font-family:'Nunito',sans-serif;font-size:20px;font-weight:900" id="modal-name"></div><div style="font-size:13px;color:var(--primary);font-weight:600;margin-top:2px" id="modal-sub"></div></div>
+        <div style="text-align:right;font-size:14px;color:#f59e0b" id="modal-rating"></div>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:16px" id="modal-bio"></p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px" id="modal-stats"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px" id="modal-tags"></div>
+      <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center">Book Free Demo Class →</a>
+    </div>
+  </div>
+</div>
+
+<footer style="margin-top:0">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="logo" style="display:inline-flex;margin-bottom:10px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a><p>India's trusted coaching for JEE, NEET & Boards.</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="results.html">Results</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Courses</h4><a href="courses.html">JEE</a><a href="courses.html">NEET</a><a href="courses.html">CBSE</a><a href="courses.html">UPSC</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="#">📍 Nagpur, MH</a><a href="#">📞 +91 98765 43210</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 EduRise Academy</p></div>
+</footer>
+
+<script>
+const teachers=[
+  {id:1,name:"Ankit Kumar",initials:"AK",subject:"Physics — JEE Expert",cat:"physics",bg:"linear-gradient(135deg,#7B6EE8,#7c3aed)",edu:"IIT Bombay • B.Tech Physics",exp:"9 Years",students:"4,200",rating:"4.9",reviews:"2.1k",bio:"Former IIT Bombay researcher turned passionate educator. Known for making complex mechanics and electrodynamics crystal clear. His DPP sessions are legendary among JEE toppers.",tags:["Mechanics","Electrodynamics","Optics","JEE Advanced"],results:"AIR 38, 71, 104 (2024)",photo:"https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400&q=80"},
+  {id:2,name:"Priya Mehta",initials:"PM",subject:"Biology — NEET Specialist",cat:"biology",bg:"linear-gradient(135deg,#16a34a,#059669)",edu:"AIIMS Delhi • MBBS",exp:"7 Years",students:"5,600",rating:"4.9",reviews:"1.8k",bio:"AIIMS graduate who believes every student can score 360/360 in Biology with the right approach. Her NCERT-mastery method has produced hundreds of top NEET scorers.",tags:["Botany","Zoology","Human Physiology","NCERT Mastery"],results:"3 students: 720/720 (2024)",photo:"https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80"},
+  {id:3,name:"Rahul Sharma",initials:"RS",subject:"Mathematics — All Levels",cat:"maths",bg:"linear-gradient(135deg,#f97316,#ef4444)",edu:"IIT Delhi • M.Sc Maths",exp:"12 Years",students:"6,100",rating:"5.0",reviews:"3.2k",bio:"12 years of turning Maths-phobia into Maths-love! From Calculus to Coordinate Geometry — Rahul sir's shortcut tricks and problem-solving methods are unmatched in the industry.",tags:["Calculus","Algebra","Coordinate Geometry","Probability"],results:"35+ IIT selections from his batch (2024)",photo:"https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"},
+  {id:4,name:"Sneha Reddy",initials:"SR",subject:"Chemistry — JEE & NEET",cat:"chemistry",bg:"linear-gradient(135deg,#0891b2,#7B6EE8)",edu:"IIT Madras • M.Sc Chem",exp:"8 Years",students:"3,800",rating:"4.8",reviews:"1.5k",bio:"Chemistry made simple! Sneha ma'am's visual approach to Organic Chemistry reactions has helped thousands master the most feared subject in JEE & NEET.",tags:["Organic Chemistry","Inorganic","Physical Chem","Reaction Mechanisms"],results:"50+ selections in JEE & NEET (2024)",photo:"https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"},
+  {id:5,name:"Vikram Rao",initials:"VR",subject:"Geography & GS — UPSC",cat:"social",bg:"linear-gradient(135deg,#7c3aed,#db2777)",edu:"JNU Delhi • MA History",exp:"10 Years",students:"2,200",rating:"4.7",reviews:"890",bio:"IAS aspirant turned educator. With 10 years of UPSC coaching, Vikram sir's current affairs and answer-writing sessions have produced multiple IAS & IPS officers.",tags:["History","Geography","Polity","Current Affairs","Essay"],results:"Rank 112, 89, 204 IAS (2024)",photo:"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"},
+  {id:6,name:"Kavita Joshi",initials:"KJ",subject:"English & Reasoning — SSC/Banking",cat:"social",bg:"linear-gradient(135deg,#d97706,#f97316)",edu:"Delhi University • MA English",exp:"6 Years",students:"4,400",rating:"4.8",reviews:"1.2k",bio:"Grammar, vocabulary and reading comprehension simplified! Kavita ma'am's systematic approach to verbal ability has helped thousands clear SSC, Banking & Railway exams.",tags:["English Grammar","Vocabulary","Reading Comprehension","Reasoning"],results:"200+ SSC CGL selections (2024)",photo:"https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"},
+];
+let activeF='all';
+function renderTeachers(){
+  const filtered=teachers.filter(t=>activeF==='all'||t.cat===activeF);
+  document.getElementById('teachersGrid').innerHTML=filtered.map(t=>`
+    <div class="teacher-card" onclick="openTeacher(${t.id})">
+      <div class="teacher-photo-wrap">
+        <img src="${t.photo}" alt="${t.name}">
+        <span class="t-subject-badge">${t.subject.split('—')[0].trim()}</span>
+      </div>
+      <div class="teacher-body">
+        <div class="teacher-name">${t.name}</div>
+        <div class="teacher-subject">${t.subject}</div>
+        <div class="teacher-edu">🎓 ${t.edu}</div>
+        <div class="teacher-stats">
+          <div class="t-stat"><div class="t-stat-num">${t.exp}</div><div class="t-stat-label">Experience</div></div>
+          <div class="t-stat"><div class="t-stat-num">${t.students}</div><div class="t-stat-label">Students</div></div>
+          <div class="t-stat"><div class="t-stat-num">${t.rating}</div><div class="t-stat-label">Rating</div></div>
+        </div>
+        <div class="teacher-bio">${t.bio.substring(0,110)}...</div>
+        <div class="teacher-tags">${t.tags.slice(0,3).map(tag=>`<span class="badge badge-blue">${tag}</span>`).join('')}</div>
+        <div class="teacher-stars">★★★★★ <span style="font-size:12px;color:var(--text-muted)">(${t.reviews} reviews)</span></div>
+        <div class="teacher-footer"><button class="btn btn-primary btn-sm" style="flex:1;justify-content:center">View Profile</button><button class="btn btn-outline btn-sm">Demo Class</button></div>
+      </div>
+    </div>`).join('');
+}
+function filterTeachers(f,el){activeF=f;document.querySelectorAll('.s-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderTeachers()}
+function openTeacher(id){
+  const t=teachers.find(x=>x.id===id);
+  document.getElementById('modal-cover').style.background=t.bg;
+  document.getElementById('modal-cover').style.position='relative';
+  document.getElementById('modal-cover').style.overflow='hidden';
+  document.getElementById('modal-cover').innerHTML=`
+    <img src="${t.photo}" alt="${t.name}" style="width:100%;height:100%;object-fit:cover;object-position:top;opacity:.8;display:block">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%)"></div>
+    <div class="modal-av-wrap"><div class="modal-av" style="background:${t.bg};overflow:hidden;padding:0"><img src="${t.photo}" alt="${t.name}" style="width:100%;height:100%;object-fit:cover;object-position:top"></div></div>
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('show')">✕</button>`;
+  document.getElementById('modal-name').textContent=t.name;
+  document.getElementById('modal-sub').textContent=t.subject;
+  document.getElementById('modal-rating').innerHTML=`★★★★★ <br><span style="font-size:11px;color:var(--text-muted)">${t.reviews} reviews</span>`;
+  document.getElementById('modal-bio').textContent=t.bio;
+  document.getElementById('modal-stats').innerHTML=[{n:t.exp,l:'Experience'},{n:t.students,l:'Students'},{n:t.rating,l:'Rating'}].map(s=>`<div class="t-stat"><div class="t-stat-num">${s.n}</div><div class="t-stat-label">${s.l}</div></div>`).join('');
+  document.getElementById('modal-tags').innerHTML=t.tags.map(tag=>`<span class="badge badge-blue">${tag}</span>`).join('');
+  document.getElementById('modal').classList.add('show');
+}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show')});
+renderTeachers();
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact Us — EduRise Academy</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero{padding:50px 40px;background:linear-gradient(135deg,#f0eeff 0%,#f5f3ff 100%)}
+  .page-hero h1{font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;margin-bottom:8px}
+  .page-hero p{color:var(--text-muted);font-size:15px;max-width:500px}
+  .contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;padding:50px 40px}
+  .contact-info h2{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;margin-bottom:8px}
+  .contact-info p{color:var(--text-muted);font-size:13px;line-height:1.7;margin-bottom:24px}
+  .contact-cards{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+  .contact-card{display:flex;align-items:center;gap:14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+  .contact-card:hover{border-color:var(--primary);background:var(--primary-light)}
+  .contact-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .contact-detail h4{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;font-family:'Nunito',sans-serif}
+  .contact-detail p{font-size:12px;color:var(--text-muted);margin:0}
+  .social-section h3{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;margin-bottom:12px}
+  .social-btns{display:flex;gap:10px;flex-wrap:wrap}
+  .social-btn{display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:10px;border:1.5px solid var(--border);background:#fff;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;color:var(--text);transition:all .2s;font-family:'Poppins',sans-serif}
+  .social-btn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light)}
+  .form-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow)}
+  .form-card h2{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;margin-bottom:6px}
+  .form-card p{font-size:13px;color:var(--text-muted);margin-bottom:22px}
+  .form-tabs{display:flex;gap:8px;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:0}
+  .form-tab{padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Poppins',sans-serif;transition:all .2s}
+  .form-tab.active{color:var(--primary);border-bottom-color:var(--primary)}
+  .form-content{display:none}
+  .form-content.active{display:block}
+  .success-wrap{display:none;text-align:center;padding:30px 0}
+  .success-wrap.show{display:block}
+  .success-icon{font-size:56px;margin-bottom:14px}
+  .success-wrap h3{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--green);margin-bottom:8px}
+  .success-wrap p{font-size:13px;color:var(--text-muted)}
+  .faq-list{display:flex;flex-direction:column;gap:0;margin-top:40px}
+  .faq-item{border-bottom:1px solid var(--border)}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 0;cursor:pointer;font-size:14px;font-weight:600;color:var(--text)}
+  .faq-q:hover{color:var(--primary)}
+  .faq-a{font-size:13px;color:var(--text-muted);line-height:1.7;padding:0 0 14px;display:none}
+  .faq-a.open{display:block}
+  .faq-arrow{transition:transform .2s;font-size:18px;color:var(--text-muted)}
+  .faq-arrow.open{transform:rotate(180deg);color:var(--primary)}
+  .map-placeholder{background:linear-gradient(135deg,#f0eeff,#f5f3ff);border-radius:var(--radius-lg);border:1px solid var(--border);height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:20px;color:var(--text-muted);font-size:14px;gap:6px}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo"><div class="logo-icon">E</div><div class="logo-text"><span>Edu</span>Rise Academy</div></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="teachers.html">Teachers</a><a href="results.html">Results</a><a href="about.html">About Us</a><a href="contact.html" class="active">Contact</a>
+  </div>
+  <div class="nav-btns">
+    <a href="#" class="btn btn-outline btn-sm">Login</a>
+    <a href="courses.html" class="btn btn-primary btn-sm">Enroll Now →</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Contact Us</span></div>
+  <h1>Get in Touch with Us 👋</h1>
+  <p>Have questions about courses, admission, or fees? We're here to help — reach out anytime!</p>
+</div>
+
+<div class="contact-layout">
+  <!-- LEFT: INFO -->
+  <div class="contact-info">
+    <h2>We'd Love to Hear From You</h2>
+    <p>Our team is available Monday to Saturday, 9am to 8pm. Usually respond within 2 hours.</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-icon" style="background:#f0eeff">📞</div>
+        <div class="contact-detail"><h4>Call Us</h4><p>+91 98765 43210<br>+91 98765 43211 (WhatsApp)</p></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon" style="background:#f0fdf4">✉️</div>
+        <div class="contact-detail"><h4>Email Us</h4><p>hello@edurise.in<br>admissions@edurise.in</p></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon" style="background:#fff7ed">📍</div>
+        <div class="contact-detail"><h4>Visit Us</h4><p>123 Education Hub, Sitabuldi<br>Nagpur, Maharashtra — 440012</p></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon" style="background:#f5f3ff">🕐</div>
+        <div class="contact-detail"><h4>Office Hours</h4><p>Mon–Sat: 9:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 2:00 PM</p></div>
+      </div>
+    </div>
+    <div class="social-section">
+      <h3>Follow Us</h3>
+      <div class="social-btns">
+        <a class="social-btn" href="#">▶️ YouTube</a>
+        <a class="social-btn" href="#">✈️ Telegram</a>
+        <a class="social-btn" href="#">📷 Instagram</a>
+        <a class="social-btn" href="#">👥 Facebook</a>
+      </div>
+    </div>
+    <div class="map-placeholder">
+      <span style="font-size:32px">📍</span>
+      <strong>Sitabuldi, Nagpur</strong>
+      <span style="font-size:12px">View on Google Maps →</span>
+    </div>
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="form-card">
+    <h2>Send Us a Message</h2>
+    <p>Fill in the form below and we'll get back to you within 2 hours.</p>
+    <div class="form-tabs">
+      <button class="form-tab active" onclick="switchTab('inquiry',this)">General Inquiry</button>
+      <button class="form-tab" onclick="switchTab('demo',this)">Book Free Demo</button>
+      <button class="form-tab" onclick="switchTab('callback',this)">Request Callback</button>
+    </div>
+    
+    <div id="success" class="success-wrap">
+      <div class="success-icon">🎉</div>
+      <h3>Message Sent Successfully!</h3>
+      <p>Thank you for reaching out! Our counsellor will contact you within 2 hours.<br>Check your WhatsApp for a confirmation message.</p>
+      <button class="btn btn-primary" style="margin-top:16px" onclick="resetForm()">Send Another Message</button>
+    </div>
+
+    <!-- INQUIRY -->
+    <div class="form-content active" id="inquiry">
+      <div class="form-row">
+        <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"></div>
+      <div class="form-group"><label>Course Interest</label>
+        <select>
+          <option value="">Select a course...</option>
+          <option>JEE Mains & Advanced</option>
+          <option>NEET UG Preparation</option>
+          <option>Class 11 & 12 CBSE</option>
+          <option>Class 9 & 10 Foundation</option>
+          <option>UPSC Civil Services</option>
+          <option>SSC CGL & CHSL</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Your Message *</label><textarea placeholder="Tell us how we can help you..."></textarea></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:13px" onclick="submitForm()">Send Message →</button>
+      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:10px">🔒 Your info is safe with us. No spam, ever.</p>
+    </div>
+
+    <!-- DEMO -->
+    <div class="form-content" id="demo">
+      <div class="form-row">
+        <div class="form-group"><label>Student Name *</label><input type="text" placeholder="Student's full name"></div>
+        <div class="form-group"><label>Parent's Name *</label><input type="text" placeholder="Parent/Guardian name"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="form-group"><label>Student's Class</label>
+          <select><option>Select class...</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option><option>Appeared 12th</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Target Exam</label>
+        <select><option value="">Select target exam...</option><option>JEE Mains & Advanced</option><option>NEET UG</option><option>CBSE Boards</option><option>UPSC</option><option>SSC/Banking</option></select>
+      </div>
+      <div class="form-group"><label>Preferred Demo Date</label><input type="date"></div>
+      <button class="btn btn-accent" style="width:100%;justify-content:center;padding:13px" onclick="submitForm()">Book Free Demo Class →</button>
+      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:10px">✅ 100% Free • No Obligation • Expert Teacher</p>
+    </div>
+
+    <!-- CALLBACK -->
+    <div class="form-content" id="callback">
+      <div class="form-group"><label>Your Name *</label><input type="text" placeholder="Your full name"></div>
+      <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      <div class="form-group"><label>Best Time to Call</label>
+        <select>
+          <option>Anytime (9am - 8pm)</option>
+          <option>Morning (9am - 12pm)</option>
+          <option>Afternoon (12pm - 3pm)</option>
+          <option>Evening (5pm - 8pm)</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Topic of Discussion</label><input type="text" placeholder="e.g. JEE batch fees, scholarship, demo class..."></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:13px" onclick="submitForm()">Request Callback →</button>
+      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:10px">📞 We'll call you within 1 hour during office hours</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--bg)">
+  <div class="section-header">
+    <div class="section-tag">FAQs</div>
+    <h2>Frequently Asked Questions</h2>
+    <p>Quick answers to the most common questions we receive</p>
+  </div>
+  <div style="max-width:700px;margin:0 auto">
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is included in the 7-day free trial?<span class="faq-arrow">▾</span></div><div class="faq-a">The 7-day free trial gives you full access to all lectures, study material, test series and doubt sessions of your chosen course. No payment required, cancel anytime before the trial ends.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Are the classes live or recorded?<span class="faq-arrow">▾</span></div><div class="faq-a">Both! We offer live classes 6 days a week and all sessions are recorded and available for replay for 12 months. You'll never miss a class.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you have EMI or instalment payment options?<span class="faq-arrow">▾</span></div><div class="faq-a">Yes! We offer 3, 6 and 12 month EMI options at 0% interest on all annual courses. Monthly subscription plans are also available for flexible learning.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How are doubt sessions conducted?<span class="faq-arrow">▾</span></div><div class="faq-a">Doubts can be submitted via our app 24/7 and are answered within 4 hours. We also have live daily doubt sessions with subject teachers every evening from 7–9 PM.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is there a scholarship test available?<span class="faq-arrow">▾</span></div><div class="faq-a">Yes! We conduct a monthly Scholarship Test (EduRise SAT) where students can win upto 100% fee waiver. The test is free and open to all students above Class 9.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the refund policy?<span class="faq-arrow">▾</span></div><div class="faq-a">We offer a full refund within 7 days of enrollment if you're not satisfied. No questions asked. After 7 days, partial refund is available based on usage.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:0">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="logo" style="display:inline-flex;margin-bottom:10px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a><p>India's trusted coaching for JEE, NEET & Boards.</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="results.html">Results</a><a href="about.html">About Us</a></div>
+    <div class="footer-col"><h4>Courses</h4><a href="courses.html">JEE</a><a href="courses.html">NEET</a><a href="courses.html">CBSE</a><a href="courses.html">UPSC</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="#">📍 Nagpur, MH</a><a href="#">📞 +91 98765 43210</a><a href="#">✉️ hello@edurise.in</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 EduRise Academy. All rights reserved.</p></div>
+</footer>
+
+<script>
+function switchTab(id,el){
+  document.querySelectorAll('.form-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.form-content').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+function submitForm(){
+  document.querySelectorAll('.form-content').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.form-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('success').classList.add('show');
+}
+function resetForm(){
+  document.getElementById('success').classList.remove('show');
+  document.getElementById('inquiry').classList.add('active');
+  document.querySelector('.form-tab').classList.add('active');
+}
+function toggleFaq(el){
+  const ans=el.nextElementSibling;
+  const arrow=el.querySelector('.faq-arrow');
+  const isOpen=ans.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.faq-arrow').forEach(a=>a.classList.remove('open'));
+  if(!isOpen){ans.classList.add('open');arrow.classList.add('open')}
+}
+</script>
+</body>
+</html>
+
+
