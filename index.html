@@ -76,7 +76,7 @@
   .why-card-img{width:100%;height:110px;object-fit:cover;display:block;opacity:.85;transition:opacity .3s}
   .why-card:hover .why-card-img{opacity:1}
   .why-card-body{padding:16px}
-  .why-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
+  .why-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
   .why-card h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px;font-family:'Nunito',sans-serif}
   .why-card p{font-size:11px;color:rgba(255,255,255,.5);line-height:1.6}
 
@@ -89,16 +89,20 @@
   .result-exam{font-size:11px;color:var(--text-muted);margin-bottom:8px}
   .result-score{font-size:13px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-block}
 
-  /* TESTIMONIALS */
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .testi-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;transition:all .2s}
-  .testi-card:hover{box-shadow:var(--shadow);border-color:var(--border)}
-  .testi-stars{color:#f59e0b;font-size:14px;margin-bottom:12px}
-  .testi-text{font-size:13px;color:var(--text-muted);line-height:1.75;margin-bottom:16px;font-style:italic}
-  .testi-author{display:flex;align-items:center;gap:10px}
-  .testi-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
-  .testi-name{font-size:13px;font-weight:600;color:var(--text);font-family:'Nunito',sans-serif}
-  .testi-course{font-size:11px;color:var(--text-muted)}
+/* ── TESTIMONIALS ── */
+.testi-slider-wrap{position:relative}
+.testi-track{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;transition:opacity .4s}
+.testi-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;transition:all .2s}
+.testi-card:hover{box-shadow:var(--shadow);border-color:var(--border)}
+.testi-stars{color:#f59e0b;font-size:14px;margin-bottom:12px}
+.testi-text{font-size:13px;color:var(--text-muted);line-height:1.75;margin-bottom:16px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.testi-name{font-size:13px;font-weight:600;color:var(--text);font-family:'Nunito',sans-serif}
+.testi-course{font-size:11px;color:var(--text-muted)}
+.testi-dots{display:flex;justify-content:center;gap:7px;margin-top:24px}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:all .3s;padding:0}
+.testi-dot.active{background:var(--primary);width:22px;border-radius:4px}
 
   /* CTA */
   .cta-wrap{background:linear-gradient(135deg,var(--primary) 0%,var(--purple) 100%);border-radius:var(--radius-lg);margin:0 40px;padding:50px;text-align:center;position:relative;overflow:hidden}
@@ -306,10 +310,22 @@
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">15,000+</div><div class="stat-label">Active Students</div></div>
-  <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Expert Educators</div></div>
-  <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">IIT Selections 2024</div></div>
-  <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Overall Pass Rate</div></div>
+  <div class="stat-item">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <div class="stat-num">15,000+</div><div class="stat-label">Active Students</div>
+  </div>
+  <div class="stat-item">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h4M7 12h2"/><circle cx="15" cy="10" r="2"/></svg>
+    <div class="stat-num">50+</div><div class="stat-label">Expert Educators</div>
+  </div>
+  <div class="stat-item">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+    <div class="stat-num">200+</div><div class="stat-label">IIT Selections 2024</div>
+  </div>
+  <div class="stat-item">
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+    <div class="stat-num">98%</div><div class="stat-label">Overall Pass Rate</div>
+  </div>
 </div>
 
 <!-- COURSES -->
@@ -396,7 +412,9 @@
     <div class="why-card">
       <img class="why-card-img" src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=400&q=80" alt="Live Classes">
       <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(123,110,232,.2)">📱</div>
+        <div class="why-icon" style="background:rgba(123,110,232,.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B6EE8" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
         <h4>Live & Recorded Classes</h4>
         <p>Watch live or replay anytime on mobile, tablet or desktop</p>
       </div>
@@ -404,7 +422,9 @@
     <div class="why-card">
       <img class="why-card-img" src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=400&q=80" alt="Practice Tests">
       <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(22,163,74,.2)">📝</div>
+        <div class="why-icon" style="background:rgba(22,163,74,.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
         <h4>Daily Practice (DPPs)</h4>
         <p>Chapter-wise tests, weekly quizzes & full-length mock exams</p>
       </div>
@@ -412,7 +432,9 @@
     <div class="why-card">
       <img class="why-card-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=80" alt="Doubt Support">
       <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(249,115,22,.2)">💬</div>
+        <div class="why-icon" style="background:rgba(249,115,22,.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
         <h4>24/7 Doubt Support</h4>
         <p>Instant answers via chat or scheduled video doubt sessions</p>
       </div>
@@ -420,7 +442,9 @@
     <div class="why-card">
       <img class="why-card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="Smart Analytics">
       <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(124,58,237,.2)">📊</div>
+        <div class="why-icon" style="background:rgba(124,58,237,.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
         <h4>Smart Analytics</h4>
         <p>AI-powered progress tracking with personalized weak-area insights</p>
       </div>
@@ -428,7 +452,9 @@
     <div class="why-card">
       <img class="why-card-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="IIT Alumni">
       <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(8,145,178,.2)">🎓</div>
+        <div class="why-icon" style="background:rgba(8,145,178,.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
         <h4>IIT & AIIMS Alumni</h4>
         <p>Learn from 50+ teachers who've cracked the same exams</p>
       </div>
@@ -436,7 +462,9 @@
     <div class="why-card">
       <img class="why-card-img" src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=400&q=80" alt="Scholarship">
       <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(220,38,38,.2)">🏅</div>
+        <div class="why-icon" style="background:rgba(220,38,38,.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        </div>
         <h4>Scholarship Tests</h4>
         <p>Win upto 100% fee waiver via monthly scholarship exams</p>
       </div>
@@ -444,7 +472,9 @@
     <div class="why-card">
       <img class="why-card-img" src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&q=80" alt="Study Material">
       <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(123,110,232,.2)">📖</div>
+        <div class="why-icon" style="background:rgba(123,110,232,.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B6EE8" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
         <h4>Study Material</h4>
         <p>PDF notes, formula sheets & revision booklets included</p>
       </div>
@@ -452,7 +482,9 @@
     <div class="why-card">
       <img class="why-card-img" src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=400&q=80" alt="Parent Dashboard">
       <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(22,163,74,.2)">🔔</div>
+        <div class="why-icon" style="background:rgba(22,163,74,.2)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><path d="M6 20a6 6 0 0 0-2-4"/><path d="M18 20a6 6 0 0 1 2-4"/></svg>
+        </div>
         <h4>Parent Dashboard</h4>
         <p>Real-time attendance, test scores & progress reports for parents</p>
       </div>
@@ -483,23 +515,59 @@
     <h2>What Our Students Say</h2>
     <p>Genuine feedback from students who transformed their career</p>
   </div>
-  <div class="testi-grid">
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"EduRise ke teachers bahut amazing hain. Har concept itne achhe se explain karte hain ki doubt hi nahi rehta. JEE mein AIR 38 aaya — completely EduRise ki wajah se!"</p>
-      <div class="testi-author"><div class="testi-av" style="background:#7B6EE8">RV</div><div><div class="testi-name">Rohan Verma</div><div class="testi-course">JEE Advanced • AIR 38</div></div></div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"NEET preparation ke liye best platform! Biology ke notes aur daily tests ne mujhe 698 score karne mein help ki. Doubt sessions are a game changer."</p>
-      <div class="testi-author"><div class="testi-av" style="background:#16a34a">PM</div><div><div class="testi-name">Priya Mehta</div><div class="testi-course">NEET UG • Score 698</div></div></div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Parents ko bhi regular updates milte hain — very transparent platform. Mera beta 12th mein 99.4% laya. Thank you EduRise team!"</p>
-      <div class="testi-author"><div class="testi-av" style="background:#f97316">SK</div><div><div class="testi-name">Sunita Kulkarni</div><div class="testi-course">Parent of Class 12 Student</div></div></div>
-    </div>
+
+  <div class="testi-slider-wrap">
+    <div class="testi-track" id="testiTrack"></div>
+    <div class="testi-dots" id="testiDots"></div>
   </div>
+</section>
+
+<script>
+const reviews=[
+  {text:"EduRise ke teachers bahut amazing hain. Har concept itne achhe se explain karte hain ki doubt hi nahi rehta. JEE mein AIR 38 aaya — completely EduRise ki wajah se!",name:"Rohan Verma",course:"JEE Advanced • AIR 38",av:"RV",color:"#7B6EE8"},
+  {text:"NEET preparation ke liye best platform! Biology ke notes aur daily tests ne mujhe 698 score karne mein help ki. Doubt sessions are a game changer.",name:"Priya Mehta",course:"NEET UG • Score 698",av:"PM",color:"#16a34a"},
+  {text:"Parents ko bhi regular updates milte hain — very transparent platform. Mera beta 12th mein 99.4% laya. Thank you EduRise team!",name:"Sunita Kulkarni",course:"Parent of Class 12 Student",av:"SK",color:"#f97316"},
+  {text:"Maths mein bahut darr lagta tha pehle. Rahul sir ke sessions ke baad sab easy lagne laga. JEE Mains mein 99.2 percentile aaya!",name:"Arjun Patel",course:"JEE Mains • 99.2 Percentile",av:"AP",color:"#0891b2"},
+  {text:"Chemistry ke organic reactions yaad hi nahi hote the. Sneha ma'am ki visual teaching se sab clear ho gaya. NEET mein 340/360 Chemistry mein aaya!",name:"Divya Nair",course:"NEET UG • Chemistry 340/360",av:"DN",color:"#7c3aed"},
+  {text:"UPSC ki preparation ke liye Vikram sir ka guidance best hai. Current affairs aur answer writing dono improve hue. Rank 204 IAS mili!",name:"Karan Mehta",course:"UPSC IAS • Rank 204",av:"KM",color:"#db2777"},
+];
+
+(function(){
+  const track=document.getElementById('testiTrack');
+  const dotsWrap=document.getElementById('testiDots');
+  let cur=0, timer;
+  const visible=3;
+
+  function render(){
+    track.innerHTML='';
+    for(let i=0;i<visible;i++){
+      const r=reviews[(cur+i)%reviews.length];
+      const card=document.createElement('div');
+      card.className='testi-card';
+      card.innerHTML=`
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"${r.text}"</p>
+        <div class="testi-author">
+          <div class="testi-av" style="background:${r.color}">${r.av}</div>
+          <div><div class="testi-name">${r.name}</div><div class="testi-course">${r.course}</div></div>
+        </div>`;
+      track.appendChild(card);
+    }
+    // dots
+    dotsWrap.innerHTML='';
+    reviews.forEach((_,i)=>{
+      const d=document.createElement('button');
+      d.className='testi-dot'+(i===cur?' active':'');
+      d.onclick=()=>{clearInterval(timer);cur=i;render();startAuto();};
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function startAuto(){timer=setInterval(()=>{cur=(cur+1)%reviews.length;render();},3500);}
+  render();
+  startAuto();
+})();
+</script>
 </section>
 
 <!-- CTA -->
@@ -520,10 +588,18 @@
       <a href="index.html" class="logo" style="margin-bottom:10px;display:inline-flex"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a>
       <p>India's trusted coaching platform for JEE, NEET, UPSC & Board exams. Learn from the best, score your best.</p>
       <div class="social-links" style="margin-top:16px">
-        <a class="social-link" href="#">YT</a>
-        <a class="social-link" href="#">TG</a>
-        <a class="social-link" href="#">IG</a>
-        <a class="social-link" href="#">FB</a>
+        <a class="social-link" href="#" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        </a>
+        <a class="social-link" href="#" title="Telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2-2 9.4c-.1.6-.5.8-1 .5l-2.7-2-1.3 1.2c-.1.1-.3.2-.6.2l.2-2.8 5-4.5c.2-.2 0-.3-.3-.1L6.4 14.5 3.8 13.7c-.6-.2-.6-.6.1-.8l11.6-4.5c.5-.2 1 .1.4.8z"/></svg>
+        </a>
+        <a class="social-link" href="#" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+        </a>
+        <a class="social-link" href="#" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.7c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg>
+        </a>
       </div>
     </div>
     <div class="footer-col">
@@ -546,10 +622,22 @@
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
-      <a href="#">📍 Nagpur, Maharashtra</a>
-      <a href="#">📞 +91 98765 43210</a>
-      <a href="#">✉️ hello@edurise.in</a>
-      <a href="#">🕐 Mon–Sat, 9am–8pm</a>
+      <a href="#" class="footer-contact-link">
+        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nagpur, Maharashtra
+      </a>
+      <a href="tel:+919876543210" class="footer-contact-link">
+        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>
+        +91 98765 43210
+      </a>
+      <a href="mailto:hello@edurise.in" class="footer-contact-link">
+        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        hello@edurise.in
+      </a>
+      <a href="#" class="footer-contact-link">
+        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Mon–Sat, 9am–8pm
+      </a>
     </div>
   </div>
   <div class="footer-bottom">
