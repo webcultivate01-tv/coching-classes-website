@@ -1,16 +1,22 @@
-<!DOCTYPE html>
-<html lang="hi">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — EduRise Academy</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.page-hero{background:linear-gradient(135deg,#0f1f3d 0%,#162447 100%);color:#fff;padding:56px 48px;position:relative;overflow:hidden}
-.page-hero::before{content:'';position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%)}
-.page-hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;margin-bottom:14px;position:relative}
+.page-hero{background:linear-gradient(135deg,#0f1f3d 0%,#162447 60%,#1a2f5a 100%);color:#fff;padding:64px 48px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;min-height:280px}
+.page-hero-content{position:relative;z-index:2}
+.page-hero::before{content:'';position:absolute;left:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;margin-bottom:14px;position:relative;line-height:1.1}
 .page-hero h1 span{color:var(--gold)}
 .page-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:520px;position:relative}
+.hero-graphic{position:relative;z-index:2;flex-shrink:0;width:340px;display:flex;align-items:center;justify-content:center}
+.hero-graphic svg{width:100%;height:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.3))}
+@media(max-width:900px){.page-hero{grid-template-columns:1fr;gap:24px;padding:48px 32px;min-height:auto}.hero-graphic{width:260px;margin:0 auto}}
+@media(max-width:768px){.page-hero{padding:36px 20px}.page-hero h1{font-size:28px}.hero-graphic{width:200px}}
+@media(max-width:480px){.hero-graphic{width:160px}}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .contact-info-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
 .contact-icon-wrap{width:44px;height:44px;border-radius:12px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -45,8 +51,8 @@
   .social-contact-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
-  .page-hero{padding:40px 20px}
-  .page-hero h1{font-size:30px}
+  .page-hero{padding:36px 20px}
+  .page-hero h1{font-size:28px}
 }
 </style>
 </head>
@@ -84,9 +90,63 @@
 </div>
 
 <div class="page-hero">
-  <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>Contact</span></div>
-  <h1>Humse <span>Baat Karein</span></h1>
-  <p>Free demo class book karein ya koi bhi sawaal poochein — hum hamesha available hain</p>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>Contact</span></div>
+    <h1>Get In <span>Touch With Us</span></h1>
+    <p>Book a free demo class or ask any question — we are always available for you</p>
+  </div>
+  <div class="hero-graphic">
+    <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Glow -->
+      <circle cx="160" cy="140" r="115" fill="rgba(201,168,76,0.05)"/>
+      <!-- Phone device -->
+      <rect x="118" y="64" width="84" height="148" rx="14" fill="#1a3060" stroke="rgba(201,168,76,0.4)" stroke-width="2"/>
+      <rect x="122" y="68" width="76" height="140" rx="11" fill="#0f1f3d"/>
+      <!-- Screen content -->
+      <rect x="128" y="80" width="64" height="8" rx="4" fill="rgba(201,168,76,0.5)"/>
+      <rect x="128" y="94" width="50" height="5" rx="2.5" fill="rgba(255,255,255,0.15)"/>
+      <rect x="128" y="102" width="56" height="5" rx="2.5" fill="rgba(255,255,255,0.1)"/>
+      <!-- Chat bubbles on screen -->
+      <rect x="132" y="116" width="44" height="18" rx="9" fill="rgba(201,168,76,0.25)"/>
+      <path d="M132 130 L126 136 L136 130" fill="rgba(201,168,76,0.25)"/>
+      <rect x="134" y="120" width="28" height="4" rx="2" fill="rgba(201,168,76,0.5)"/>
+      <rect x="134" y="126" width="20" height="4" rx="2" fill="rgba(201,168,76,0.3)"/>
+      <rect x="140" y="142" width="40" height="14" rx="7" fill="rgba(30,58,110,0.8)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      <path d="M180 152 L186 158 L176 152" fill="rgba(30,58,110,0.8)"/>
+      <rect x="144" y="146" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
+      <rect x="144" y="151" width="18" height="3" rx="1.5" fill="rgba(255,255,255,0.2)"/>
+      <!-- Phone notch -->
+      <rect x="148" y="68" width="24" height="6" rx="3" fill="#0a1628"/>
+      <!-- Home button area -->
+      <circle cx="160" cy="200" r="6" fill="rgba(201,168,76,0.3)" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
+      <!-- Floating envelope -->
+      <g transform="translate(44,72)">
+        <rect width="58" height="42" rx="6" fill="rgba(22,36,71,0.9)" stroke="rgba(201,168,76,0.5)" stroke-width="1.5"/>
+        <polyline points="0,0 29,22 58,0" fill="none" stroke="rgba(201,168,76,0.6)" stroke-width="1.5"/>
+        <line x1="0" y1="42" x2="20" y2="24" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+        <line x1="58" y1="42" x2="38" y2="24" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+      </g>
+      <!-- Floating phone icon -->
+      <g transform="translate(226,150)">
+        <rect width="52" height="52" rx="16" fill="rgba(22,36,71,0.9)" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
+        <path d="M16 14 Q16 12 18 12 L22 12 Q24 12 25 14 L26 18 Q26 20 24 21 L22 22 Q26 28 28 32 L30 30 Q31 28 33 29 L36 31 Q38 32 38 34 L37 38 Q36 40 34 39 Q20 36 12 20 Q11 18 12 16 Z" fill="rgba(201,168,76,0.7)"/>
+      </g>
+      <!-- Location pin floating -->
+      <g transform="translate(228,66)">
+        <path d="M26 4 Q36 4 36 16 Q36 26 26 36 Q16 26 16 16 Q16 4 26 4 Z" fill="rgba(22,36,71,0.9)" stroke="rgba(201,168,76,0.5)" stroke-width="1.5"/>
+        <circle cx="26" cy="16" r="5" fill="rgba(201,168,76,0.6)"/>
+      </g>
+      <!-- Decorative dots -->
+      <circle cx="36" cy="170" r="3" fill="rgba(201,168,76,0.4)"/>
+      <circle cx="48" cy="182" r="2" fill="rgba(201,168,76,0.25)"/>
+      <circle cx="282" cy="220" r="3" fill="rgba(201,168,76,0.35)"/>
+      <circle cx="268" cy="230" r="2" fill="rgba(201,168,76,0.2)"/>
+      <!-- Wifi / signal arcs -->
+      <path d="M152 230 Q160 222 168 230" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M146 238 Q160 226 174 238" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="160" cy="244" r="2.5" fill="rgba(201,168,76,0.5)"/>
+    </svg>
+  </div>
 </div>
 
 <!-- CONTACT GRID -->
@@ -94,11 +154,11 @@
   <div class="contact-grid">
     <div>
       <div class="section-label" style="margin-bottom:20px">Get In Touch</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--navy);margin-bottom:24px">Seedha <span style="color:var(--gold)">Sampark Karein</span></h2>
+      <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--navy);margin-bottom:24px">Reach Out <span style="color:var(--gold)">Directly</span></h2>
       <div class="contact-info-item">
         <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div>
-          <h4>Hamara Address</h4>
+          <h4>Our Address</h4>
           <p>EduRise Academy, Civil Lines</p>
           <p>Nagpur, Maharashtra — 440001</p>
         </div>
@@ -107,8 +167,8 @@
         <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg></div>
         <div>
           <h4>Phone / WhatsApp</h4>
-          <a href="tel:+919876543210">+91 98765 43210</a><br>
-          <a href="tel:+919876543211">+91 98765 43211</a>
+          <a href="tel:+91 xxxxx xxxxx">+91 xxxxx xxxxx</a><br>
+          <a href="tel:+91 xxxxx xxxxx">+91 xxxxx xxxxx</a>
         </div>
       </div>
       <div class="contact-info-item">
@@ -130,21 +190,21 @@
       <div class="map-placeholder">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <p>EduRise Academy, Nagpur</p>
-        <a href="https://maps.google.com" target="_blank" rel="noopener">Google Maps par Dekhein &#8599;</a>
+        <a href="https://maps.google.com" target="_blank" rel="noopener">View on Google Maps &#8599;</a>
       </div>
     </div>
     <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:36px;border:1px solid var(--border)">
-      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px">Free Demo Book Karein</h3>
-      <p style="font-size:13px;color:var(--text-muted);margin-bottom:24px">Apni details bharo — hum 24 ghante mein call karenge</p>
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px">Book a Free Demo</h3>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:24px">Fill in your details — we will call you within 24 hours</p>
       <div class="form-row">
-        <div class="form-group"><label>Aapka Naam *</label><input type="text" placeholder="Full name likhein" required></div>
+        <div class="form-group"><label>Your Name *</label><input type="text" placeholder="Enter your full name" required></div>
         <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
       </div>
       <div class="form-group"><label>Email Address</label><input type="email" placeholder="email@example.com"></div>
       <div class="form-row">
         <div class="form-group"><label>Course *</label>
           <select required>
-            <option value="">Course chunein</option>
+            <option value="">Select a course</option>
             <option>IIT-JEE (Mains & Advanced)</option>
             <option>NEET UG</option>
             <option>CBSE Class 11-12</option>
@@ -154,10 +214,10 @@
             <option>GATE</option>
           </select>
         </div>
-        <div class="form-group"><label>City</label><input type="text" placeholder="Aapka sheher"></div>
+        <div class="form-group"><label>City</label><input type="text" placeholder="Your city"></div>
       </div>
-      <div class="form-group"><label>Message (Optional)</label><textarea placeholder="Koi sawaal ho toh likhein..."></textarea></div>
-      <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px;padding:14px" onclick="submitForm(this)">Demo Class Book Karein &#8594;</button>
+      <div class="form-group"><label>Message (Optional)</label><textarea placeholder="Write any questions you have..."></textarea></div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px;padding:14px" onclick="submitForm(this)">Book Demo Class &#8594;</button>
       <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:14px">&#10003; No spam &nbsp;•&nbsp; &#10003; 100% Free &nbsp;•&nbsp; &#10003; No commitment</p>
     </div>
   </div>
@@ -167,9 +227,9 @@
 <section class="section section-off">
   <div class="section-header">
     <div class="section-label">Connect With Us</div>
-    <h2>Hamare <span>Social Channels</span></h2>
+    <h2>Our <span>Social Channels</span></h2>
     <div class="gold-divider"></div>
-    <p style="margin-top:16px">Daily tips, free resources aur updates ke liye follow karein</p>
+    <p style="margin-top:16px">Follow us for daily tips, free resources and updates</p>
   </div>
   <div class="social-contact-grid">
     <a href="#" class="social-contact-card">
@@ -199,55 +259,56 @@
 <section class="section section-white">
   <div class="section-header">
     <div class="section-label">FAQ</div>
-    <h2>Aksar Pooche Jaane Wale <span>Sawaal</span></h2>
+    <h2>Frequently Asked <span>Questions</span></h2>
     <div class="gold-divider"></div>
   </div>
   <div class="faq-grid">
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span>Free demo class mein kya hota hai?</span>
+        <span>What happens in a free demo class?</span>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-a">Demo class mein aap ek full lecture attend kar sakte ho, faculty se mil sakte ho aur course ke baare mein poori jaankari le sakte ho. Koi commitment nahi, bilkul free.</div>
+      <div class="faq-a">In the demo class, you can attend a full lecture, meet the faculty, and get complete information about the course. No commitment required — it's completely free.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span>Online aur offline dono options hain?</span>
+        <span>Are both online and offline options available?</span>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-a">Haan! Hum live online classes, recorded lectures aur Nagpur mein offline classes — teeno options dete hain. Aap apni convenience ke hisaab se choose kar sakte ho.</div>
+      <div class="faq-a">Yes! We offer live online classes, recorded lectures, and offline classes in Nagpur — all three options. You can choose whichever is most convenient for you.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span>EMI ya installment mein fees pay kar sakte hain?</span>
+        <span>Can I pay fees in EMI or installments?</span>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-a">Bilkul! Hum 3, 6 aur 12 month ki EMI options dete hain. Scholarship test mein qualify karne par 100% tak fee waiver bhi milta hai.</div>
+      <div class="faq-a">Absolutely! We offer EMI options of 3, 6, and 12 months. Students who qualify in the scholarship test can also receive up to 100% fee waiver.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span>Study material kaise milega?</span>
+        <span>How will I receive study material?</span>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-a">Enrollment ke baad aapko printed study material, digital notes aur practice sheets milenge. Saath mein online portal par 500+ recorded lectures bhi access kar sakte ho.</div>
+      <div class="faq-a">After enrollment, you will receive printed study material, digital notes, and practice sheets. You can also access 500+ recorded lectures on our online portal.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span>Doubt kaise clear karein?</span>
+        <span>How can I clear my doubts?</span>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-a">24/7 doubt support available hai — WhatsApp, chat ya video call se. Weekly doubt sessions bhi hote hain jahan directly teachers se pooch sakte ho.</div>
+      <div class="faq-a">24/7 doubt support is available via WhatsApp, chat, or video call. Weekly doubt-clearing sessions are also held where you can ask teachers directly.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span>Course join karne ki last date kya hai?</span>
+        <span>What is the last date to join a course?</span>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-a">New batches har month shuru hoti hain. Abhi enroll karo aur missed lectures ki recordings access karo. Seats limited hain — jaldi karo!</div>
+      <div class="faq-a">New batches start every month. Enroll now and access recordings of missed lectures. Seats are limited — act fast!</div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -281,7 +342,7 @@
     <div class="footer-col">
       <h4>Contact Us</h4>
       <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagpur, Maharashtra</a>
-      <a href="tel:+919876543210" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>+91 98765 43210</a>
+      <a href="tel:+91 xxxxx xxxxx" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>+91 98765 43210</a>
       <a href="mailto:hello@edurise.in" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@edurise.in</a>
       <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 9am–8pm</a>
     </div>

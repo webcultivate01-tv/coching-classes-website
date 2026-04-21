@@ -29,17 +29,17 @@ nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-be
 .btn-demo{background:var(--gold);color:var(--navy);font-weight:700;padding:10px 22px;border-radius:var(--radius-pill);font-size:14px;text-decoration:none;font-family:'DM Sans',sans-serif;transition:all .2s;border:none;cursor:pointer}
 .btn-demo:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 4px 16px rgba(201,168,76,.4)}
 
-/* ── HAMBURGER ── */
+/* ── HAMBURGER (base — hidden by default, shown via media query) ── */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-nav{display:none;position:fixed;inset:0;top:var(--nav-h);background:var(--navy);z-index:998;padding:20px;flex-direction:column;gap:4px;border-top:1px solid rgba(201,168,76,.3);overflow-y:auto}
+.mobile-nav{display:none;position:fixed;inset:0;top:70px;background:var(--navy);z-index:998;padding:20px;flex-direction:column;gap:4px;border-top:1px solid rgba(201,168,76,.3);overflow-y:auto}
 .mobile-nav.open{display:flex}
 .mobile-nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:15px;font-weight:500;padding:13px 16px;border-radius:10px;transition:all .2s;border-bottom:1px solid rgba(255,255,255,.06)}
 .mobile-nav a:hover,.mobile-nav a.active{color:var(--gold);background:rgba(201,168,76,.08)}
-.mobile-nav-btns{margin-top:16px;padding-top:16px}
+.mobile-nav-btns{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}
 
 /* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;gap:6px;padding:12px 26px;border-radius:var(--radius-pill);border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;transition:all .22s;text-decoration:none}
@@ -119,22 +119,64 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:56px 48px 24px;
 .gold-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:14px auto 0}
 
 /* ── RESPONSIVE ── */
+/* ── HAMBURGER ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{display:none;position:fixed;inset:0;top:70px;background:var(--navy);z-index:998;padding:20px;flex-direction:column;gap:4px;border-top:1px solid rgba(201,168,76,.3);overflow-y:auto}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:15px;font-weight:500;padding:13px 16px;border-radius:10px;transition:all .2s;border-bottom:1px solid rgba(255,255,255,.06)}
+.mobile-nav a:hover,.mobile-nav a.active{color:var(--gold);background:rgba(201,168,76,.08)}
+.mobile-nav-btns{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}
+
 @media(max-width:900px){
   .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .courses-grid{grid-template-columns:repeat(2,1fr)}
+  .faculty-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:repeat(2,1fr)}
+  .story-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .awards-grid{grid-template-columns:repeat(2,1fr)}
+  .teachers-grid{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .social-contact-grid{grid-template-columns:repeat(2,1fr)}
 }
+
 @media(max-width:768px){
   nav{padding:0 18px;height:60px}
   .nav-links,.nav-btns{display:none}
   .hamburger{display:flex}
-  .section{padding:44px 20px}
-  .section-header h2{font-size:26px}
+  .mobile-nav{top:60px}
+  .section{padding:40px 18px}
+  .section-header h2{font-size:24px}
+  .page-hero{padding:36px 20px}
+  .page-hero h1{font-size:28px}
   .footer-grid{grid-template-columns:1fr;gap:24px}
   .footer-bottom{flex-direction:column;gap:8px;text-align:center}
   .form-row{grid-template-columns:1fr}
   footer{padding:40px 20px 20px}
+  .courses-grid{grid-template-columns:1fr}
+  .faculty-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-track{grid-template-columns:1fr}
+  .cta-section{padding:48px 20px}
+  .cta-section h2{font-size:26px}
+  .filter-bar{padding:12px 18px;top:60px}
+  .year-tabs{padding:0 18px;top:60px;overflow-x:auto}
+  .chart-section{padding:40px 18px}
 }
+
 @media(max-width:480px){
-  .section-header h2{font-size:22px}
+  .section-header h2{font-size:20px}
+  .faculty-grid{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:1fr 1fr}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:1fr 1fr}
 }

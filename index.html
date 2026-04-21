@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EduRise Academy "” Home</title>
+<title>EduRise Academy — Home</title>
 <link rel="stylesheet" href="style.css">
 <style>
 /* HERO */
@@ -115,26 +115,44 @@
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 @media(max-width:900px){
+  .hero-right{display:none}
   .courses-grid{grid-template-columns:repeat(2,1fr)}
   .faculty-grid{grid-template-columns:repeat(2,1fr)}
   .why-grid{grid-template-columns:repeat(2,1fr)}
-  .contact-grid{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .testi-track{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
-  .hero{padding:48px 20px;min-height:auto}
-  .hero h1{font-size:36px}
-  .hero-stats{gap:20px}
+  .hero{padding:44px 20px;flex-direction:column;gap:0}
+  .hero-content{width:100%;text-align:center}
+  .hero h1{font-size:34px;margin-bottom:16px}
+  .hero p{font-size:14px;margin-bottom:24px;max-width:100%}
+  .hero-badge{font-size:12px}
+  .hero-actions{justify-content:center;gap:10px;margin-bottom:28px}
+  .hero-actions .btn-lg{padding:12px 22px;font-size:14px}
+  .hero-stats{justify-content:center;gap:20px}
+  .h-stat-num{font-size:22px}
+  .scroll-btn{display:none}
   .courses-grid{grid-template-columns:1fr}
   .faculty-grid{grid-template-columns:repeat(2,1fr)}
   .why-grid{grid-template-columns:1fr}
   .testi-track{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:repeat(2,1fr);padding:14px 20px}
+  .section{padding:44px 20px}
   .cta-section{padding:48px 20px}
   .cta-section h2{font-size:26px}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
 }
 @media(max-width:480px){
   .hero h1{font-size:28px}
+  .hero-badge{font-size:11px;padding:6px 14px}
+  .hero-stats{gap:14px}
+  .h-stat-divider{display:none}
   .faculty-grid{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
 }
+
 </style>
 </head>
 <body>
@@ -176,11 +194,11 @@
 <section class="hero">
   <div class="hero-content">
     <div class="hero-badge">★ India's Top Coaching Institute</div>
-    <h1>Apna Sapna<br><span>Haqeeqat Banao</span></h1>
-    <p>Expert faculty, proven strategies aur personalized guidance ke saath apna selection ensure karo "” IIT, NEET, UPSC, ya Banking.</p>
+    <h1>Turn Your Dreams<br><span>Into Reality</span></h1>
+    <p>Expert faculty, proven strategies and personalized guidance to ensure your selection — IIT, NEET, UPSC, or Banking.</p>
     <div class="hero-actions">
       <a href="contact.html" class="btn btn-gold btn-lg">Free Demo Class</a>
-      <a href="courses.html" class="btn btn-outline-white btn-lg">Courses Dekhein</a>
+      <a href="courses.html" class="btn btn-outline-white btn-lg">Explore Courses</a>
     </div>
     <div class="hero-stats">
       <div><div class="h-stat-num">12,000+</div><div class="h-stat-label">Students Enrolled</div></div>
@@ -208,7 +226,7 @@
       <div class="hfc-sub">Priya Mehta</div>
     </div>
     <!-- Center badge -->
-    <div class="hero-center-badge">â­ 4.9 Rating · 8k+ Reviews</div>
+    <div class="hero-center-badge">⭐ 4.9 Rating · 8k+ Reviews</div>
   </div>
 
   <div class="scroll-btn" onclick="document.querySelector('.marquee-wrap').scrollIntoView({behavior:'smooth'})">
@@ -219,16 +237,16 @@
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee">
-    <div class="marquee-item">ðŸŽ‰ JEE 2024 "” AIR 38 Rohan V.</div>
+    <div class="marquee-item">🎉 JEE 2024 "” AIR 38 Rohan V.</div>
     <div class="marquee-item">ðŸ¥ NEET 2024 "” Score 698 Priya M.</div>
     <div class="marquee-item">ðŸŽ“ CBSE Class 12 "” 99.4% Aarav S.</div>
     <div class="marquee-item">ðŸ† UPSC 2024 "” Rank 112 Ananya K.</div>
-    <div class="marquee-item">âš™ï¸ GATE 2024 "” AIR 28 Vikram R.</div>
-    <div class="marquee-item">ðŸŽ‰ JEE 2024 "” AIR 38 Rohan V.</div>
+    <div class="marquee-item">⚙️ GATE 2024 "” AIR 28 Vikram R.</div>
+    <div class="marquee-item">🎉 JEE 2024 "” AIR 38 Rohan V.</div>
     <div class="marquee-item">ðŸ¥ NEET 2024 "” Score 698 Priya M.</div>
     <div class="marquee-item">ðŸŽ“ CBSE Class 12 "” 99.4% Aarav S.</div>
     <div class="marquee-item">ðŸ† UPSC 2024 "” Rank 112 Ananya K.</div>
-    <div class="marquee-item">âš™ï¸ GATE 2024 "” AIR 28 Vikram R.</div>
+    <div class="marquee-item">⚙️ GATE 2024 "” AIR 28 Vikram R.</div>
   </div>
 </div>
 
@@ -268,7 +286,7 @@
         <div class="course-thumb-overlay"><span class="course-thumb-title">IIT-JEE</span></div><div class="course-thumb-badge">TOP</div>
       </div>
       <div class="course-body">
-        <div class="course-meta"><span class="badge badge-navy">Engineering</span><span class="tag">â­ 4.9</span></div>
+        <div class="course-meta"><span class="badge badge-navy">Engineering</span><span class="tag">⭐ 4.9</span></div>
         <h3>JEE Mains & Advanced</h3>
         <p>Complete preparation with concept videos, DPPs, test series & live mentoring by IIT alumni.</p>
         <div class="course-info"><span>ðŸ“š 500+ Lectures</span><span>ðŸ“ 100+ Tests</span><span>ðŸ‘¥ 3.2k Students</span></div>
@@ -286,7 +304,7 @@
         <div class="course-thumb-overlay"><span class="course-thumb-title">NEET</span></div><div class="course-thumb-badge">HOT</div>
       </div>
       <div class="course-body">
-        <div class="course-meta"><span class="badge badge-green">Medical</span><span class="tag">â­ 4.8</span></div>
+        <div class="course-meta"><span class="badge badge-green">Medical</span><span class="tag">⭐ 4.8</span></div>
         <h3>NEET UG Preparation</h3>
         <p>NCERT-based Biology, Physics & Chemistry with full mock tests and AIIMS expert guidance.</p>
         <div class="course-info"><span>ðŸ“š 480+ Lectures</span><span>ðŸ“ 90+ Tests</span><span>ðŸ‘¥ 4.1k Students</span></div>
@@ -304,7 +322,7 @@
         <div class="course-thumb-overlay"><span class="course-thumb-title">CBSE</span></div><div class="course-thumb-badge">NEW</div>
       </div>
       <div class="course-body">
-        <div class="course-meta"><span class="badge badge-navy">Boards</span><span class="tag">â­ 4.7</span></div>
+        <div class="course-meta"><span class="badge badge-navy">Boards</span><span class="tag">⭐ 4.7</span></div>
         <h3>Class 11 & 12 CBSE</h3>
         <p>Board mastery with integrated competitive exam preparation for Science & Commerce streams.</p>
         <div class="course-info"><span>ðŸ“š 350+ Lectures</span><span>ðŸ“ 60+ Tests</span><span>ðŸ‘¥ 5.8k Students</span></div>
@@ -322,7 +340,7 @@
         <div class="course-thumb-overlay"><span class="course-thumb-title">UPSC</span></div>
       </div>
       <div class="course-body">
-        <div class="course-meta"><span class="badge badge-navy">Govt Exam</span><span class="tag">â­ 4.8</span></div>
+        <div class="course-meta"><span class="badge badge-navy">Govt Exam</span><span class="tag">⭐ 4.8</span></div>
         <h3>UPSC Civil Services</h3>
         <p>Complete Prelims to Interview preparation with experienced IAS mentors and daily current affairs.</p>
         <div class="course-info"><span>ðŸ“š 600+ Lectures</span><span>ðŸ“ 80+ Tests</span><span>ðŸ‘¥ 1.8k Students</span></div>
@@ -340,7 +358,7 @@
         <div class="course-thumb-overlay"><span class="course-thumb-title">SSC</span></div>
       </div>
       <div class="course-body">
-        <div class="course-meta"><span class="badge badge-navy">Govt Jobs</span><span class="tag">â­ 4.6</span></div>
+        <div class="course-meta"><span class="badge badge-navy">Govt Jobs</span><span class="tag">⭐ 4.6</span></div>
         <h3>SSC & Banking</h3>
         <p>SSC CGL, CHSL, SBI PO, IBPS "” complete preparation with shortcut tricks and daily practice sets.</p>
         <div class="course-info"><span>ðŸ“š 400+ Lectures</span><span>ðŸ“ 70+ Tests</span><span>ðŸ‘¥ 3.5k Students</span></div>
@@ -358,7 +376,7 @@
         <div class="course-thumb-overlay"><span class="course-thumb-title">Foundation</span></div>
       </div>
       <div class="course-body">
-        <div class="course-meta"><span class="badge badge-navy">Foundation</span><span class="tag">â­ 4.8</span></div>
+        <div class="course-meta"><span class="badge badge-navy">Foundation</span><span class="tag">⭐ 4.8</span></div>
         <h3>Foundation 9 & 10</h3>
         <p>Build a strong academic base for Class 9-10 with Olympiad preparation and critical thinking skills.</p>
         <div class="course-info"><span>ðŸ“š 280+ Lectures</span><span>ðŸ“ 50+ Tests</span><span>ðŸ‘¥ 2.1k Students</span></div>
@@ -370,7 +388,7 @@
     </div></a>
   </div>
   <div style="text-align:center;margin-top:36px">
-    <a href="courses.html" class="btn btn-outline-navy btn-lg">View All Courses â†’</a>
+    <a href="courses.html" class="btn btn-outline-navy btn-lg">View All Courses →</a>
   </div>
 </section>
 <!-- WHY US -->
@@ -418,7 +436,7 @@
 <section class="section section-off">
   <div class="section-header">
     <div class="section-label">Our Faculty</div>
-    <h2>Meet Our <span>Star Teachers</span></h2>
+    <h2>Meet Our <span>Expert Faculty</span></h2>
     <div class="gold-divider"></div>
     <p style="margin-top:16px">IIT & AIIMS alumni who share their experience and passion to guide you to success</p>
   </div>
@@ -457,7 +475,7 @@
     </div>
   </div>
   <div style="text-align:center;margin-top:36px">
-    <a href="teachers.html" class="btn btn-outline-navy btn-lg">View All Teachers â†’</a>
+    <a href="teachers.html" class="btn btn-outline-navy btn-lg">View All Teachers →</a>
   </div>
 </section>
 
@@ -474,57 +492,15 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section section-white">
-  <div class="section-header">
-    <div class="section-label">Get In Touch</div>
-    <h2>Contact <span>Us</span></h2>
-    <div class="gold-divider"></div>
-    <p style="margin-top:16px">Book a free demo class or ask us anything "” we are always available to help</p>
-  </div>
-  <div class="contact-grid">
-    <div>
-      <div class="contact-info-item">
-        <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <div><h4>Our Address</h4><p>Nagpur, Maharashtra "” India</p></div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg></div>
-        <div><h4>Phone</h4><p>+91 98765 43210</p></div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-        <div><h4>Email</h4><p>hello@edurise.in</p></div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div><h4>Timing</h4><p>Mon"“Sat, 9am"“8pm</p></div>
-      </div>
-    </div>
-    <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:32px;border:1px solid var(--border)">
-      <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:20px">Book a Free Demo Class</h3>
-      <div class="form-row">
-        <div class="form-group"><label>Aapka Naam</label><input type="text" placeholder="Full name likhein"></div>
-        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
-      </div>
-      <div class="form-group"><label>Course</label>
-        <select><option>Course chunein</option><option>IIT-JEE</option><option>NEET UG</option><option>UPSC</option><option>SSC / Banking</option><option>CBSE Boards</option></select>
-      </div>
-      <div class="form-group"><label>Message (Optional)</label><textarea placeholder="Koi sawaal ho toh likhein..."></textarea></div>
-      <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px" onclick="this.textContent='âœ“ Submitted! We will call you soon.'">Book Demo Class â†’</button>
-    </div>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta-section">
-  <h2>Start Your <span>Success Journey Today</span> 🎯</h2>
+  <h2>Start Your <span>Journey With Us</span> </h2>
   <p>Join 15,000+ students who are already on their path to success with EduRise Academy</p>
   <div class="cta-actions">
-    <a href="courses.html" class="btn btn-gold btn-lg">Explore Courses â†’</a>
+    <a href="courses.html" class="btn btn-gold btn-lg">Explore Courses</a>
     <a href="contact.html" class="btn btn-outline-white btn-lg">Book Free Demo</a>
   </div>
-  <div class="cta-note">âœ“ No credit card &nbsp;•&nbsp; âœ“ 7-Day Free Trial &nbsp;•&nbsp; âœ“ Free Study Material</div>
+  <div class="cta-note"> No credit card &nbsp;•&nbsp; 7-Day Free Trial &nbsp;•&nbsp;Free Study Material</div>
 </section>
 
 <!-- FOOTER -->
@@ -561,9 +537,9 @@
     <div class="footer-col">
       <h4>Contact Us</h4>
       <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagpur, Maharashtra</a>
-      <a href="tel:+919876543210" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>+91 98765 43210</a>
+      <a href="tel:+91 xxxxx xxxxx" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>+91 98765 43210</a>
       <a href="mailto:hello@edurise.in" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@edurise.in</a>
-      <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon"“Sat, 9am"“8pm</a>
+      <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 9am–8pm</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -578,12 +554,12 @@ function toggleMenu(){
   document.getElementById('mobileNav').classList.toggle('open');
 }
 const reviews=[
-  {text:"EduRise ke teachers bahut amazing hain. JEE mein AIR 38 aaya "” completely EduRise ki wajah se!",name:"Rohan Verma",course:"JEE Advanced • AIR 38",av:"RV",color:"#7B6EE8"},
-  {text:"NEET preparation ke liye best platform! Biology ke notes aur daily tests ne mujhe 698 score karne mein help ki.",name:"Priya Mehta",course:"NEET UG • Score 698",av:"PM",color:"#16a34a"},
+  {text:"EduRise ke teachers bahut amazing hain. JEE mein AIR 38 aaya - completely EduRise ki wajah se!",name:"Rohan Verma",course:"JEE Advanced - AIR 38",av:"RV",color:"#7B6EE8"},
+  {text:"NEET preparation ke liye best platform! Biology ke notes aur daily tests ne mujhe 698 score karne mein help ki.",name:"Priya Mehta",course:"NEET UG - Score 698",av:"PM",color:"#16a34a"},
   {text:"Parents ko bhi regular updates milte hain. Mera beta 12th mein 99.4% laya. Thank you EduRise!",name:"Sunita Kulkarni",course:"Parent of Class 12 Student",av:"SK",color:"#f97316"},
-  {text:"Maths mein bahut darr lagta tha. Rahul sir ke sessions ke baad sab easy lagne laga. JEE Mains mein 99.2 percentile!",name:"Arjun Patel",course:"JEE Mains • 99.2 Percentile",av:"AP",color:"#0891b2"},
-  {text:"Chemistry ke organic reactions yaad hi nahi hote the. Sneha ma'am ki visual teaching se sab clear ho gaya!",name:"Divya Nair",course:"NEET UG • Chemistry 340/360",av:"DN",color:"#7c3aed"},
-  {text:"UPSC ki preparation ke liye Vikram sir ka guidance best hai. Rank 204 IAS mili!",name:"Karan Mehta",course:"UPSC IAS • Rank 204",av:"KM",color:"#c9a84c"},
+  {text:"Maths mein bahut darr lagta tha. Rahul sir ke sessions ke baad sab easy lagne laga. JEE Mains mein 99.2 percentile!",name:"Arjun Patel",course:"JEE Mains - 99.2 Percentile",av:"AP",color:"#0891b2"},
+  {text:"Chemistry ke organic reactions yaad hi nahi hote the. Sneha maam ki visual teaching se sab clear ho gaya!",name:"Divya Nair",course:"NEET UG - Chemistry 340/360",av:"DN",color:"#7c3aed"},
+  {text:"UPSC ki preparation ke liye Vikram sir ka guidance best hai. Rank 204 IAS mili!",name:"Karan Mehta",course:"UPSC IAS - Rank 204",av:"KM",color:"#c9a84c"},
 ];
 (function(){
   const track=document.getElementById('testiTrack');
@@ -613,6 +589,7 @@ const reviews=[
 </script>
 </body>
 </html>
+
 
 
 
