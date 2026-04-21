@@ -1,166 +1,129 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Teachers — EduRise Academy</title>
+<title>Faculty — EduRise Academy</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  .page-hero{padding:50px 40px;background:linear-gradient(135deg,#f5f3ff 0%,#f0eeff 100%)}
-  .page-hero h1{font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;margin-bottom:8px}
-  .page-hero p{color:var(--text-muted);font-size:15px}
-  .teachers-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-  .teacher-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .25s;cursor:pointer;display:flex}
-  .teacher-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--primary)}
-  .teacher-photo-wrap{flex:0 0 180px;position:relative;overflow:hidden}
-  .teacher-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
-  .teacher-card:hover .teacher-photo-wrap img{transform:scale(1.05)}
-  .teacher-photo-wrap .t-subject-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);color:#fff;font-size:10px;font-weight:600;padding:4px 10px;border-radius:20px}
-  .teacher-body{padding:20px;flex:1;display:flex;flex-direction:column}
-  .teacher-name{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);margin-bottom:2px}
-  .teacher-subject{font-size:12px;color:var(--primary);font-weight:600;margin-bottom:6px}
-  .teacher-edu{font-size:11px;color:var(--text-muted);margin-bottom:12px;display:flex;align-items:center;gap:4px}
-  .teacher-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
-  .t-stat{background:var(--bg);border-radius:8px;padding:8px 6px;text-align:center;border:1px solid var(--border)}
-  .t-stat-num{font-size:14px;font-weight:800;color:var(--text);font-family:'Nunito',sans-serif;line-height:1}
-  .t-stat-label{font-size:9px;color:var(--text-muted);margin-top:2px}
-  .teacher-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-  .teacher-stars{color:#f59e0b;font-size:13px;display:flex;align-items:center;gap:6px}
-  .teacher-bio{font-size:12px;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
-  .teacher-footer{display:flex;gap:8px;margin-top:auto}
-  .subject-filter{background:var(--white);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-  .subject-filter span{font-size:12px;font-weight:600;color:var(--text-muted)}
-  .s-btn{padding:6px 16px;border-radius:var(--radius-pill);border:1.5px solid var(--border);background:#fff;font-size:12px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
-  .s-btn:hover,.s-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;padding:20px}
-  .modal-overlay.show{display:flex}
-  .modal{background:#fff;border-radius:var(--radius-lg);padding:0;max-width:480px;width:100%;position:relative;overflow:hidden}
-  .modal-header{height:100px;position:relative}
-  .modal-av-wrap{position:absolute;bottom:-30px;left:24px}
-  .modal-av{width:70px;height:70px;border-radius:50%;border:4px solid #fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#fff;font-family:'Nunito',sans-serif}
-  .modal-close{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.3);border:none;width:28px;height:28px;border-radius:50%;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-  .modal-body{padding:40px 24px 24px}
+.page-hero{background:linear-gradient(135deg,#0f1f3d 0%,#162447 100%);color:#fff;padding:56px 48px;position:relative;overflow:hidden}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;margin-bottom:14px}
+.page-hero h1 span{color:var(--gold)}
+.page-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:520px}
+.filter-bar{background:var(--white);border-bottom:1px solid var(--border);padding:16px 48px;position:sticky;top:70px;z-index:90;display:flex;gap:10px;flex-wrap:wrap}
+.filter-btn{padding:8px 20px;border-radius:var(--radius-pill);border:1.5px solid var(--border);background:var(--white);color:var(--text-muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
+.filter-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.teachers-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.teacher-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;display:flex;cursor:pointer;transition:all .28s}
+.teacher-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--gold)}
+.teacher-photo{width:180px;flex-shrink:0;overflow:hidden}
+.teacher-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
+.teacher-card:hover .teacher-photo img{transform:scale(1.05)}
+.teacher-body{padding:24px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.teacher-subject{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.teacher-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.teacher-qual{font-size:13px;color:var(--text-muted);margin-bottom:12px}
+.teacher-desc{font-size:13px;color:var(--text-muted);line-height:1.65;margin-bottom:16px}
+.teacher-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.teacher-stats{display:flex;gap:20px;border-top:1px solid var(--border);padding-top:14px}
+.t-stat-num{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:var(--navy)}
+.t-stat-label{font-size:11px;color:var(--text-muted)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,31,61,.6);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);border-radius:var(--radius-lg);width:100%;max-width:560px;padding:0;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.9);border:none;font-size:20px;cursor:pointer;color:var(--text-muted);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2}
+.modal-hero{height:220px;position:relative;overflow:hidden}
+.modal-hero img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.modal-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,31,61,.85) 0%,transparent 50%);display:flex;align-items:flex-end;padding:20px 24px}
+.modal-body{padding:24px}
+.modal-body h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.modal-body p{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:16px}
+.cta-section{background:linear-gradient(135deg,var(--navy) 0%,#1a2f6a 50%,#0d1b3e 100%);padding:72px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(201,168,76,.1) 0%,transparent 65%)}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#fff;margin-bottom:14px;position:relative}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{color:rgba(255,255,255,.65);font-size:15px;margin-bottom:32px;position:relative}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-note{margin-top:18px;font-size:12px;color:rgba(255,255,255,.35);position:relative}
+@media(max-width:900px){.teachers-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.page-hero{padding:40px 20px}.page-hero h1{font-size:30px}.filter-bar{padding:12px 20px;top:60px}.teacher-photo{width:130px}.cta-section{padding:48px 20px}.cta-section h2{font-size:26px}}
+@media(max-width:480px){.teacher-card{flex-direction:column}.teacher-photo{width:100%;height:200px}}
 </style>
 </head>
 <body>
 <nav>
   <a href="index.html" class="logo"><div class="logo-icon">E</div><div class="logo-text"><span>Edu</span>Rise Academy</div></a>
-  <div class="nav-links">
-    <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="teachers.html" class="active">Teachers</a><a href="results.html">Results</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
-  </div>
-  <div class="nav-btns">
-    <a href="contact.html" class="btn btn-outline btn-sm">Login</a>
-    <a href="courses.html" class="btn btn-primary btn-sm">Enroll Now →</a>
-  </div>
+  <div class="nav-links"><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="teachers.html" class="active">Faculty</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+  <div class="nav-btns"><a href="contact.html" class="btn-demo">Free Demo</a></div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
-
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="teachers.html" class="active">Faculty</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <div class="mobile-nav-btns" style="margin-top:16px"><a href="contact.html" class="btn btn-gold" style="justify-content:center;width:100%">Free Demo Class</a></div>
+</div>
 <div class="page-hero">
-  <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Our Teachers</span></div>
-  <h1>Learn from the Best 🎓</h1>
-  <p>IIT & AIIMS alumni with proven track records. 50+ expert educators dedicated to your success.</p>
+  <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>Faculty</span></div>
+  <h1>Hamare <span>Star Teachers</span></h1>
+  <p>IIT, AIIMS aur top universities ke alumni — jo khud in exams se guzre hain aur aapko bhi guide karenge</p>
 </div>
-
-<div class="subject-filter">
-  <span>Subject:</span>
-  <button class="s-btn active" onclick="filterTeachers('all',this)">All</button>
-  <button class="s-btn" onclick="filterTeachers('physics',this)">Physics</button>
-  <button class="s-btn" onclick="filterTeachers('chemistry',this)">Chemistry</button>
-  <button class="s-btn" onclick="filterTeachers('maths',this)">Mathematics</button>
-  <button class="s-btn" onclick="filterTeachers('biology',this)">Biology</button>
-  <button class="s-btn" onclick="filterTeachers('social',this)">Social Science</button>
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="setFilter('all',this)">All Subjects</button>
+  <button class="filter-btn" onclick="setFilter('physics',this)">Physics</button>
+  <button class="filter-btn" onclick="setFilter('chemistry',this)">Chemistry</button>
+  <button class="filter-btn" onclick="setFilter('maths',this)">Mathematics</button>
+  <button class="filter-btn" onclick="setFilter('biology',this)">Biology</button>
+  <button class="filter-btn" onclick="setFilter('gs',this)">General Studies</button>
 </div>
-
-<section class="section">
-  <div class="teachers-grid" id="teachersGrid"></div>
+<section class="section section-off"><div class="teachers-grid" id="teachersGrid"></div></section>
+<section class="cta-section">
+  <h2>Inse Seekho aur <span>Apna Selection Pakka Karo</span></h2>
+  <p>Free demo class mein hamare teachers se seedha baat karo</p>
+  <div class="cta-actions"><a href="contact.html" class="btn btn-gold btn-lg">Free Demo Book Karein</a><a href="courses.html" class="btn btn-outline-white btn-lg">Courses Dekhein</a></div>
+  <div class="cta-note">No credit card &nbsp;•&nbsp; 7-Day Free Trial &nbsp;•&nbsp; Free Study Material</div>
 </section>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <div class="modal-header" id="modal-cover">
-      <div class="modal-av-wrap"><div class="modal-av" id="modal-av"></div></div>
-      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('show')">✕</button>
-    </div>
-    <div class="modal-body">
-      <div style="display:flex;align-items:start;justify-content:space-between;margin-bottom:10px">
-        <div><div style="font-family:'Nunito',sans-serif;font-size:20px;font-weight:900" id="modal-name"></div><div style="font-size:13px;color:var(--primary);font-weight:600;margin-top:2px" id="modal-sub"></div></div>
-        <div style="text-align:right;font-size:14px;color:#f59e0b" id="modal-rating"></div>
-      </div>
-      <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:16px" id="modal-bio"></p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px" id="modal-stats"></div>
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px" id="modal-tags"></div>
-      <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center">Book Free Demo Class →</a>
-    </div>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="logo" style="display:inline-flex;margin-bottom:12px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a><p>India's trusted coaching platform for JEE, NEET, UPSC & Board exams.</p></div>
+    <div class="footer-col"><h4>Courses</h4><a href="courses.html">JEE Preparation</a><a href="courses.html">NEET Preparation</a><a href="courses.html">CBSE Boards</a><a href="courses.html">UPSC / IAS</a></div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="teachers.html">Our Faculty</a><a href="results.html">Student Results</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact Us</h4><a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagpur, Maharashtra</a><a href="tel:+919876543210" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>+91 98765 43210</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 EduRise Academy. All rights reserved.</p><p>Privacy Policy &nbsp;•&nbsp; Terms of Service</p></div>
+</footer>
+<div class="modal-overlay" id="teacherModal">
+  <div class="modal"><button class="modal-close" onclick="closeModal()">&#x2715;</button>
+    <div class="modal-hero"><img id="modalImg" src="" alt=""><div class="modal-hero-overlay"><div><div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px" id="modalSubject"></div><div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:#fff" id="modalName"></div></div></div></div>
+    <div class="modal-body"><p style="font-size:13px;color:var(--text-muted);margin-bottom:16px" id="modalQual"></p><p id="modalDesc"></p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px" id="modalTags"></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;background:var(--off-white);border-radius:var(--radius);padding:16px;margin-bottom:20px" id="modalStats"></div><a href="contact.html" class="btn btn-gold" style="width:100%;justify-content:center">Free Demo Book Karein</a></div>
   </div>
 </div>
-
-<footer style="margin-top:0">
-  <div class="footer-grid">
-    <div class="footer-brand"><a href="index.html" class="logo" style="display:inline-flex;margin-bottom:10px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a><p>India's trusted coaching for JEE, NEET & Boards.</p></div>
-    <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="results.html">Results</a><a href="contact.html">Contact</a></div>
-    <div class="footer-col"><h4>Courses</h4><a href="courses.html">JEE</a><a href="courses.html">NEET</a><a href="courses.html">CBSE</a><a href="courses.html">UPSC</a></div>
-    <div class="footer-col"><h4>Contact</h4><a href="#">📍 Nagpur, MH</a><a href="#">📞 +91 98765 43210</a></div>
-  </div>
-  <div class="footer-bottom"><p>© 2025 EduRise Academy</p></div>
-</footer>
-
 <script>
 const teachers=[
-  {id:1,name:"Ankit Kumar",initials:"AK",subject:"Physics — JEE Expert",cat:"physics",bg:"linear-gradient(135deg,#7B6EE8,#7c3aed)",edu:"IIT Bombay • B.Tech Physics",exp:"9 Years",students:"4,200",rating:"4.9",reviews:"2.1k",bio:"Former IIT Bombay researcher turned passionate educator. Known for making complex mechanics and electrodynamics crystal clear. His DPP sessions are legendary among JEE toppers.",tags:["Mechanics","Electrodynamics","Optics","JEE Advanced"],results:"AIR 38, 71, 104 (2024)",photo:"https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400&q=80"},
-  {id:2,name:"Priya Mehta",initials:"PM",subject:"Biology — NEET Specialist",cat:"biology",bg:"linear-gradient(135deg,#16a34a,#059669)",edu:"AIIMS Delhi • MBBS",exp:"7 Years",students:"5,600",rating:"4.9",reviews:"1.8k",bio:"AIIMS graduate who believes every student can score 360/360 in Biology with the right approach. Her NCERT-mastery method has produced hundreds of top NEET scorers.",tags:["Botany","Zoology","Human Physiology","NCERT Mastery"],results:"3 students: 720/720 (2024)",photo:"https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80"},
-  {id:3,name:"Rahul Sharma",initials:"RS",subject:"Mathematics — All Levels",cat:"maths",bg:"linear-gradient(135deg,#f97316,#ef4444)",edu:"IIT Delhi • M.Sc Maths",exp:"12 Years",students:"6,100",rating:"5.0",reviews:"3.2k",bio:"12 years of turning Maths-phobia into Maths-love! From Calculus to Coordinate Geometry — Rahul sir's shortcut tricks and problem-solving methods are unmatched in the industry.",tags:["Calculus","Algebra","Coordinate Geometry","Probability"],results:"35+ IIT selections from his batch (2024)",photo:"https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"},
-  {id:4,name:"Sneha Reddy",initials:"SR",subject:"Chemistry — JEE & NEET",cat:"chemistry",bg:"linear-gradient(135deg,#0891b2,#7B6EE8)",edu:"IIT Madras • M.Sc Chem",exp:"8 Years",students:"3,800",rating:"4.8",reviews:"1.5k",bio:"Chemistry made simple! Sneha ma'am's visual approach to Organic Chemistry reactions has helped thousands master the most feared subject in JEE & NEET.",tags:["Organic Chemistry","Inorganic","Physical Chem","Reaction Mechanisms"],results:"50+ selections in JEE & NEET (2024)",photo:"https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"},
-  {id:5,name:"Vikram Rao",initials:"VR",subject:"Geography & GS — UPSC",cat:"social",bg:"linear-gradient(135deg,#7c3aed,#db2777)",edu:"JNU Delhi • MA History",exp:"10 Years",students:"2,200",rating:"4.7",reviews:"890",bio:"IAS aspirant turned educator. With 10 years of UPSC coaching, Vikram sir's current affairs and answer-writing sessions have produced multiple IAS & IPS officers.",tags:["History","Geography","Polity","Current Affairs","Essay"],results:"Rank 112, 89, 204 IAS (2024)",photo:"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"},
-  {id:6,name:"Kavita Joshi",initials:"KJ",subject:"English & Reasoning — SSC/Banking",cat:"social",bg:"linear-gradient(135deg,#d97706,#f97316)",edu:"Delhi University • MA English",exp:"6 Years",students:"4,400",rating:"4.8",reviews:"1.2k",bio:"Grammar, vocabulary and reading comprehension simplified! Kavita ma'am's systematic approach to verbal ability has helped thousands clear SSC, Banking & Railway exams.",tags:["English Grammar","Vocabulary","Reading Comprehension","Reasoning"],results:"200+ SSC CGL selections (2024)",photo:"https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"},
+  {id:1,cat:'physics',name:'Ankit Kumar',subject:'Physics',qual:'IIT Bombay (B.Tech) · 9 Years Experience',img:'https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=600&q=80',desc:'Ankit sir ne IIT Bombay se B.Tech kiya hai aur 9 saalon se JEE Physics padha rahe hain. Unka teaching style concepts ko real-life examples se connect karta hai.',tags:['JEE Physics','Mechanics','Electrostatics','Optics'],students:'4,200+',selections:'500+',rating:'4.9'},
+  {id:2,cat:'biology',name:'Priya Mehta',subject:'Biology',qual:'AIIMS Delhi (MBBS) · 7 Years Experience',img:'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80',desc:'Dr. Priya Mehta AIIMS Delhi se MBBS hain aur NEET Biology ki specialist hain. Unka diagram-based teaching approach students ko complex topics easily samajhne mein help karta hai.',tags:['NEET Biology','Botany','Zoology','Human Physiology'],students:'5,100+',selections:'620+',rating:'4.8'},
+  {id:3,cat:'maths',name:'Rahul Sharma',subject:'Mathematics',qual:'IIT Delhi (M.Tech) · 12 Years Experience',img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80',desc:'Rahul sir IIT Delhi se hain aur 12 saalon ka teaching experience hai. Unka shortcut-based approach aur problem-solving techniques students ko exam mein time save karne mein help karta hai.',tags:['JEE Maths','Calculus','Algebra','Coordinate Geometry'],students:'6,800+',selections:'780+',rating:'4.9'},
+  {id:4,cat:'chemistry',name:'Sneha Reddy',subject:'Chemistry',qual:'IIT Madras (B.Tech) · 8 Years Experience',img:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80',desc:'Sneha mam IIT Madras se hain aur Organic Chemistry ki expert hain. Unka mnemonics-based teaching style students ko reactions yaad rakhne mein bahut help karta hai.',tags:['Organic Chemistry','Inorganic','Physical Chemistry','NEET Chem'],students:'3,900+',selections:'450+',rating:'4.8'},
+  {id:5,cat:'gs',name:'Vikram Singh',subject:'General Studies',qual:'UPSC AIR 112 (2019) · 5 Years Experience',img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80',desc:'Vikram sir khud UPSC topper hain — AIR 112 (2019). Unka current affairs integration aur answer writing approach UPSC aspirants ke liye game-changer hai.',tags:['UPSC GS','Polity','History','Current Affairs'],students:'2,200+',selections:'180+',rating:'4.8'},
+  {id:6,cat:'physics',name:'Kavya Nair',subject:'Physics & Chemistry',qual:'NIT Trichy (B.Tech) · 6 Years Experience',img:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80',desc:'Kavya mam NIT Trichy se hain aur NEET Physics aur Chemistry dono padhati hain. Unka concept-clarity approach aur regular doubt sessions students ko confident banata hai.',tags:['NEET Physics','NEET Chemistry','Thermodynamics','Waves'],students:'3,100+',selections:'380+',rating:'4.7'}
 ];
-let activeF='all';
-function renderTeachers(){
-  const filtered=teachers.filter(t=>activeF==='all'||t.cat===activeF);
-  document.getElementById('teachersGrid').innerHTML=filtered.map(t=>`
-    <div class="teacher-card" onclick="openTeacher(${t.id})">
-      <div class="teacher-photo-wrap">
-        <img src="${t.photo}" alt="${t.name}">
-        <span class="t-subject-badge">${t.subject.split('—')[0].trim()}</span>
-      </div>
-      <div class="teacher-body">
-        <div class="teacher-name">${t.name}</div>
-        <div class="teacher-subject">${t.subject}</div>
-        <div class="teacher-edu">🎓 ${t.edu}</div>
-        <div class="teacher-stats">
-          <div class="t-stat"><div class="t-stat-num">${t.exp}</div><div class="t-stat-label">Experience</div></div>
-          <div class="t-stat"><div class="t-stat-num">${t.students}</div><div class="t-stat-label">Students</div></div>
-          <div class="t-stat"><div class="t-stat-num">${t.rating}</div><div class="t-stat-label">Rating</div></div>
-        </div>
-        <div class="teacher-bio">${t.bio.substring(0,110)}...</div>
-        <div class="teacher-tags">${t.tags.slice(0,3).map(tag=>`<span class="badge badge-blue">${tag}</span>`).join('')}</div>
-        <div class="teacher-stars">★★★★★ <span style="font-size:12px;color:var(--text-muted)">(${t.reviews} reviews)</span></div>
-        <div class="teacher-footer"><button class="btn btn-primary btn-sm" style="flex:1;justify-content:center">View Profile</button><button class="btn btn-outline btn-sm">Demo Class</button></div>
-      </div>
-    </div>`).join('');
+let activeFilter='all';
+function renderTeachers(list){
+  const grid=document.getElementById('teachersGrid');
+  if(!list.length){grid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px">Koi teacher nahi mila.</p>';return;}
+  grid.innerHTML=list.map(t=>`<div class="teacher-card" onclick="openModal(${t.id})"><div class="teacher-photo"><img src="${t.img}" alt="${t.name}" loading="lazy"></div><div class="teacher-body"><div><div class="teacher-subject">${t.subject}</div><div class="teacher-name">${t.name}</div><div class="teacher-qual">${t.qual}</div><div class="teacher-desc">${t.desc.substring(0,120)}...</div><div class="teacher-tags">${t.tags.slice(0,3).map(tag=>'<span class="tag">'+tag+'</span>').join('')}</div></div><div class="teacher-stats"><div class="t-stat"><div class="t-stat-num">${t.students}</div><div class="t-stat-label">Students</div></div><div class="t-stat"><div class="t-stat-num">${t.selections}</div><div class="t-stat-label">Selections</div></div><div class="t-stat"><div class="t-stat-num">&#9733; ${t.rating}</div><div class="t-stat-label">Rating</div></div></div></div></div>`).join('');
 }
-function filterTeachers(f,el){activeF=f;document.querySelectorAll('.s-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderTeachers()}
-function openTeacher(id){
+function setFilter(cat,btn){activeFilter=cat;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderTeachers(cat==='all'?teachers:teachers.filter(t=>t.cat===cat));}
+function openModal(id){
   const t=teachers.find(x=>x.id===id);
-  document.getElementById('modal-cover').style.background=t.bg;
-  document.getElementById('modal-cover').style.position='relative';
-  document.getElementById('modal-cover').style.overflow='hidden';
-  document.getElementById('modal-cover').innerHTML=`
-    <img src="${t.photo}" alt="${t.name}" style="width:100%;height:100%;object-fit:cover;object-position:top;opacity:.8;display:block">
-    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%)"></div>
-    <div class="modal-av-wrap"><div class="modal-av" style="background:${t.bg};overflow:hidden;padding:0"><img src="${t.photo}" alt="${t.name}" style="width:100%;height:100%;object-fit:cover;object-position:top"></div></div>
-    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('show')">✕</button>`;
-  document.getElementById('modal-name').textContent=t.name;
-  document.getElementById('modal-sub').textContent=t.subject;
-  document.getElementById('modal-rating').innerHTML=`★★★★★ <br><span style="font-size:11px;color:var(--text-muted)">${t.reviews} reviews</span>`;
-  document.getElementById('modal-bio').textContent=t.bio;
-  document.getElementById('modal-stats').innerHTML=[{n:t.exp,l:'Experience'},{n:t.students,l:'Students'},{n:t.rating,l:'Rating'}].map(s=>`<div class="t-stat"><div class="t-stat-num">${s.n}</div><div class="t-stat-label">${s.l}</div></div>`).join('');
-  document.getElementById('modal-tags').innerHTML=t.tags.map(tag=>`<span class="badge badge-blue">${tag}</span>`).join('');
-  document.getElementById('modal').classList.add('show');
+  document.getElementById('modalImg').src=t.img;document.getElementById('modalSubject').textContent=t.subject;document.getElementById('modalName').textContent=t.name;document.getElementById('modalQual').textContent=t.qual;document.getElementById('modalDesc').textContent=t.desc;
+  document.getElementById('modalTags').innerHTML=t.tags.map(tag=>'<span class="tag">'+tag+'</span>').join('');
+  document.getElementById('modalStats').innerHTML=`<div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy)">${t.students}</div><div style="font-size:12px;color:var(--text-muted)">Students</div></div><div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy)">${t.selections}</div><div style="font-size:12px;color:var(--text-muted)">Selections</div></div><div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy)">&#9733; ${t.rating}</div><div style="font-size:12px;color:var(--text-muted)">Rating</div></div>`;
+  document.getElementById('teacherModal').classList.add('open');document.body.style.overflow='hidden';
 }
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show')});
-renderTeachers();
+function closeModal(){document.getElementById('teacherModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('teacherModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+function toggleMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileNav').classList.toggle('open');}
+renderTeachers(teachers);
 </script>
 </body>
 </html>
-
-

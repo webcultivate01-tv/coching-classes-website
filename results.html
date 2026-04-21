@@ -2,187 +2,293 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Results — EduRise Academy</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  .page-hero{padding:50px 40px;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff}
-  .page-hero h1{font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;margin-bottom:8px}
-  .page-hero p{color:rgba(255,255,255,.65);font-size:15px;max-width:500px}
-  .hero-stats{display:flex;gap:32px;margin-top:24px}
-  .hs{text-align:center}
-  .hs-num{font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;color:#fff}
-  .hs-label{font-size:12px;color:rgba(255,255,255,.55);margin-top:2px}
-  .year-tabs{background:var(--white);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;gap:8px;position:sticky;top:var(--nav-h);z-index:98}
-  .year-btn{padding:8px 20px;border-radius:var(--radius-pill);border:1.5px solid var(--border);background:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s}
-  .year-btn.active,.year-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .exam-section{margin-bottom:40px}
-  .exam-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-  .exam-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;font-family:'Nunito',sans-serif;flex-shrink:0}
-  .exam-title{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;color:var(--text)}
-  .exam-subtitle{font-size:13px;color:var(--text-muted)}
-  .results-row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-  .result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center;transition:all .2s}
-  .result-card:hover{box-shadow:var(--shadow);border-color:var(--primary);transform:translateY(-2px)}
-  .result-rank{font-size:10px;font-weight:700;color:var(--text-muted);margin-bottom:4px}
-  .result-av{width:50px;height:50px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;font-family:'Nunito',sans-serif}
-  .result-name{font-size:13px;font-weight:700;color:var(--text);font-family:'Nunito',sans-serif;margin-bottom:4px}
-  .result-score-badge{display:inline-block;font-size:12px;font-weight:800;padding:5px 14px;border-radius:20px;margin-bottom:4px}
-  .result-city{font-size:10px;color:var(--text-muted)}
-  .gold-card{border-color:#f59e0b;background:linear-gradient(135deg,#fffbeb,#fff)}
-  .gold-card .result-rank{color:#d97706}
-  .chart-bar-wrap{background:var(--bg);border-radius:var(--radius-lg);padding:24px;margin-bottom:40px;border:1px solid var(--border)}
-  .chart-bar-wrap h3{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;margin-bottom:20px}
-  .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:12px}
-  .bar-label{width:80px;font-size:12px;font-weight:600;color:var(--text-muted);text-align:right;flex-shrink:0}
-  .bar-track{flex:1;height:28px;background:var(--border);border-radius:6px;overflow:hidden}
-  .bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:12px;font-size:11px;font-weight:700;color:#fff;transition:width 1.2s ease}
-  .bar-val{width:50px;font-size:13px;font-weight:800;color:var(--text);font-family:'Nunito',sans-serif}
+.page-hero{background:linear-gradient(135deg,#0f1f3d 0%,#162447 100%);color:#fff;padding:56px 48px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%)}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;margin-bottom:14px;position:relative}
+.page-hero h1 span{color:var(--gold)}
+.page-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:520px;margin-bottom:36px;position:relative}
+.hero-stats-row{display:flex;gap:36px;flex-wrap:wrap;position:relative}
+.h-stat-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:#fff;line-height:1}
+.h-stat-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px}
+.h-stat-divider{width:1px;background:rgba(255,255,255,.15);align-self:stretch}
+.year-tabs{background:var(--white);border-bottom:1px solid var(--border);padding:0 48px;position:sticky;top:70px;z-index:90;display:flex;gap:0}
+.year-tab{padding:16px 24px;border:none;background:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:3px solid transparent;transition:all .2s}
+.year-tab:hover{color:var(--navy)}
+.year-tab.active{color:var(--navy);border-bottom-color:var(--gold)}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;text-align:center;transition:all .25s;position:relative;overflow:hidden}
+.result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.result-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.result-avatar{width:64px;height:64px;border-radius:50%;margin:0 auto 12px;overflow:hidden;border:3px solid var(--gold)}
+.result-avatar img{width:100%;height:100%;object-fit:cover}
+.result-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.result-exam{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.result-score{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--navy);margin-bottom:4px}
+.result-score span{font-size:13px;font-weight:500;color:var(--text-muted)}
+.result-quote{font-size:12px;color:var(--text-muted);line-height:1.5;font-style:italic;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.chart-section{padding:72px 48px;background:var(--white)}
+.chart-header{text-align:center;margin-bottom:48px}
+.chart-wrap{max-width:700px;margin:0 auto}
+.chart-bar-row{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.chart-label{width:120px;font-size:13px;font-weight:600;color:var(--navy);text-align:right;flex-shrink:0}
+.chart-bar-bg{flex:1;background:var(--off-white);border-radius:var(--radius-pill);height:36px;overflow:hidden;position:relative}
+.chart-bar-fill{height:100%;border-radius:var(--radius-pill);background:linear-gradient(90deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:flex-end;padding-right:12px;transition:width 1s ease;min-width:40px}
+.chart-bar-fill span{font-size:12px;font-weight:700;color:#fff}
+.chart-year{font-size:12px;color:var(--text-muted);width:40px;flex-shrink:0}
+.cta-section{background:linear-gradient(135deg,var(--navy) 0%,#1a2f6a 50%,#0d1b3e 100%);padding:72px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(201,168,76,.1) 0%,transparent 65%)}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#fff;margin-bottom:14px;position:relative}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{color:rgba(255,255,255,.65);font-size:15px;margin-bottom:32px;position:relative}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-note{margin-top:18px;font-size:12px;color:rgba(255,255,255,.35);position:relative}
+@media(max-width:900px){.results-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .page-hero{padding:40px 20px}
+  .page-hero h1{font-size:30px}
+  .year-tabs{padding:0 20px;top:60px;overflow-x:auto}
+  .chart-section{padding:44px 20px}
+  .chart-label{width:80px;font-size:12px}
+  .cta-section{padding:48px 20px}
+  .cta-section h2{font-size:26px}
+}
+@media(max-width:480px){.results-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="logo"><div class="logo-icon">E</div><div class="logo-text"><span>Edu</span>Rise Academy</div></a>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">E</div>
+    <div class="logo-text"><span>Edu</span>Rise Academy</div>
+  </a>
   <div class="nav-links">
-    <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="teachers.html">Teachers</a><a href="results.html" class="active">Results</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="teachers.html">Faculty</a>
+    <a href="results.html" class="active">Results</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
   </div>
   <div class="nav-btns">
-    <a href="contact.html" class="btn btn-outline btn-sm">Login</a>
-    <a href="courses.html" class="btn btn-primary btn-sm">Enroll Now →</a>
+    <a href="contact.html" class="btn-demo">Free Demo</a>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="courses.html">Courses</a>
+  <a href="teachers.html">Faculty</a>
+  <a href="results.html" class="active">Results</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-nav-btns" style="margin-top:16px">
+    <a href="contact.html" class="btn btn-gold" style="justify-content:center;width:100%">Free Demo Class</a>
+  </div>
+</div>
 
 <div class="page-hero">
-  <div class="breadcrumb" style="color:rgba(255,255,255,.5)"><a href="index.html" style="color:rgba(255,255,255,.7)">Home</a><span style="color:rgba(255,255,255,.3)">›</span><span>Results</span></div>
-  <h1>Our Students' Achievements 🏆</h1>
-  <p>Real results, real students. Every rank here is a story of hard work and the right guidance.</p>
-  <div class="hero-stats">
-    <div class="hs"><div class="hs-num">200+</div><div class="hs-label">IIT Selections</div></div>
-    <div class="hs"><div class="hs-num">450+</div><div class="hs-label">NEET Qualifiers</div></div>
-    <div class="hs"><div class="hs-num">98%</div><div class="hs-label">Overall Pass Rate</div></div>
-    <div class="hs"><div class="hs-num">15,000+</div><div class="hs-label">Students Placed</div></div>
+  <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>Results</span></div>
+  <h1>Hamari Safalta Ki <span>Kahani</span></h1>
+  <p>Hamare students ne apne sapne poore kiye — yeh unki mehnat aur hamare guidance ka result hai</p>
+  <div class="hero-stats-row">
+    <div><div class="h-stat-num">200+</div><div class="h-stat-label">IIT Selections 2024</div></div>
+    <div class="h-stat-divider"></div>
+    <div><div class="h-stat-num">350+</div><div class="h-stat-label">NEET Selections 2024</div></div>
+    <div class="h-stat-divider"></div>
+    <div><div class="h-stat-num">98%</div><div class="h-stat-label">Overall Pass Rate</div></div>
+    <div class="h-stat-divider"></div>
+    <div><div class="h-stat-num">15,000+</div><div class="h-stat-label">Total Students</div></div>
   </div>
 </div>
 
 <div class="year-tabs">
-  <button class="year-btn active">2024</button>
-  <button class="year-btn">2023</button>
-  <button class="year-btn">2022</button>
-  <button class="year-btn">2021</button>
+  <button class="year-tab active" onclick="setYear('2024',this)">2024</button>
+  <button class="year-tab" onclick="setYear('2023',this)">2023</button>
+  <button class="year-tab" onclick="setYear('2022',this)">2022</button>
+  <button class="year-tab" onclick="setYear('2021',this)">2021</button>
 </div>
 
-<section class="section">
-  <!-- GROWTH CHART -->
-  <div class="chart-bar-wrap">
-    <h3>📈 Selection Growth Year by Year</h3>
-    <div class="bar-row"><div class="bar-label">JEE 2024</div><div class="bar-track"><div class="bar-fill" style="width:90%;background:linear-gradient(90deg,#7B6EE8,#7c3aed)">200+ Selections</div></div><div class="bar-val">200+</div></div>
-    <div class="bar-row"><div class="bar-label">NEET 2024</div><div class="bar-track"><div class="bar-fill" style="width:80%;background:linear-gradient(90deg,#16a34a,#059669)">450+ Qualifiers</div></div><div class="bar-val">450+</div></div>
-    <div class="bar-row"><div class="bar-label">UPSC 2024</div><div class="bar-track"><div class="bar-fill" style="width:35%;background:linear-gradient(90deg,#7c3aed,#db2777)">18 IAS/IPS</div></div><div class="bar-val">18</div></div>
-    <div class="bar-row"><div class="bar-label">SSC 2024</div><div class="bar-track"><div class="bar-fill" style="width:65%;background:linear-gradient(90deg,#d97706,#f97316)">320+ Selected</div></div><div class="bar-val">320+</div></div>
-    <div class="bar-row"><div class="bar-label">CBSE 90%+</div><div class="bar-track"><div class="bar-fill" style="width:95%;background:linear-gradient(90deg,#0891b2,#7B6EE8)">~95% Students</div></div><div class="bar-val">95%</div></div>
+<section class="section section-off">
+  <div class="section-header">
+    <div class="section-label">Top Performers</div>
+    <h2 id="resultsHeading">2024 <span>Star Students</span></h2>
+    <div class="gold-divider"></div>
   </div>
+  <div class="results-grid" id="resultsGrid"></div>
+</section>
 
-  <!-- JEE RESULTS -->
-  <div class="exam-section">
-    <div class="exam-header">
-      <div class="exam-icon" style="background:linear-gradient(135deg,#7B6EE8,#7c3aed)">JEE</div>
-      <div><div class="exam-title">JEE Advanced 2024 — Top Selections</div><div class="exam-subtitle">200+ students selected | AIR 38 is our best rank</div></div>
-    </div>
-    <div class="results-row">
-      <div class="result-card gold-card"><div class="result-rank">🥇 Rank 1 in Batch</div><div class="result-av" style="background:linear-gradient(135deg,#f59e0b,#f97316)">RV</div><div class="result-name">Rohan Verma</div><div class="result-score-badge" style="background:#f0eeff;color:#7B6EE8">AIR 38</div><div class="result-city">Nagpur, MH</div></div>
-      <div class="result-card"><div class="result-rank">AIR 71</div><div class="result-av" style="background:linear-gradient(135deg,#7B6EE8,#7c3aed)">AS</div><div class="result-name">Arjun Singh</div><div class="result-score-badge" style="background:#f0eeff;color:#7B6EE8">AIR 71</div><div class="result-city">Nagpur, MH</div></div>
-      <div class="result-card"><div class="result-rank">AIR 104</div><div class="result-av" style="background:linear-gradient(135deg,#7c3aed,#7B6EE8)">DK</div><div class="result-name">Divya Kapoor</div><div class="result-score-badge" style="background:#f0eeff;color:#7B6EE8">AIR 104</div><div class="result-city">Pune, MH</div></div>
-      <div class="result-card"><div class="result-rank">AIR 188</div><div class="result-av" style="background:linear-gradient(135deg,#0891b2,#7B6EE8)">NK</div><div class="result-name">Nikhil Kumar</div><div class="result-score-badge" style="background:#f0eeff;color:#7B6EE8">AIR 188</div><div class="result-city">Mumbai, MH</div></div>
-      <div class="result-card"><div class="result-rank">AIR 231</div><div class="result-av" style="background:linear-gradient(135deg,#7B6EE8,#0891b2)">MS</div><div class="result-name">Meera Shah</div><div class="result-score-badge" style="background:#f0eeff;color:#7B6EE8">AIR 231</div><div class="result-city">Nashik, MH</div></div>
-    </div>
+<section class="chart-section">
+  <div class="chart-header">
+    <div class="section-label">Year on Year Growth</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:var(--navy);margin-bottom:8px">Selections <span style="color:var(--gold)">Ka Safar</span></h2>
+    <div class="gold-divider"></div>
   </div>
-
-  <!-- NEET RESULTS -->
-  <div class="exam-section">
-    <div class="exam-header">
-      <div class="exam-icon" style="background:linear-gradient(135deg,#16a34a,#059669)">NEET</div>
-      <div><div class="exam-title">NEET UG 2024 — Top Scorers</div><div class="exam-subtitle">450+ qualifiers | 3 students scored 720/720</div></div>
+  <div class="chart-wrap">
+    <div class="chart-bar-row">
+      <div class="chart-label">IIT-JEE</div>
+      <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:80%"><span>200</span></div></div>
+      <div class="chart-year">2024</div>
     </div>
-    <div class="results-row">
-      <div class="result-card gold-card"><div class="result-rank">🥇 Perfect Score</div><div class="result-av" style="background:linear-gradient(135deg,#f59e0b,#16a34a)">PM</div><div class="result-name">Priya Mehta</div><div class="result-score-badge" style="background:#f0fdf4;color:#16a34a">720/720</div><div class="result-city">Nagpur, MH</div></div>
-      <div class="result-card"><div class="result-rank">Score 712</div><div class="result-av" style="background:linear-gradient(135deg,#16a34a,#059669)">SK</div><div class="result-name">Shreya Kulkarni</div><div class="result-score-badge" style="background:#f0fdf4;color:#16a34a">712/720</div><div class="result-city">Pune, MH</div></div>
-      <div class="result-card"><div class="result-rank">Score 705</div><div class="result-av" style="background:linear-gradient(135deg,#059669,#16a34a)">AP</div><div class="result-name">Aman Patel</div><div class="result-score-badge" style="background:#f0fdf4;color:#16a34a">705/720</div><div class="result-city">Aurangabad, MH</div></div>
-      <div class="result-card"><div class="result-rank">Score 698</div><div class="result-av" style="background:linear-gradient(135deg,#0891b2,#16a34a)">RD</div><div class="result-name">Riya Desai</div><div class="result-score-badge" style="background:#f0fdf4;color:#16a34a">698/720</div><div class="result-city">Nagpur, MH</div></div>
-      <div class="result-card"><div class="result-rank">Score 691</div><div class="result-av" style="background:linear-gradient(135deg,#16a34a,#0891b2)">VN</div><div class="result-name">Varun Naik</div><div class="result-score-badge" style="background:#f0fdf4;color:#16a34a">691/720</div><div class="result-city">Amravati, MH</div></div>
+    <div class="chart-bar-row">
+      <div class="chart-label">IIT-JEE</div>
+      <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:64%"><span>160</span></div></div>
+      <div class="chart-year">2023</div>
     </div>
-  </div>
-
-  <!-- BOARD RESULTS -->
-  <div class="exam-section">
-    <div class="exam-header">
-      <div class="exam-icon" style="background:linear-gradient(135deg,#f97316,#ef4444)">12</div>
-      <div><div class="exam-title">CBSE Class 12 — 2024 Board Results</div><div class="exam-subtitle">95% students scored above 90% | Topper: 99.4%</div></div>
+    <div class="chart-bar-row">
+      <div class="chart-label">NEET</div>
+      <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:100%;background:linear-gradient(90deg,#c9a84c,#e8c96a)"><span>350</span></div></div>
+      <div class="chart-year">2024</div>
     </div>
-    <div class="results-row">
-      <div class="result-card gold-card"><div class="result-rank">🥇 School Topper</div><div class="result-av" style="background:linear-gradient(135deg,#f97316,#ef4444)">AS</div><div class="result-name">Aarav Sharma</div><div class="result-score-badge" style="background:#fff7ed;color:#f97316">99.4%</div><div class="result-city">Nagpur, MH</div></div>
-      <div class="result-card"><div class="result-rank">99.0%</div><div class="result-av" style="background:linear-gradient(135deg,#ef4444,#f97316)">TM</div><div class="result-name">Tanvi More</div><div class="result-score-badge" style="background:#fff7ed;color:#f97316">99.0%</div><div class="result-city">Nagpur, MH</div></div>
-      <div class="result-card"><div class="result-rank">98.6%</div><div class="result-av" style="background:linear-gradient(135deg,#f97316,#d97706)">KJ</div><div class="result-name">Karan Jain</div><div class="result-score-badge" style="background:#fff7ed;color:#f97316">98.6%</div><div class="result-city">Wardha, MH</div></div>
-      <div class="result-card"><div class="result-rank">97.8%</div><div class="result-av" style="background:linear-gradient(135deg,#d97706,#f97316)">NP</div><div class="result-name">Neha Patil</div><div class="result-score-badge" style="background:#fff7ed;color:#f97316">97.8%</div><div class="result-city">Nagpur, MH</div></div>
-      <div class="result-card"><div class="result-rank">97.2%</div><div class="result-av" style="background:linear-gradient(135deg,#ef4444,#d97706)">SB</div><div class="result-name">Sai Bhosale</div><div class="result-score-badge" style="background:#fff7ed;color:#f97316">97.2%</div><div class="result-city">Pune, MH</div></div>
+    <div class="chart-bar-row">
+      <div class="chart-label">NEET</div>
+      <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:80%;background:linear-gradient(90deg,#c9a84c,#e8c96a)"><span>280</span></div></div>
+      <div class="chart-year">2023</div>
     </div>
-  </div>
-
-  <!-- UPSC -->
-  <div class="exam-section">
-    <div class="exam-header">
-      <div class="exam-icon" style="background:linear-gradient(135deg,#7c3aed,#db2777)">IAS</div>
-      <div><div class="exam-title">UPSC Civil Services 2024</div><div class="exam-subtitle">18 selections including IAS, IPS & IFS officers</div></div>
+    <div class="chart-bar-row">
+      <div class="chart-label">UPSC</div>
+      <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:36%;background:linear-gradient(90deg,#1a2f5a,#2a4a8a)"><span>90</span></div></div>
+      <div class="chart-year">2024</div>
     </div>
-    <div class="results-row">
-      <div class="result-card gold-card"><div class="result-rank">🥇 Best UPSC Rank</div><div class="result-av" style="background:linear-gradient(135deg,#7c3aed,#db2777)">AK</div><div class="result-name">Ananya Kulkarni</div><div class="result-score-badge" style="background:#f5f3ff;color:#7c3aed">IAS Rank 112</div><div class="result-city">Nagpur, MH</div></div>
-      <div class="result-card"><div class="result-rank">IPS</div><div class="result-av" style="background:linear-gradient(135deg,#db2777,#7c3aed)">RT</div><div class="result-name">Rajan Thakur</div><div class="result-score-badge" style="background:#f5f3ff;color:#7c3aed">IPS Rank 89</div><div class="result-city">Mumbai, MH</div></div>
-      <div class="result-card"><div class="result-rank">IFS</div><div class="result-av" style="background:linear-gradient(135deg,#7c3aed,#7B6EE8)">SG</div><div class="result-name">Sonal Gupta</div><div class="result-score-badge" style="background:#f5f3ff;color:#7c3aed">IFS Rank 204</div><div class="result-city">Pune, MH</div></div>
-      <div class="result-card"><div class="result-rank">IAS</div><div class="result-av" style="background:linear-gradient(135deg,#7B6EE8,#7c3aed)">VM</div><div class="result-name">Vikas Mishra</div><div class="result-score-badge" style="background:#f5f3ff;color:#7c3aed">IAS Rank 318</div><div class="result-city">Nagpur, MH</div></div>
-      <div class="result-card"><div class="result-rank">IPS</div><div class="result-av" style="background:linear-gradient(135deg,#7c3aed,#0891b2)">PS</div><div class="result-name">Pooja Sahu</div><div class="result-score-badge" style="background:#f5f3ff;color:#7c3aed">IPS Rank 425</div><div class="result-city">Amravati, MH</div></div>
+    <div class="chart-bar-row">
+      <div class="chart-label">UPSC</div>
+      <div class="chart-bar-bg"><div class="chart-bar-fill" style="width:28%;background:linear-gradient(90deg,#1a2f5a,#2a4a8a)"><span>70</span></div></div>
+      <div class="chart-year">2023</div>
     </div>
   </div>
 </section>
 
-<section style="padding:60px 40px;background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#2e1065 100%);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(123,110,232,.25) 0%,transparent 60%)"></div>
-  <div style="position:relative;z-index:1;max-width:700px;margin:0 auto;text-align:center">
-    <div style="display:inline-block;background:rgba(123,110,232,.2);border:1px solid rgba(123,110,232,.4);color:#a78bfa;font-size:11px;font-weight:700;padding:6px 18px;border-radius:100px;margin-bottom:20px;letter-spacing:.5px;text-transform:uppercase">Your Success Awaits</div>
-    <h2 style="font-family:'Nunito',sans-serif;font-size:38px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:14px">Be the Next <span style="color:#fbbf24">Success Story</span> 🎯</h2>
-    <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.7;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto">Join 15,000+ students who cracked JEE, NEET & UPSC with EduRise. Expert guidance, proven results.</p>
-    <div style="display:flex;justify-content:center;gap:40px;margin-bottom:36px">
-      <div style="text-align:center">
-        <div style="font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;color:#fbbf24">200+</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px">IIT Selections</div>
-      </div>
-      <div style="width:1px;background:rgba(255,255,255,.1)"></div>
-      <div style="text-align:center">
-        <div style="font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;color:#fbbf24">98%</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px">Pass Rate</div>
-      </div>
-      <div style="width:1px;background:rgba(255,255,255,.1)"></div>
-      <div style="text-align:center">
-        <div style="font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;color:#fbbf24">7-Day</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px">Free Trial</div>
-      </div>
-    </div>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="courses.html" class="btn btn-lg" style="background:#7B6EE8;color:#fff;font-weight:700;box-shadow:0 4px 20px rgba(123,110,232,.4)">Start Free Trial →</a>
-      <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.2)">Book Demo Class</a>
-    </div>
-    <p style="margin-top:18px;font-size:12px;color:rgba(255,255,255,.35)">✓ No credit card &nbsp;•&nbsp; ✓ Cancel anytime &nbsp;•&nbsp; ✓ Free study material</p>
+<section class="cta-section">
+  <h2>Aap Bhi Ban Sakte Ho <span>Hamare Next Topper</span></h2>
+  <p>15,000+ students pehle se EduRise ke saath hain — ab aapki baari hai</p>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn btn-gold btn-lg">Free Demo Book Karein</a>
+    <a href="courses.html" class="btn btn-outline-white btn-lg">Courses Dekhein</a>
   </div>
+  <div class="cta-note">No credit card &nbsp;•&nbsp; 7-Day Free Trial &nbsp;•&nbsp; Free Study Material</div>
 </section>
 
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand"><a href="index.html" class="logo" style="display:inline-flex;margin-bottom:10px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a><p>India's trusted coaching for JEE, NEET & Boards.</p></div>
-    <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="teachers.html">Teachers</a><a href="contact.html">Contact</a></div>
-    <div class="footer-col"><h4>Courses</h4><a href="courses.html">JEE</a><a href="courses.html">NEET</a><a href="courses.html">CBSE</a><a href="courses.html">UPSC</a></div>
-    <div class="footer-col"><h4>Contact</h4><a href="#">📍 Nagpur, MH</a><a href="#">📞 +91 98765 43210</a></div>
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="display:inline-flex;margin-bottom:12px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a>
+      <p>India's trusted coaching platform for JEE, NEET, UPSC & Board exams. Learn from the best, score your best.</p>
+      <div class="social-links">
+        <a class="social-link" href="#" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+        <a class="social-link" href="#" title="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2-2 9.4c-.1.6-.5.8-1 .5l-2.7-2-1.3 1.2c-.1.1-.3.2-.6.2l.2-2.8 5-4.5c.2-.2 0-.3-.3-.1L6.4 14.5 3.8 13.7c-.6-.2-.6-.6.1-.8l11.6-4.5c.5-.2 1 .1.4.8z"/></svg></a>
+        <a class="social-link" href="#" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+        <a class="social-link" href="#" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.7c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Courses</h4>
+      <a href="courses.html">JEE Preparation</a>
+      <a href="courses.html">NEET Preparation</a>
+      <a href="courses.html">CBSE Boards</a>
+      <a href="courses.html">UPSC / IAS</a>
+      <a href="courses.html">SSC / Banking</a>
+      <a href="courses.html">Foundation 9-10</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="teachers.html">Our Faculty</a>
+      <a href="results.html">Student Results</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Blog</a>
+      <a href="#">Scholarship Test</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagpur, Maharashtra</a>
+      <a href="tel:+919876543210" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>+91 98765 43210</a>
+      <a href="mailto:hello@edurise.in" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@edurise.in</a>
+      <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 9am–8pm</a>
+    </div>
   </div>
-  <div class="footer-bottom"><p>© 2025 EduRise Academy</p></div>
+  <div class="footer-bottom">
+    <p>© 2025 EduRise Academy. All rights reserved.</p>
+    <p>Privacy Policy &nbsp;•&nbsp; Terms of Service &nbsp;•&nbsp; Refund Policy</p>
+  </div>
 </footer>
+
+<script>
+const allResults = {
+  '2024': [
+    {name:'Rohan Verma',exam:'IIT-JEE',score:'AIR 38',img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',quote:'EduRise ke bina yeh possible nahi tha!'},
+    {name:'Priya Mishra',exam:'NEET UG',score:'698/720',img:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80',quote:'Mam ki biology classes ne sab badal diya.'},
+    {name:'Aarav Singh',exam:'CBSE Class 12',score:'99.4%',img:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',quote:'Best study material aur teachers!'},
+    {name:'Ananya Kapoor',exam:'UPSC',score:'AIR 112',img:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80',quote:'Vikram sir ki guidance ne IAS banaya.'},
+    {name:'Vikram Rao',exam:'GATE',score:'AIR 28',img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80',quote:'Mock tests ne confidence diya.'},
+    {name:'Sneha Joshi',exam:'NEET UG',score:'692/720',img:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80',quote:'AIIMS ka sapna poora hua!'},
+    {name:'Arjun Patel',exam:'IIT-JEE',score:'AIR 156',img:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80',quote:'Doubt sessions bahut helpful the.'},
+    {name:'Kavya Sharma',exam:'SSC CGL',score:'Rank 45',img:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80',quote:'SSC batch ne sab kuch cover kiya.'}
+  ],
+  '2023': [
+    {name:'Rahul Gupta',exam:'IIT-JEE',score:'AIR 72',img:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80',quote:'Physics sir ke notes best hain!'},
+    {name:'Divya Nair',exam:'NEET UG',score:'695/720',img:'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80',quote:'Biology classes ne sab clear kiya.'},
+    {name:'Karan Mehta',exam:'CBSE Class 12',score:'98.8%',img:'https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&q=80',quote:'Regular tests ne exam ready banaya.'},
+    {name:'Pooja Reddy',exam:'UPSC',score:'AIR 89',img:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80',quote:'Current affairs coverage excellent!'},
+    {name:'Amit Kumar',exam:'IIT-JEE',score:'AIR 203',img:'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&q=80',quote:'Maths sir ke shortcuts amazing hain.'},
+    {name:'Riya Sharma',exam:'NEET UG',score:'688/720',img:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80',quote:'EduRise ne mera MBBS dream poora kiya.'},
+    {name:'Suresh Yadav',exam:'SSC CGL',score:'Rank 12',img:'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=200&q=80',quote:'Best coaching for govt exams!'},
+    {name:'Meera Pillai',exam:'GATE',score:'AIR 45',img:'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&q=80',quote:'Technical subjects bahut clear hue.'}
+  ],
+  '2022': [
+    {name:'Nikhil Jain',exam:'IIT-JEE',score:'AIR 95',img:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',quote:'2 saal ki mehnat rang layi!'},
+    {name:'Anjali Singh',exam:'NEET UG',score:'690/720',img:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80',quote:'EduRise meri pehli choice thi.'},
+    {name:'Rohit Sharma',exam:'CBSE Class 12',score:'97.6%',img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',quote:'Study material top class hai.'},
+    {name:'Preethi Kumar',exam:'UPSC',score:'AIR 145',img:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80',quote:'Interview prep ne confidence diya.'},
+    {name:'Aditya Verma',exam:'IIT-JEE',score:'AIR 312',img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80',quote:'Online classes bahut convenient thi.'},
+    {name:'Sonal Gupta',exam:'NEET UG',score:'682/720',img:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80',quote:'Doubt sessions ne sab clear kiya.'},
+    {name:'Manish Tiwari',exam:'SSC CGL',score:'Rank 28',img:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80',quote:'Reasoning classes excellent thi.'},
+    {name:'Lakshmi Rao',exam:'GATE',score:'AIR 67',img:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80',quote:'Mock tests ne sab prepare kiya.'}
+  ],
+  '2021': [
+    {name:'Deepak Mishra',exam:'IIT-JEE',score:'AIR 128',img:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80',quote:'EduRise ne mera IIT dream diya!'},
+    {name:'Sunita Patel',exam:'NEET UG',score:'685/720',img:'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80',quote:'Best biology teacher ever!'},
+    {name:'Gaurav Sharma',exam:'CBSE Class 12',score:'96.8%',img:'https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&q=80',quote:'Regular practice ne marks badhaye.'},
+    {name:'Nisha Reddy',exam:'UPSC',score:'AIR 178',img:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80',quote:'GS coverage bahut comprehensive thi.'},
+    {name:'Rajesh Kumar',exam:'IIT-JEE',score:'AIR 445',img:'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&q=80',quote:'Chemistry sir ne sab easy banaya.'},
+    {name:'Pallavi Joshi',exam:'NEET UG',score:'678/720',img:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80',quote:'NEET batch best decision tha.'},
+    {name:'Sanjay Yadav',exam:'SSC CGL',score:'Rank 56',img:'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=200&q=80',quote:'Quant classes ne score badhaya.'},
+    {name:'Rekha Pillai',exam:'GATE',score:'AIR 89',img:'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&q=80',quote:'Subject experts se bahut seekha.'}
+  ]
+};
+
+let activeYear = '2024';
+
+function renderResults(year) {
+  const data = allResults[year];
+  document.getElementById('resultsHeading').innerHTML = year + ' <span>Star Students</span>';
+  document.getElementById('resultsGrid').innerHTML = data.map(r => `
+    <div class="result-card">
+      <div class="result-avatar"><img src="${r.img}" alt="${r.name}" loading="lazy"></div>
+      <div class="result-name">${r.name}</div>
+      <div class="result-exam">${r.exam}</div>
+      <div class="result-score">${r.score}</div>
+      <div class="result-quote">"${r.quote}"</div>
+    </div>`).join('');
+}
+
+function setYear(year, btn) {
+  activeYear = year;
+  document.querySelectorAll('.year-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderResults(year);
+}
+
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+renderResults('2024');
+</script>
 </body>
 </html>
-
-

@@ -2,177 +2,382 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>About Us — EduRise Academy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — EduRise Academy</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  .hero-dark{padding:60px 40px;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff}
-  .hero-dark h1{font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;margin-bottom:12px}
-  .hero-dark p{color:rgba(255,255,255,.65);font-size:15px;max-width:560px;line-height:1.75}
-  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-  .story-text h2{font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;margin-bottom:14px}
-  .story-text p{color:var(--text-muted);font-size:14px;line-height:1.8;margin-bottom:12px}
-  .story-visual{background:linear-gradient(135deg,#f0eeff,#f5f3ff);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border)}
-  .timeline{display:flex;flex-direction:column;gap:0}
-  .tl-item{display:flex;gap:16px;position:relative}
-  .tl-item::before{content:'';position:absolute;left:20px;top:40px;bottom:-20px;width:2px;background:var(--border)}
-  .tl-item:last-child::before{display:none}
-  .tl-dot{width:40px;height:40px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:800;flex-shrink:0;font-family:'Nunito',sans-serif;position:relative;z-index:1;box-shadow:0 0 0 4px var(--primary-light)}
-  .tl-content{padding:0 0 28px}
-  .tl-year{font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-  .tl-title{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:4px}
-  .tl-desc{font-size:12px;color:var(--text-muted);line-height:1.6}
-  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .value-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center;transition:all .2s}
-  .value-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
-  .value-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px}
-  .value-card h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);margin-bottom:8px}
-  .value-card p{font-size:13px;color:var(--text-muted);line-height:1.65}
-  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .team-card{text-align:center;cursor:pointer}
-  .team-av{width:80px;height:80px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;font-family:'Nunito',sans-serif;transition:transform .2s;box-shadow:var(--shadow)}
-  .team-card:hover .team-av{transform:scale(1.08)}
-  .team-card h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:4px}
-  .team-card p{font-size:12px;color:var(--text-muted)}
-  .recognition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .recognition-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;text-align:center}
-  .recognition-card .icon{margin-bottom:12px;display:flex;justify-content:center}
-  .recognition-card h4{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--text);margin-bottom:4px}
-  .recognition-card p{font-size:12px;color:var(--text-muted)}
+.page-hero{background:linear-gradient(135deg,#0f1f3d 0%,#162447 100%);color:#fff;padding:56px 48px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%)}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;margin-bottom:14px;position:relative}
+.page-hero h1 span{color:var(--gold)}
+.page-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:520px;position:relative}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.story-text h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:var(--navy);margin-bottom:16px}
+.story-text h2 span{color:var(--gold)}
+.story-text p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:16px}
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),var(--gold-light))}
+.timeline-item{position:relative;margin-bottom:28px}
+.timeline-dot{position:absolute;left:-24px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--white);box-shadow:0 0 0 2px var(--gold)}
+.timeline-year{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.timeline-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.timeline-desc{font-size:13px;color:var(--text-muted);line-height:1.6}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.value-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;transition:all .25s;position:relative;overflow:hidden}
+.value-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.value-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.value-card:hover::before{transform:scaleX(1)}
+.value-icon{width:52px;height:52px;border-radius:14px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.value-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.value-card p{font-size:13px;color:var(--text-muted);line-height:1.65}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;text-align:center;transition:all .25s}
+.team-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--gold)}
+.team-photo{height:200px;overflow:hidden}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
+.team-card:hover .team-photo img{transform:scale(1.05)}
+.team-body{padding:18px 16px}
+.team-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.team-role{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.team-info{font-size:12px;color:var(--text-muted)}
+.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.award-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;display:flex;gap:16px;align-items:flex-start;transition:all .25s}
+.award-card:hover{box-shadow:var(--shadow);border-color:var(--gold)}
+.award-icon{width:48px;height:48px;border-radius:12px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px}
+.award-card h4{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.award-card p{font-size:12px;color:var(--text-muted);line-height:1.5}
+.award-year{font-size:11px;font-weight:700;color:var(--gold);margin-top:6px}
+.cta-section{background:linear-gradient(135deg,var(--navy) 0%,#1a2f6a 50%,#0d1b3e 100%);padding:72px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(201,168,76,.1) 0%,transparent 65%)}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#fff;margin-bottom:14px;position:relative}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{color:rgba(255,255,255,.65);font-size:15px;margin-bottom:32px;position:relative}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-note{margin-top:18px;font-size:12px;color:rgba(255,255,255,.35);position:relative}
+@media(max-width:900px){
+  .story-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .awards-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .page-hero{padding:40px 20px}
+  .page-hero h1{font-size:30px}
+  .values-grid{grid-template-columns:1fr}
+  .awards-grid{grid-template-columns:1fr}
+  .cta-section{padding:48px 20px}
+  .cta-section h2{font-size:26px}
+}
+@media(max-width:480px){
+  .team-grid{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="logo"><div class="logo-icon">E</div><div class="logo-text"><span>Edu</span>Rise Academy</div></a>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">E</div>
+    <div class="logo-text"><span>Edu</span>Rise Academy</div>
+  </a>
   <div class="nav-links">
-    <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="teachers.html">Teachers</a><a href="results.html">Results</a><a href="about.html" class="active">About Us</a><a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="teachers.html">Faculty</a>
+    <a href="results.html">Results</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
   </div>
   <div class="nav-btns">
-    <a href="contact.html" class="btn btn-outline btn-sm">Login</a>
-    <a href="courses.html" class="btn btn-primary btn-sm">Enroll Now →</a>
+    <a href="contact.html" class="btn-demo">Free Demo</a>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-
-<div class="hero-dark">
-  <div class="breadcrumb" style="color:rgba(255,255,255,.5)"><a href="index.html" style="color:rgba(255,255,255,.7)">Home</a><span style="color:rgba(255,255,255,.3)">›</span><span>About Us</span></div>
-  <h1>Empowering India's Future Leaders</h1>
-  <p>EduRise Academy was founded with a single mission — to make world-class coaching accessible to every student, regardless of background or location.</p>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="courses.html">Courses</a>
+  <a href="teachers.html">Faculty</a>
+  <a href="results.html">Results</a>
+  <a href="about.html" class="active">About</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-nav-btns" style="margin-top:16px">
+    <a href="contact.html" class="btn btn-gold" style="justify-content:center;width:100%">Free Demo Class</a>
+  </div>
 </div>
 
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>About</span></div>
+  <h1>Hamari <span>Kahani</span></h1>
+  <p>2015 mein ek choti si classroom se shuru hua safar aaj 15,000+ students ke sapnon ka hissa ban gaya hai</p>
+</div>
 
-<!-- OUR STORY -->
-<section class="section">
+<!-- STORY + TIMELINE -->
+<section class="section section-white">
   <div class="story-grid">
     <div class="story-text">
-      <div class="section-tag" style="text-align:left">Our Story</div>
-      <h2>From a Small Classroom to India's Trusted Platform</h2>
-      <p>It started in 2018 with just 40 students and a dream — that every student in Nagpur deserves access to the same quality of coaching that students in big metros enjoy.</p>
-      <p>Our founder, a JEE topper from IIT Bombay, saw firsthand how students in Tier-2 & Tier-3 cities struggled to find quality guidance. EduRise Academy was born to bridge that gap.</p>
-      <p>Today, we've helped 15,000+ students from across Maharashtra and beyond achieve their dream ranks in JEE, NEET, UPSC, and board exams — and we're just getting started.</p>
-      <a href="contact.html" class="btn btn-primary" style="margin-top:8px">Join Our Mission →</a>
+      <div class="section-label">Our Story</div>
+      <h2>Ek Sapne Se <span>Ek Mission Tak</span></h2>
+      <div class="gold-divider" style="margin:14px 0 20px 0"></div>
+      <p>EduRise Academy ki shuruat 2015 mein Nagpur mein ek choti si classroom se hui thi. Hamare founder Rajesh Sharma — khud ek IIT topper — ne dekha ki talented students sirf sahi guidance ki kami ki wajah se peeche reh jaate hain.</p>
+      <p>Unka vision tha: ek aisa platform banao jahan har student — chahe woh kisi bhi background se ho — world-class coaching pa sake. Aaj, 10 saalon baad, hum 15,000+ students ke sapnon ka hissa hain.</p>
+      <p>Hamare 50+ expert faculty members, jo IIT, AIIMS aur top universities ke alumni hain, roz apna best dete hain taaki aapka selection pakka ho. Yeh sirf ek coaching nahi — yeh ek family hai.</p>
+      <div style="display:flex;gap:24px;margin-top:28px;flex-wrap:wrap">
+        <div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--navy)">10+</div><div style="font-size:12px;color:var(--text-muted)">Years of Excellence</div></div>
+        <div style="width:1px;background:var(--border)"></div>
+        <div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--navy)">15,000+</div><div style="font-size:12px;color:var(--text-muted)">Students Taught</div></div>
+        <div style="width:1px;background:var(--border)"></div>
+        <div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--navy)">50+</div><div style="font-size:12px;color:var(--text-muted)">Expert Faculty</div></div>
+      </div>
     </div>
-    <div class="story-visual">
-      <h3 style="font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;margin-bottom:20px">Our Journey</h3>
+    <div>
+      <div class="section-label" style="margin-bottom:20px">Our Journey</div>
       <div class="timeline">
-        <div class="tl-item"><div class="tl-dot">18</div><div class="tl-content"><div class="tl-year">2018</div><div class="tl-title">EduRise Founded</div><div class="tl-desc">Started with 40 students and 3 teachers in a small classroom in Nagpur.</div></div></div>
-        <div class="tl-item"><div class="tl-dot">20</div><div class="tl-content"><div class="tl-year">2020</div><div class="tl-title">Online Platform Launch</div><div class="tl-desc">Launched digital platform during COVID — 2,000 students enrolled within 3 months.</div></div></div>
-        <div class="tl-item"><div class="tl-dot">22</div><div class="tl-content"><div class="tl-year">2022</div><div class="tl-title">Expanded to 10+ Courses</div><div class="tl-desc">Added UPSC, SSC, Banking and Foundation batches. Crossed 8,000 students.</div></div></div>
-        <div class="tl-item"><div class="tl-dot">24</div><div class="tl-content"><div class="tl-year">2024</div><div class="tl-title">15,000+ Students Strong</div><div class="tl-desc">Best results ever — 200+ IIT & 450+ NEET selections. AI-powered tools launched.</div></div></div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2015</div>
+          <div class="timeline-title">EduRise Ki Shuruat</div>
+          <div class="timeline-desc">Nagpur mein 30 students ke saath pehli JEE batch shuru ki. Ek choti classroom, ek bada sapna.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2017</div>
+          <div class="timeline-title">NEET Batch Launch</div>
+          <div class="timeline-desc">Medical aspirants ke liye dedicated NEET batch shuru ki. Pehle saal mein 45 MBBS selections.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2019</div>
+          <div class="timeline-title">Online Platform Launch</div>
+          <div class="timeline-desc">COVID se pehle hi online classes shuru ki. Pandemic mein bhi students ki padhai nahi ruki.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2021</div>
+          <div class="timeline-title">UPSC & Govt Exams</div>
+          <div class="timeline-desc">UPSC, SSC aur Banking exams ke liye dedicated batches. Pehle saal mein 70+ selections.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2023</div>
+          <div class="timeline-title">10,000 Students Milestone</div>
+          <div class="timeline-desc">10,000 enrolled students ka milestone achieve kiya. India ke top 10 coaching institutes mein jagah banayi.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2025</div>
+          <div class="timeline-title">15,000+ Students & Growing</div>
+          <div class="timeline-desc">Aaj 15,000+ students ke saath hum India ke most trusted coaching platform hain.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- VALUES -->
-<section class="section" style="background:var(--bg)">
+<section class="section section-off">
   <div class="section-header">
-    <div class="section-tag">Our Values</div>
-    <h2>What We Stand For</h2>
-    <p>The principles that guide every decision we make at EduRise</p>
+    <div class="section-label">Our Values</div>
+    <h2>Hamare <span>Core Values</span></h2>
+    <div class="gold-divider"></div>
+    <p style="margin-top:16px">Yeh values hamare har decision, har class aur har interaction mein dikhti hain</p>
   </div>
   <div class="values-grid">
-    <div class="value-card"><div class="value-icon" style="background:#f0eeff">🎯</div><h3>Excellence First</h3><p>We never compromise on quality. Every teacher, every note, every test is crafted to the highest standard.</p></div>
-    <div class="value-card"><div class="value-icon" style="background:#f0fdf4">🤝</div><h3>Accessible Education</h3><p>World-class coaching shouldn't be a privilege. We offer scholarships, EMI options & free trials.</p></div>
-    <div class="value-card"><div class="value-icon" style="background:#fff7ed">❤️</div><h3>Student-First Mindset</h3><p>Every decision — from class timings to study material — is made with the student's success in mind.</p></div>
-    <div class="value-card"><div class="value-icon" style="background:#f5f3ff">💡</div><h3>Innovation in Learning</h3><p>AI-powered analytics, adaptive tests, and personalized insights keep us ahead of the curve.</p></div>
-    <div class="value-card"><div class="value-icon" style="background:#ecfeff">🌱</div><h3>Holistic Growth</h3><p>Beyond marks — we develop confidence, time management and problem-solving skills for life.</p></div>
-    <div class="value-card"><div class="value-icon" style="background:#fef2f2">🔒</div><h3>Trust & Transparency</h3><p>Honest pricing, genuine results, regular parent updates — no false promises, ever.</p></div>
+    <div class="value-card">
+      <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <h4>Excellence in Teaching</h4>
+      <p>Sirf padhaana nahi — samajhna. Har concept ko itna clear karo ki student khud solve kar sake.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h4>Student First</h4>
+      <p>Har decision mein student ka interest pehle. Unki success hi hamari success hai.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h4>Integrity</h4>
+      <p>Jo promise karte hain woh deliver karte hain. Koi false claims, koi shortcuts — sirf honest guidance.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <h4>Accessibility</h4>
+      <p>Quality education sirf ameer logon ke liye nahi. Scholarship programs se har student tak pahunchna.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+      <h4>Continuous Improvement</h4>
+      <p>Hum roz better hote hain — curriculum update, new technology, better teaching methods.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h4>Community</h4>
+      <p>Sirf students nahi — ek family. Peer learning, group discussions aur lifelong connections.</p>
+    </div>
   </div>
 </section>
 
-<!-- LEADERSHIP TEAM -->
-<section class="section">
+<!-- TEAM -->
+<section class="section section-white">
   <div class="section-header">
-    <div class="section-tag">Leadership Team</div>
-    <h2>The People Behind EduRise</h2>
-    <p>A passionate team of educators and technologists on a mission to transform education</p>
+    <div class="section-label">Leadership Team</div>
+    <h2>Hamare <span>Core Team</span></h2>
+    <div class="gold-divider"></div>
+    <p style="margin-top:16px">Jo log EduRise ko roz better banate hain</p>
   </div>
   <div class="team-grid">
-    <div class="team-card"><div class="team-av" style="background:linear-gradient(135deg,#7B6EE8,#7c3aed)">AK</div><h4>Amit Kumar</h4><p>Founder & CEO<br>IIT Bombay Alumnus</p></div>
-    <div class="team-card"><div class="team-av" style="background:linear-gradient(135deg,#16a34a,#059669)">RS</div><h4>Rekha Sharma</h4><p>Academic Director<br>AIIMS Delhi Alumna</p></div>
-    <div class="team-card"><div class="team-av" style="background:linear-gradient(135deg,#f97316,#ef4444)">VR</div><h4>Vinit Rao</h4><p>Head of Technology<br>IIT Madras Alumnus</p></div>
-    <div class="team-card"><div class="team-av" style="background:linear-gradient(135deg,#7c3aed,#db2777)">NJ</div><h4>Neha Joshi</h4><p>Student Success Head<br>MBA — IIM Bangalore</p></div>
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Rajesh Sharma" loading="lazy"></div>
+      <div class="team-body">
+        <div class="team-name">Rajesh Sharma</div>
+        <div class="team-role">Founder & CEO</div>
+        <div class="team-info">IIT Bombay · Ex-Google · 15 Years in EdTech</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Meera Iyer" loading="lazy"></div>
+      <div class="team-body">
+        <div class="team-name">Meera Iyer</div>
+        <div class="team-role">Academic Director</div>
+        <div class="team-info">AIIMS Delhi · 12 Years Teaching Experience</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Arjun Nair" loading="lazy"></div>
+      <div class="team-body">
+        <div class="team-name">Arjun Nair</div>
+        <div class="team-role">Head of Technology</div>
+        <div class="team-info">IIT Delhi · Ex-Microsoft · EdTech Specialist</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Priya Kapoor" loading="lazy"></div>
+      <div class="team-body">
+        <div class="team-name">Priya Kapoor</div>
+        <div class="team-role">Student Success Head</div>
+        <div class="team-info">MBA IIM-A · Student Counseling Expert</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- RECOGNITIONS -->
-<section class="section" style="background:var(--bg)">
+<!-- AWARDS -->
+<section class="section section-off">
   <div class="section-header">
-    <div class="section-tag">Awards & Recognition</div>
-    <h2>Recognized for Excellence</h2>
+    <div class="section-label">Recognition</div>
+    <h2>Hamare <span>Awards & Recognition</span></h2>
+    <div class="gold-divider"></div>
   </div>
-  <div class="recognition-grid">
-    <div class="recognition-card">
-      <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
-      <h4>Best Ed-Tech Startup 2023</h4><p>Maharashtra Startup Awards</p>
+  <div class="awards-grid">
+    <div class="award-card">
+      <div class="award-icon">&#127942;</div>
+      <div>
+        <h4>Best EdTech Startup</h4>
+        <p>India EdTech Awards mein Best Coaching Platform ka award mila</p>
+        <div class="award-year">2024</div>
+      </div>
     </div>
-    <div class="recognition-card">
-      <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B6EE8" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-      <h4>Top 50 EdTech India 2024</h4><p>Education World Magazine</p>
+    <div class="award-card">
+      <div class="award-icon">&#11088;</div>
+      <div>
+        <h4>Top Rated on Google</h4>
+        <p>4.9/5 rating with 8,000+ verified student reviews</p>
+        <div class="award-year">2024</div>
+      </div>
     </div>
-    <div class="recognition-card">
-      <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-      <h4>Best JEE Coaching — Nagpur</h4><p>Times Education Survey 2024</p>
+    <div class="award-card">
+      <div class="award-icon">&#127891;</div>
+      <div>
+        <h4>Excellence in JEE Coaching</h4>
+        <p>Maharashtra's Best JEE Coaching Institute — 3rd consecutive year</p>
+        <div class="award-year">2023</div>
+      </div>
     </div>
-    <div class="recognition-card">
-      <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/><circle cx="12" cy="12" r="3"/></svg></div>
-      <h4>Excellence in NEET Prep</h4><p>Medical Education Forum 2024</p>
+    <div class="award-card">
+      <div class="award-icon">&#128200;</div>
+      <div>
+        <h4>Fastest Growing EdTech</h4>
+        <p>Inc. India ke Top 50 Fastest Growing EdTech Companies mein shamil</p>
+        <div class="award-year">2023</div>
+      </div>
     </div>
-    <div class="recognition-card">
-      <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
-      <h4>Best Learning App 2023</h4><p>EdTech Review India</p>
+    <div class="award-card">
+      <div class="award-icon">&#129351;</div>
+      <div>
+        <h4>Best NEET Coaching</h4>
+        <p>National Medical Education Awards mein Best NEET Coaching ka award</p>
+        <div class="award-year">2022</div>
+      </div>
     </div>
-    <div class="recognition-card">
-      <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <h4>CSR Award — Free Coaching</h4><p>For underprivileged students</p>
+    <div class="award-card">
+      <div class="award-icon">&#128081;</div>
+      <div>
+        <h4>Innovation in Education</h4>
+        <p>AI-powered learning platform ke liye Education Innovation Award</p>
+        <div class="award-year">2022</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section style="padding:60px 40px;background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#2e1065 100%);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(123,110,232,.25) 0%,transparent 60%)"></div>
-  <div style="position:relative;z-index:1;max-width:700px;margin:0 auto;text-align:center">
-    <div style="display:inline-block;background:rgba(123,110,232,.2);border:1px solid rgba(123,110,232,.4);color:#a78bfa;font-size:11px;font-weight:700;padding:6px 18px;border-radius:100px;margin-bottom:20px;letter-spacing:.5px;text-transform:uppercase">Join Our Family</div>
-    <h2 style="font-family:'Nunito',sans-serif;font-size:38px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:14px">Ready to Join the <span style="color:#fbbf24">EduRise Family?</span> 🚀</h2>
-    <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.7;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto">Enroll today and take the first step towards your dream rank. 7-day free trial, no credit card needed.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="courses.html" class="btn btn-lg" style="background:#7B6EE8;color:#fff;font-weight:700;box-shadow:0 4px 20px rgba(123,110,232,.4)">Explore Courses →</a>
-      <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.2)">Contact Us</a>
-    </div>
-    <p style="margin-top:18px;font-size:12px;color:rgba(255,255,255,.35)">✓ No credit card &nbsp;•&nbsp; ✓ Cancel anytime &nbsp;•&nbsp; ✓ Free study material</p>
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Hamare Saath <span>Apna Safar Shuru Karo</span></h2>
+  <p>15,000+ students pehle se EduRise ke saath hain — ab aapki baari hai</p>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn btn-gold btn-lg">Free Demo Book Karein</a>
+    <a href="courses.html" class="btn btn-outline-white btn-lg">Courses Dekhein</a>
   </div>
+  <div class="cta-note">No credit card &nbsp;•&nbsp; 7-Day Free Trial &nbsp;•&nbsp; Free Study Material</div>
 </section>
 
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand"><a href="index.html" class="logo" style="display:inline-flex;margin-bottom:10px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a><p>India's trusted coaching for JEE, NEET & Boards.</p></div>
-    <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="results.html">Results</a><a href="contact.html">Contact</a></div>
-    <div class="footer-col"><h4>Courses</h4><a href="courses.html">JEE</a><a href="courses.html">NEET</a><a href="courses.html">CBSE</a><a href="courses.html">UPSC</a></div>
-    <div class="footer-col"><h4>Contact</h4><a href="#">📍 Nagpur, MH</a><a href="#">📞 +91 98765 43210</a></div>
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="display:inline-flex;margin-bottom:12px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a>
+      <p>India's trusted coaching platform for JEE, NEET, UPSC & Board exams. Learn from the best, score your best.</p>
+      <div class="social-links">
+        <a class="social-link" href="#" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+        <a class="social-link" href="#" title="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2-2 9.4c-.1.6-.5.8-1 .5l-2.7-2-1.3 1.2c-.1.1-.3.2-.6.2l.2-2.8 5-4.5c.2-.2 0-.3-.3-.1L6.4 14.5 3.8 13.7c-.6-.2-.6-.6.1-.8l11.6-4.5c.5-.2 1 .1.4.8z"/></svg></a>
+        <a class="social-link" href="#" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+        <a class="social-link" href="#" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.7c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Courses</h4>
+      <a href="courses.html">JEE Preparation</a>
+      <a href="courses.html">NEET Preparation</a>
+      <a href="courses.html">CBSE Boards</a>
+      <a href="courses.html">UPSC / IAS</a>
+      <a href="courses.html">SSC / Banking</a>
+      <a href="courses.html">Foundation 9-10</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="teachers.html">Our Faculty</a>
+      <a href="results.html">Student Results</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Blog</a>
+      <a href="#">Scholarship Test</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagpur, Maharashtra</a>
+      <a href="tel:+919876543210" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>+91 98765 43210</a>
+      <a href="mailto:hello@edurise.in" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@edurise.in</a>
+      <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 9am–8pm</a>
+    </div>
   </div>
-  <div class="footer-bottom"><p>© 2025 EduRise Academy</p></div>
+  <div class="footer-bottom">
+    <p>© 2025 EduRise Academy. All rights reserved.</p>
+    <p>Privacy Policy &nbsp;•&nbsp; Terms of Service &nbsp;•&nbsp; Refund Policy</p>
+  </div>
 </footer>
+<script>
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+</script>
 </body>
 </html>
-
-

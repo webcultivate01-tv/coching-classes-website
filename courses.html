@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
@@ -6,189 +6,127 @@
 <title>Courses — EduRise Academy</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  .page-hero{padding:50px 40px;background:linear-gradient(135deg,#f0eeff 0%,#f5f3ff 100%)}
-  .page-hero h1{font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;margin-bottom:8px}
-  .page-hero p{color:var(--text-muted);font-size:15px;max-width:500px;margin-bottom:22px}
-  .hero-search{display:flex;gap:10px;max-width:540px}
-  .hero-search input{flex:1;padding:12px 18px;border:1.5px solid var(--border);border-radius:var(--radius-pill);font-size:13px;font-family:'Poppins',sans-serif;outline:none}
-  .hero-search input:focus{border-color:var(--primary)}
-  .filter-bar{background:var(--white);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:sticky;top:var(--nav-h);z-index:98}
-  .filter-btn{padding:7px 18px;border-radius:var(--radius-pill);border:1.5px solid var(--border);background:#fff;font-size:12px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
-  .filter-btn:hover,.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .courses-layout{padding:28px 40px}
-  .courses-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-  .courses-topbar p{font-size:13px;color:var(--text-muted)}
-  .courses-topbar select{padding:8px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:'Poppins',sans-serif;color:var(--text);outline:none;cursor:pointer}
-  .all-courses{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .course-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all .25s;display:flex;flex-direction:column}
-  .course-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--primary)}
-  .course-thumb{height:90px;display:flex;align-items:center;justify-content:center;position:relative}
-  .course-thumb-label{position:absolute;top:10px;left:12px;background:rgba(0,0,0,.3);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;backdrop-filter:blur(4px)}
-  .course-thumb-text{font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;color:rgba(255,255,255,.9)}
-  .course-body{padding:14px;display:flex;flex-direction:column;flex:1}
-  .course-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-  .course-body h3{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:5px}
-  .course-body p{font-size:12px;color:var(--text-muted);line-height:1.6;margin-bottom:10px}
-  .course-info{display:flex;gap:12px;margin-bottom:12px;font-size:11px;color:var(--text-light);flex-wrap:wrap}
-  .course-info span{display:flex;align-items:center;gap:3px}
-  .course-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px;margin-top:auto}
-  .price-new{font-size:18px;font-weight:800;color:var(--primary);font-family:'Nunito',sans-serif}
-  .price-old{font-size:11px;color:var(--text-light);text-decoration:line-through;margin-left:4px}
-  .price-off{font-size:10px;font-weight:700;color:var(--green);background:var(--green-light);padding:2px 7px;border-radius:10px;margin-left:4px}
-  .enroll-btn{padding:8px 18px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-pill);font-size:12px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s}
-  .enroll-btn:hover{background:var(--primary-dark);transform:scale(1.03)}
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;padding:20px}
-  .modal-overlay.show{display:flex}
-  .modal{background:#fff;border-radius:var(--radius-lg);padding:28px;max-width:420px;width:100%;position:relative;max-height:90vh;overflow-y:auto}
-  .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);line-height:1}
-  .modal h3{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px}
-  .modal p{font-size:13px;color:var(--text-muted);margin-bottom:18px}
-  .modal-price{font-size:22px;font-weight:900;color:var(--primary);font-family:'Nunito',sans-serif;margin-bottom:18px}
-  .modal-features{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
-  .modal-feature{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted)}
-  .modal-feature .dot{width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0}
-  .success-msg{display:none;text-align:center;padding:20px 0}
-  .success-msg .emoji{font-size:48px;margin-bottom:12px}
-  .success-msg h3{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;color:var(--green)}
-  .success-msg p{font-size:13px;color:var(--text-muted);margin-top:6px}
+.page-hero{background:linear-gradient(135deg,#0f1f3d 0%,#162447 100%);color:#fff;padding:56px 48px;position:relative;overflow:hidden}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;margin-bottom:14px}
+.page-hero h1 span{color:var(--gold)}
+.page-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:520px;margin-bottom:28px}
+.search-bar{display:flex;max-width:480px}
+.search-bar input{flex:1;padding:14px 20px;border:none;border-radius:var(--radius-pill) 0 0 var(--radius-pill);font-family:'DM Sans',sans-serif;font-size:14px;outline:none}
+.search-bar button{padding:14px 24px;background:var(--gold);color:var(--navy);border:none;border-radius:0 var(--radius-pill) var(--radius-pill) 0;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif}
+.filter-bar{background:var(--white);border-bottom:1px solid var(--border);padding:16px 48px;position:sticky;top:70px;z-index:90;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filter-btn{padding:8px 20px;border-radius:var(--radius-pill);border:1.5px solid var(--border);background:var(--white);color:var(--text-muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
+.filter-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.filter-count{font-size:12px;color:var(--text-muted);margin-left:auto}
+.courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.course-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all .28s}
+.course-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-5px);border-color:var(--gold)}
+.course-thumb{height:170px;position:relative;overflow:hidden}
+.course-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.course-card:hover .course-thumb img{transform:scale(1.06)}
+.course-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,31,61,.75) 0%,transparent 55%);display:flex;align-items:flex-end;justify-content:space-between;padding:12px 16px}
+.course-thumb-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:#fff}
+.course-body{padding:18px}
+.course-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.course-body h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.course-body p{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
+.course-info{display:flex;gap:14px;margin-bottom:14px;font-size:12px;color:var(--text-muted);flex-wrap:wrap}
+.course-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:14px}
+.price-new{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--navy)}
+.price-old{font-size:12px;color:var(--text-light);text-decoration:line-through;margin-left:6px}
+.price-off{font-size:10px;font-weight:700;color:#16a34a;background:#f0fdf4;padding:2px 8px;border-radius:10px;margin-left:4px}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,31,61,.6);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);border-radius:var(--radius-lg);width:100%;max-width:480px;padding:36px;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted)}
+.modal h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.modal .modal-sub{font-size:13px;color:var(--text-muted);margin-bottom:24px}
+.cta-section{background:linear-gradient(135deg,var(--navy) 0%,#1a2f6a 50%,#0d1b3e 100%);padding:72px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(201,168,76,.1) 0%,transparent 65%)}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#fff;margin-bottom:14px;position:relative}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{color:rgba(255,255,255,.65);font-size:15px;margin-bottom:32px;position:relative}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-note{margin-top:18px;font-size:12px;color:rgba(255,255,255,.35);position:relative}
+@media(max-width:900px){.courses-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.page-hero{padding:40px 20px}.page-hero h1{font-size:30px}.filter-bar{padding:12px 20px;top:60px}.courses-grid{grid-template-columns:1fr}.cta-section{padding:48px 20px}.cta-section h2{font-size:26px}}
 </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="logo"><div class="logo-icon">E</div><div class="logo-text"><span>Edu</span>Rise Academy</div></a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="courses.html" class="active">Courses</a>
-    <a href="teachers.html">Teachers</a>
-    <a href="results.html">Results</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="nav-btns">
-    <a href="contact.html" class="btn btn-outline btn-sm">Login</a>
-    <a href="courses.html" class="btn btn-primary btn-sm">Enroll Now →</a>
-  </div>
+  <div class="nav-links"><a href="index.html">Home</a><a href="courses.html" class="active">Courses</a><a href="teachers.html">Faculty</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+  <div class="nav-btns"><a href="contact.html" class="btn-demo">Free Demo</a></div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
-
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>All Courses</span></div>
-  <h1>Find Your Perfect Course</h1>
-  <p>Expert-crafted programs by IIT & AIIMS alumni. Live + recorded classes, test series & doubt support included.</p>
-  <div class="hero-search">
-    <input type="text" placeholder="🔍  Search courses — JEE, NEET, CBSE..." id="searchInput" oninput="filterCourses()">
-  </div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a><a href="courses.html" class="active">Courses</a><a href="teachers.html">Faculty</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <div class="mobile-nav-btns" style="margin-top:16px"><a href="contact.html" class="btn btn-gold" style="justify-content:center;width:100%">Free Demo Class</a></div>
 </div>
-
-<!-- FILTER BAR -->
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Courses</span></div>
+  <h1>Apna Course <span>Choose Karein</span></h1>
+  <p>Har exam ke liye specially designed curriculum — JEE, NEET, UPSC, Boards aur zyada</p>
+  <div class="search-bar"><input type="text" id="searchInput" placeholder="Course search karein..." oninput="filterCourses()"><button onclick="filterCourses()">Search</button></div>
+</div>
 <div class="filter-bar">
-  <span style="font-size:12px;font-weight:600;color:var(--text-muted)">Category:</span>
   <button class="filter-btn active" onclick="setFilter('all',this)">All Courses</button>
   <button class="filter-btn" onclick="setFilter('engineering',this)">Engineering</button>
   <button class="filter-btn" onclick="setFilter('medical',this)">Medical</button>
   <button class="filter-btn" onclick="setFilter('boards',this)">Boards</button>
-  <button class="filter-btn" onclick="setFilter('government',this)">Govt Exams</button>
+  <button class="filter-btn" onclick="setFilter('govt',this)">Govt Exams</button>
   <button class="filter-btn" onclick="setFilter('foundation',this)">Foundation</button>
+  <span class="filter-count" id="filterCount">8 courses</span>
 </div>
-
-<!-- LAYOUT -->
-<div class="courses-layout">
-  <div class="courses-topbar">
-    <p id="courseCount">Showing <strong>8 courses</strong></p>
-    <select><option>Sort: Most Popular</option><option>Price: Low to High</option><option>Price: High to Low</option><option>Highest Rated</option></select>
-  </div>
-  <div class="all-courses" id="coursesGrid">
-    <!-- Cards rendered by JS -->
-  </div>
-</div>
-
-<!-- ENROLL MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="modal-content">
-      <h3 id="modal-title"></h3>
-      <p id="modal-desc"></p>
-      <div class="modal-price" id="modal-price"></div>
-      <div class="modal-features" id="modal-features"></div>
-      <div class="form-group"><label>Your Name</label><input type="text" placeholder="Enter your full name"></div>
-      <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
-      <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"></div>
-      <button class="btn btn-primary w-100" style="justify-content:center" onclick="submitEnroll()">Confirm Enrollment →</button>
-      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:10px">🔒 Secure payment • 7-day refund guarantee</p>
-    </div>
-    <div class="success-msg" id="success-msg">
-      <div class="emoji">🎉</div>
-      <h3>Enrollment Successful!</h3>
-      <p>Welcome to EduRise! Check your phone for login details within 2 hours.</p>
-      <button class="btn btn-primary" style="margin-top:16px" onclick="closeModal()">Continue →</button>
-    </div>
-  </div>
-</div>
-
-<footer style="margin-top:40px">
+<section class="section section-off"><div class="courses-grid" id="coursesGrid"></div></section>
+<section class="cta-section">
+  <h2>Abhi Enroll Karo aur <span>Apna Sapna Poora Karo</span></h2>
+  <p>15,000+ students pehle se EduRise ke saath hain</p>
+  <div class="cta-actions"><a href="contact.html" class="btn btn-gold btn-lg">Free Demo Book Karein</a><a href="about.html" class="btn btn-outline-white btn-lg">Hamare Baare Mein</a></div>
+  <div class="cta-note">No credit card &nbsp;•&nbsp; 7-Day Free Trial &nbsp;•&nbsp; Free Study Material</div>
+</section>
+<footer>
   <div class="footer-grid">
-    <div class="footer-brand"><a href="index.html" class="logo" style="display:inline-flex;margin-bottom:10px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a><p>India's trusted coaching for JEE, NEET & Boards.</p></div>
-    <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="teachers.html">Teachers</a><a href="results.html">Results</a><a href="contact.html">Contact</a></div>
-    <div class="footer-col"><h4>Courses</h4><a href="#">JEE</a><a href="#">NEET</a><a href="#">CBSE</a><a href="#">UPSC</a></div>
-    <div class="footer-col"><h4>Contact</h4><a href="#">📍 Nagpur, MH</a><a href="#">📞 +91 98765 43210</a></div>
+    <div class="footer-brand"><a href="index.html" class="logo" style="display:inline-flex;margin-bottom:12px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a><p>India's trusted coaching platform for JEE, NEET, UPSC & Board exams.</p>
+      <div class="social-links"><a class="social-link" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a><a class="social-link" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2-2 9.4c-.1.6-.5.8-1 .5l-2.7-2-1.3 1.2c-.1.1-.3.2-.6.2l.2-2.8 5-4.5c.2-.2 0-.3-.3-.1L6.4 14.5 3.8 13.7c-.6-.2-.6-.6.1-.8l11.6-4.5c.5-.2 1 .1.4.8z"/></svg></a></div>
+    </div>
+    <div class="footer-col"><h4>Courses</h4><a href="courses.html">JEE Preparation</a><a href="courses.html">NEET Preparation</a><a href="courses.html">CBSE Boards</a><a href="courses.html">UPSC / IAS</a><a href="courses.html">SSC / Banking</a></div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="teachers.html">Our Faculty</a><a href="results.html">Student Results</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact Us</h4><a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagpur, Maharashtra</a><a href="tel:+919876543210" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>+91 98765 43210</a><a href="mailto:hello@edurise.in" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@edurise.in</a></div>
   </div>
-  <div class="footer-bottom"><p>© 2025 EduRise Academy</p></div>
+  <div class="footer-bottom"><p>© 2025 EduRise Academy. All rights reserved.</p><p>Privacy Policy &nbsp;•&nbsp; Terms of Service</p></div>
 </footer>
-
+<div class="modal-overlay" id="enrollModal">
+  <div class="modal"><button class="modal-close" onclick="closeModal()">✕</button><h3 id="modalTitle">Enroll Karein</h3><p class="modal-sub">Apni details bharo — hum call karenge</p>
+    <div class="form-row"><div class="form-group"><label>Naam</label><input type="text" placeholder="Full name"></div><div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div></div>
+    <div class="form-group"><label>Email</label><input type="email" placeholder="email@example.com"></div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitEnroll(this)">Enroll Karein</button>
+  </div>
+</div>
 <script>
 const courses=[
-  {id:1,name:"JEE Mains & Advanced",cat:"engineering",thumb:"JEE",bg:"linear-gradient(135deg,#7B6EE8,#7c3aed)",badge:"badge-blue",badgeTxt:"Engineering",rating:"4.9",lectures:"500+",tests:"100+",students:"3.2k",price:"4,999",oldPrice:"8,999",off:"44",desc:"Complete JEE prep with concept videos, DPPs, test series & live mentoring by IIT alumni.",features:["500+ recorded lectures","100+ chapter tests","Live doubt sessions","IIT alumni mentors","Rank predictor tool"],label:"Trending"},
-  {id:2,name:"NEET UG Preparation",cat:"medical",thumb:"NEET",bg:"linear-gradient(135deg,#16a34a,#059669)",badge:"badge-green",badgeTxt:"Medical",rating:"4.8",lectures:"480+",tests:"90+",students:"4.1k",price:"4,499",oldPrice:"7,999",off:"44",desc:"NCERT-based Biology, Physics & Chemistry with full mock tests & AIIMS expert guidance.",features:["480+ video lectures","NCERT-based notes","AIIMS alumni teachers","Full-length mocks","Biology special batches"]},
-  {id:3,name:"Class 11 & 12 CBSE",cat:"boards",thumb:"CBSE",bg:"linear-gradient(135deg,#f97316,#ef4444)",badge:"badge-orange",badgeTxt:"Boards",rating:"4.7",lectures:"350+",tests:"60+",students:"5.8k",price:"2,999",oldPrice:"5,499",off:"45",desc:"Board mastery + JEE/NEET foundation in one integrated program for Class 11 & 12.",features:["All subjects covered","Board + competitive prep","Previous year papers","Weekly parent reports","Study material PDFs"],label:"New Batch"},
-  {id:4,name:"Class 9 & 10 Foundation",cat:"foundation",thumb:"9-10",bg:"linear-gradient(135deg,#7c3aed,#db2777)",badge:"badge-purple",badgeTxt:"Foundation",rating:"4.6",lectures:"280+",tests:"50+",students:"2.4k",price:"1,999",oldPrice:"3,499",off:"43",desc:"Strong foundation for future competitive success — Maths, Science & English.",features:["Concept clarity focus","Olympiad preparation","Critical thinking","Vedic maths module","Monthly assessments"]},
-  {id:5,name:"UPSC Civil Services",cat:"government",thumb:"UPSC",bg:"linear-gradient(135deg,#0891b2,#7B6EE8)",badge:"badge-teal",badgeTxt:"Govt Exam",rating:"4.8",lectures:"600+",tests:"80+",students:"1.8k",price:"7,999",oldPrice:"14,999",off:"47",desc:"Prelims + Mains strategy with experienced IAS mentors and comprehensive GS coverage.",features:["IAS topper mentors","Current affairs daily","CSAT preparation","Answer writing practice","Interview guidance"]},
-  {id:6,name:"SSC CGL & CHSL",cat:"government",thumb:"SSC",bg:"linear-gradient(135deg,#d97706,#f97316)",badge:"badge-orange",badgeTxt:"Govt Jobs",rating:"4.7",lectures:"300+",tests:"70+",students:"3.6k",price:"2,499",oldPrice:"4,999",off:"50",desc:"Reasoning, GK, Mathematics & English with daily practice tests and shortcut tricks.",features:["Shortcut tricks","Daily practice sets","Topic-wise analysis","Previous year papers","Current affairs"]},
-  {id:7,name:"JEE Crash Course",cat:"engineering",thumb:"JEE+",bg:"linear-gradient(135deg,#dc2626,#7c3aed)",badge:"badge-red",badgeTxt:"Crash Course",rating:"4.9",lectures:"200+",tests:"40+",students:"980",price:"1,999",oldPrice:"3,999",off:"50",desc:"60-day intensive crash course for JEE Mains with revision, high-yield chapters & mock tests.",features:["High-yield chapters only","Daily mocks","Revision booklets","Rank booster sessions","Formula sheets"],label:"Limited Seats"},
-  {id:8,name:"GATE Engineering",cat:"engineering",thumb:"GATE",bg:"linear-gradient(135deg,#0f172a,#7B6EE8)",badge:"badge-blue",badgeTxt:"Engineering",rating:"4.6",lectures:"400+",tests:"60+",students:"1.2k",price:"3,499",oldPrice:"6,999",off:"50",desc:"GATE prep for CS, EC, ME & CE branches with previous year analysis and subject experts.",features:["Branch-specific batches","Previous year solutions","Practice problems","Rank predictor","Live doubt clearing"]},
+  {id:1,cat:'engineering',title:'JEE Mains & Advanced',short:'IIT-JEE',desc:'Physics, Chemistry & Maths ke deep concepts ke saath IIT crack karein',img:'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80',badge:'TOP',catBadge:'Engineering',catClass:'badge-navy',rating:'4.9',lectures:'500+',tests:'100+',students:'3.2k',price:'4,999',oldPrice:'8,999',off:'44% OFF'},
+  {id:2,cat:'medical',title:'NEET UG Preparation',short:'NEET',desc:'Biology, Physics & Chemistry — MBBS ka sapna poora karo hamare saath',img:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',badge:'HOT',catBadge:'Medical',catClass:'badge-green',rating:'4.8',lectures:'480+',tests:'90+',students:'4.1k',price:'4,499',oldPrice:'7,999',off:'44% OFF'},
+  {id:3,cat:'boards',title:'CBSE Class 11-12',short:'CBSE',desc:'Science aur Commerce stream ke liye complete board preparation',img:'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80',badge:'',catBadge:'Boards',catClass:'badge-navy',rating:'4.7',lectures:'350+',tests:'60+',students:'5.8k',price:'2,999',oldPrice:'5,499',off:'45% OFF'},
+  {id:4,cat:'foundation',title:'Foundation 9-10',short:'Foundation',desc:'Class 9-10 ke liye strong base — future exams ki taiyari abhi se',img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80',badge:'NEW',catBadge:'Foundation',catClass:'badge-navy',rating:'4.8',lectures:'280+',tests:'50+',students:'2.1k',price:'1,999',oldPrice:'3,999',off:'50% OFF'},
+  {id:5,cat:'govt',title:'UPSC Civil Services',short:'UPSC',desc:'IAS/IPS ka sapna — Prelims se Interview tak complete guidance',img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80',badge:'',catBadge:'Govt Exam',catClass:'badge-navy',rating:'4.8',lectures:'600+',tests:'80+',students:'1.8k',price:'7,999',oldPrice:'14,999',off:'47% OFF'},
+  {id:6,cat:'govt',title:'SSC & Banking',short:'SSC',desc:'SSC CGL, CHSL, SBI PO, IBPS — sab ek jagah complete preparation',img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80',badge:'',catBadge:'Govt Exam',catClass:'badge-navy',rating:'4.6',lectures:'400+',tests:'70+',students:'3.5k',price:'3,499',oldPrice:'6,499',off:'46% OFF'},
+  {id:7,cat:'engineering',title:'JEE Crash Course',short:'JEE Crash',desc:'Last 3 months mein JEE ki taiyari — intensive revision aur mock tests',img:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',badge:'FAST',catBadge:'Engineering',catClass:'badge-navy',rating:'4.7',lectures:'200+',tests:'40+',students:'1.2k',price:'2,499',oldPrice:'4,999',off:'50% OFF'},
+  {id:8,cat:'engineering',title:'GATE Preparation',short:'GATE',desc:'Engineering graduates ke liye GATE exam — PSU aur M.Tech ka rasta',img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80',badge:'',catBadge:'Engineering',catClass:'badge-navy',rating:'4.7',lectures:'450+',tests:'65+',students:'980',price:'5,499',oldPrice:'9,999',off:'45% OFF'}
 ];
 let activeFilter='all';
-function renderCourses(){
-  const q=document.getElementById('searchInput')?.value.toLowerCase()||'';
-  const filtered=courses.filter(c=>(activeFilter==='all'||c.cat===activeFilter)&&(c.name.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q)));
-  document.getElementById('courseCount').innerHTML=`Showing <strong>${filtered.length} courses</strong>`;
-  document.getElementById('coursesGrid').innerHTML=filtered.map(c=>`
-    <div class="course-card" onclick="openModal(${c.id})">
-      <div class="course-thumb" style="background:${c.bg}">
-        ${c.label?`<div class="course-thumb-label">${c.label}</div>`:''}
-        <span class="course-thumb-text">${c.thumb}</span>
-      </div>
-      <div class="course-body">
-        <div class="course-meta"><span class="badge ${c.badge}">${c.badgeTxt}</span><span class="tag">⭐ ${c.rating}</span></div>
-        <h3>${c.name}</h3>
-        <p>${c.desc}</p>
-        <div class="course-info"><span>📚 ${c.lectures} Lectures</span><span>📝 ${c.tests} Tests</span><span>👥 ${c.students} Students</span></div>
-        <div class="course-footer">
-          <div><span class="price-new">₹${c.price}</span><span class="price-old">₹${c.oldPrice}</span><span class="price-off">${c.off}% OFF</span></div>
-          <button class="enroll-btn" onclick="event.stopPropagation();openModal(${c.id})">Enroll →</button>
-        </div>
-      </div>
-    </div>`).join('');
+function renderCourses(list){
+  document.getElementById('filterCount').textContent=list.length+' courses';
+  document.getElementById('coursesGrid').innerHTML=list.length?list.map(c=>`<div class="course-card" onclick="openModal('${c.title}')"><div class="course-thumb"><img src="${c.img}" alt="${c.title}" loading="lazy"><div class="course-thumb-overlay"><span class="course-thumb-title">${c.short}</span>${c.badge?'<span class="badge badge-gold">'+c.badge+'</span>':''}</div></div><div class="course-body"><div class="course-meta"><span class="badge ${c.catClass}">${c.catBadge}</span><span class="tag">&#9733; ${c.rating}</span></div><h3>${c.title}</h3><p>${c.desc}</p><div class="course-info"><span>&#128218; ${c.lectures}</span><span>&#128221; ${c.tests}</span><span>&#128101; ${c.students}</span></div><div class="course-footer"><div><span class="price-new">&#8377;${c.price}</span><span class="price-old">&#8377;${c.oldPrice}</span><span class="price-off">${c.off}</span></div><button class="btn btn-gold btn-sm" onclick="event.stopPropagation();openModal('${c.title}')">Enroll</button></div></div></div>`).join(''):'<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px">Koi course nahi mila.</p>';
 }
-function setFilter(f,el){activeFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderCourses()}
-function filterCourses(){renderCourses()}
-function openModal(id){
-  const c=courses.find(x=>x.id===id);
-  document.getElementById('modal-title').textContent=c.name;
-  document.getElementById('modal-desc').textContent=c.desc;
-  document.getElementById('modal-price').textContent='₹'+c.price+' /year';
-  document.getElementById('modal-features').innerHTML=c.features.map(f=>`<div class="modal-feature"><div class="dot"></div>${f}</div>`).join('');
-  document.getElementById('modal-content').style.display='block';
-  document.getElementById('success-msg').style.display='none';
-  document.getElementById('modal').classList.add('show');
-}
-function closeModal(){document.getElementById('modal').classList.remove('show')}
-function submitEnroll(){document.getElementById('modal-content').style.display='none';document.getElementById('success-msg').style.display='block'}
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
-renderCourses();
+function setFilter(cat,btn){activeFilter=cat;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');filterCourses();}
+function filterCourses(){const q=document.getElementById('searchInput').value.toLowerCase();renderCourses(courses.filter(c=>(activeFilter==='all'||c.cat===activeFilter)&&(!q||c.title.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q))));}
+function openModal(title){document.getElementById('modalTitle').textContent=title+' — Enroll Karein';document.getElementById('enrollModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('enrollModal').classList.remove('open');document.body.style.overflow='';}
+function submitEnroll(btn){btn.textContent='Submitted! We will call you soon.';btn.style.background='#16a34a';setTimeout(closeModal,2000);}
+document.getElementById('enrollModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+function toggleMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileNav').classList.toggle('open');}
+renderCourses(courses);
 </script>
 </body>
 </html>
-
-

@@ -1,116 +1,140 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EduRise Academy — Home</title>
+<title>EduRise Academy "” Home</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  /* HERO SLIDER */
-  .hero-slider{position:relative;width:100%;overflow:hidden;background:#0f172a}
-  .hero-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
-  .hero-slide{min-width:100%;height:360px;display:flex;align-items:center;justify-content:space-between;padding:0 70px;position:relative;overflow:hidden;flex-shrink:0;gap:40px}
-  .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.2) 50%,rgba(0,0,0,.4) 100%)}
-  .hero-slide-content{position:relative;z-index:2;flex:1}
-  .hero-slide-right{position:relative;z-index:2;flex:0 0 280px}
-  .hero-slide-tag{display:inline-block;background:rgba(255,255,255,.15);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:var(--radius-pill);margin-bottom:14px;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.2)}
-  .hero-slide h2{font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:10px}
-  .hero-slide h2 em{font-style:normal;color:#fbbf24}
-  .hero-slide p{color:rgba(255,255,255,.8);font-size:14px;line-height:1.7;margin-bottom:22px;max-width:440px}
-  .hero-slide-actions{display:flex;gap:12px;flex-wrap:wrap}
-  /* right card */
-  .slide-card{background:rgba(255,255,255,.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:20px;color:#fff}
-  .slide-card-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
-  .slide-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
-  .slide-stat{background:rgba(255,255,255,.1);border-radius:10px;padding:10px;text-align:center}
-  .slide-stat-num{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;line-height:1;color:#fbbf24}
-  .slide-stat-label{font-size:9px;color:rgba(255,255,255,.65);margin-top:3px}
-  .slide-features{display:flex;flex-direction:column;gap:8px}
-  .slide-feature{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.85)}
-  .slide-feature-dot{width:18px;height:18px;border-radius:50%;background:rgba(251,191,36,.25);border:1px solid rgba(251,191,36,.5);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;color:#fbbf24}
-  /* arrow buttons */
-  .slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:all .2s}
-  .slider-arrow:hover{background:rgba(255,255,255,.3)}
-  .slider-prev{left:16px}
-  .slider-next{right:16px}
-  /* dots */
-  .slider-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10}
-  .slider-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .3s;border:none;padding:0}
-  .slider-dot.active{background:#fff;width:22px;border-radius:4px}
+/* HERO */
+.hero{background:radial-gradient(ellipse at 70% 50%,#1a2f6a 0%,var(--navy) 60%);display:flex;align-items:center;justify-content:space-between;padding:80px 48px;position:relative;overflow:hidden;gap:48px}
+.hero::before{content:'';position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%)}
+.hero::after{content:'';position:absolute;right:80px;top:50%;transform:translateY(-50%);width:340px;height:340px;border-radius:50%;border:1px solid rgba(201,168,76,.1)}
+.hero-content{flex:1;position:relative;z-index:2}
+.hero-right{flex:0 0 380px;position:relative;z-index:2;height:420px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.35);color:var(--gold);padding:8px 18px;border-radius:var(--radius-pill);font-size:13px;font-weight:600;margin-bottom:28px}
+.hero h1{font-family:'Playfair Display',serif;font-size:58px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:rgba(255,255,255,.7);font-size:16px;line-height:1.75;margin-bottom:36px;max-width:500px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap}
+.h-stat-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:#fff;line-height:1}
+.h-stat-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:3px}
+.h-stat-divider{width:1px;background:rgba(255,255,255,.15);align-self:stretch}
+/* hero right visual */
+.hero-img-main{width:240px;height:320px;border-radius:20px;object-fit:cover;object-position:center top;position:absolute;right:0;top:0;border:3px solid rgba(201,168,76,.35);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.hero-img-secondary{width:155px;height:195px;border-radius:16px;object-fit:cover;object-position:center top;position:absolute;left:0;bottom:0;border:3px solid rgba(201,168,76,.35);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.hero-float-card{position:absolute;left:10px;top:24px;background:rgba(15,31,61,.75);backdrop-filter:blur(12px);border:1px solid rgba(201,168,76,.35);border-radius:14px;padding:12px 16px}
+.hero-float-card2{position:absolute;right:-8px;bottom:50px;background:rgba(201,168,76,.18);backdrop-filter:blur(12px);border:1px solid rgba(201,168,76,.45);border-radius:14px;padding:12px 16px}
+.hfc-label{font-size:10px;color:rgba(255,255,255,.55);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:3px}
+.hfc-value{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:#fff;line-height:1}
+.hfc-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.hero-center-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--gold);color:var(--navy);font-size:11px;font-weight:800;padding:7px 14px;border-radius:var(--radius-pill);white-space:nowrap;box-shadow:0 4px 16px rgba(201,168,76,.5)}
+.scroll-btn{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-  /* MARQUEE */
-  .marquee-wrap{background:var(--primary);padding:14px 0;overflow:hidden}
-  .marquee{display:flex;gap:0;animation:marquee 20s linear infinite;white-space:nowrap}
-  .marquee-item{padding:0 32px;color:rgba(255,255,255,.85);font-size:13px;font-weight:500;border-right:1px solid rgba(255,255,255,.2)}
-  .marquee-item span{color:#fff;font-weight:700}
-  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* COURSES */
+.courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.courses-grid > a{display:contents}
+.course-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all .28s}
+.course-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-5px);border-color:var(--gold)}
+.course-thumb{height:190px;position:relative;overflow:hidden}
+.course-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.course-card:hover .course-thumb img{transform:scale(1.06)}
+.course-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,31,61,.75) 0%,rgba(15,31,61,.1) 60%,transparent 100%);display:flex;align-items:flex-end;padding:14px 16px}
+.course-thumb-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.course-thumb-badge{position:absolute;top:12px;right:12px;background:var(--gold);color:var(--navy);font-size:10px;font-weight:800;padding:4px 12px;border-radius:var(--radius-pill);letter-spacing:.3px}
+.course-body{padding:16px 18px}
+.course-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.course-body h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.course-body p{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
+.course-info{display:flex;gap:12px;margin-bottom:14px;font-size:11px;color:var(--text-muted)}
+.course-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px}
+.price-new{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--navy)}
+.price-old{font-size:12px;color:var(--text-light);text-decoration:line-through;margin-left:6px}
+.price-off{font-size:10px;font-weight:700;color:#16a34a;background:#f0fdf4;padding:2px 8px;border-radius:10px;margin-left:4px}
 
-  /* COURSES SECTION */
-  .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .course-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all .25s}
-  .course-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
-  /* course thumb image */
-  .course-thumb{height:160px;position:relative;overflow:hidden}
-  .course-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-  .course-card:hover .course-thumb img{transform:scale(1.06)}
-  .course-thumb-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;padding:10px 14px;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 60%)}
-  .course-thumb-title{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:#fff}
-  .thumb-label{background:rgba(255,255,255,.2);backdrop-filter:blur(4px);color:#fff;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.3)}
-  .course-body{padding:16px}
-  .course-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-  .course-body h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);margin-bottom:6px}
-  .course-body p{font-size:12px;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
-  .course-info{display:flex;gap:14px;margin-bottom:14px;font-size:11px;color:var(--text-muted)}
-  .course-info span{display:flex;align-items:center;gap:4px}
-  .course-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px}
-  .course-price{display:flex;align-items:baseline;gap:6px}
-  .course-price .price-new{font-size:18px;font-weight:800;color:var(--primary);font-family:'Nunito',sans-serif}
-  .course-price .price-old{font-size:12px;color:var(--text-light);text-decoration:line-through}
-  .course-price .price-off{font-size:10px;font-weight:700;color:var(--green);background:var(--green-light);padding:2px 7px;border-radius:10px}
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.why-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;transition:all .25s;position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.why-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.why-card:hover::before{transform:scaleX(1)}
+.why-icon{width:52px;height:52px;border-radius:14px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.why-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.why-card p{font-size:13px;color:var(--text-muted);line-height:1.65}
 
-  /* WHY US */
-  .why-bg{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);padding:60px 40px}
-  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);overflow:hidden;transition:all .25s}
-  .why-card:hover{background:rgba(123,110,232,.15);border-color:rgba(123,110,232,.4);transform:translateY(-3px)}
-  .why-card-img{width:100%;height:110px;object-fit:cover;display:block;opacity:.85;transition:opacity .3s}
-  .why-card:hover .why-card-img{opacity:1}
-  .why-card-body{padding:16px}
-  .why-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
-  .why-card h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px;font-family:'Nunito',sans-serif}
-  .why-card p{font-size:11px;color:rgba(255,255,255,.5);line-height:1.6}
+/* FACULTY */
+.faculty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.faculty-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;text-align:center;transition:all .25s;cursor:pointer}
+.faculty-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--gold)}
+.faculty-photo{height:200px;overflow:hidden;position:relative}
+.faculty-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
+.faculty-card:hover .faculty-photo img{transform:scale(1.05)}
+.faculty-body{padding:18px 16px}
+.faculty-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.faculty-subject{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.faculty-info{font-size:12px;color:var(--text-muted)}
 
-  /* RESULTS */
-  .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;text-align:center;transition:all .2s}
-  .result-card:hover{box-shadow:var(--shadow);border-color:var(--primary)}
-  .result-avatar{width:60px;height:60px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;font-family:'Nunito',sans-serif}
-  .result-name{font-size:14px;font-weight:700;color:var(--text);font-family:'Nunito',sans-serif}
-  .result-exam{font-size:11px;color:var(--text-muted);margin-bottom:8px}
-  .result-score{font-size:13px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-block}
-
-/* ── TESTIMONIALS ── */
+/* TESTIMONIALS */
 .testi-slider-wrap{position:relative}
-.testi-track{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;transition:opacity .4s}
-.testi-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;transition:all .2s}
-.testi-card:hover{box-shadow:var(--shadow);border-color:var(--border)}
-.testi-stars{color:#f59e0b;font-size:14px;margin-bottom:12px}
-.testi-text{font-size:13px;color:var(--text-muted);line-height:1.75;margin-bottom:16px;font-style:italic}
-.testi-author{display:flex;align-items:center;gap:10px}
-.testi-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
-.testi-name{font-size:13px;font-weight:600;color:var(--text);font-family:'Nunito',sans-serif}
-.testi-course{font-size:11px;color:var(--text-muted)}
-.testi-dots{display:flex;justify-content:center;gap:7px;margin-top:24px}
-.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:all .3s;padding:0}
-.testi-dot.active{background:var(--primary);width:22px;border-radius:4px}
+.testi-track{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.testi-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;transition:all .2s}
+.testi-card:hover{box-shadow:var(--shadow);border-color:var(--gold)}
+.testi-stars{color:var(--gold);font-size:15px;margin-bottom:14px;letter-spacing:2px}
+.testi-text{font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:18px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;font-family:'Playfair Display',serif}
+.testi-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--navy)}
+.testi-course{font-size:12px;color:var(--text-muted)}
+.testi-dots{display:flex;justify-content:center;gap:7px;margin-top:28px}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border-dark);border:none;cursor:pointer;transition:all .3s;padding:0}
+.testi-dot.active{background:var(--gold);width:24px;border-radius:4px}
 
-  /* CTA */
-  .cta-wrap{background:linear-gradient(135deg,var(--primary) 0%,var(--purple) 100%);border-radius:var(--radius-lg);margin:0 40px;padding:50px;text-align:center;position:relative;overflow:hidden}
-  .cta-wrap::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-  .cta-wrap h2{font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;color:#fff;margin-bottom:10px;position:relative}
-  .cta-wrap p{color:rgba(255,255,255,.8);font-size:15px;margin-bottom:28px;position:relative}
-  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
-  .cta-note{margin-top:16px;font-size:12px;color:rgba(255,255,255,.6);position:relative}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-info-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
+.contact-icon-wrap{width:44px;height:44px;border-radius:12px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon-wrap svg{width:20px;height:20px;color:var(--gold)}
+.contact-info-item h4{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.contact-info-item p{font-size:13px;color:var(--text-muted)}
+
+/* CTA SECTION */
+.cta-section{background:linear-gradient(135deg,var(--navy) 0%,#1a2f6a 50%,#0d1b3e 100%);padding:72px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(201,168,76,.1) 0%,transparent 65%)}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#fff;margin-bottom:14px;position:relative}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{color:rgba(255,255,255,.65);font-size:15px;margin-bottom:32px;position:relative}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-note{margin-top:18px;font-size:12px;color:rgba(255,255,255,.35);position:relative}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--gold);padding:12px 0;overflow:hidden}
+.marquee{display:flex;animation:marquee 22s linear infinite;white-space:nowrap}
+.marquee-item{padding:0 28px;color:var(--navy);font-size:13px;font-weight:600;border-right:1px solid rgba(15,31,61,.2)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+@media(max-width:900px){
+  .courses-grid{grid-template-columns:repeat(2,1fr)}
+  .faculty-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .hero{padding:48px 20px;min-height:auto}
+  .hero h1{font-size:36px}
+  .hero-stats{gap:20px}
+  .courses-grid{grid-template-columns:1fr}
+  .faculty-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr}
+  .testi-track{grid-template-columns:1fr}
+  .cta-section{padding:48px 20px}
+  .cta-section h2{font-size:26px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:28px}
+  .faculty-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -124,187 +148,87 @@
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
     <a href="courses.html">Courses</a>
-    <a href="teachers.html">Teachers</a>
+    <a href="teachers.html">Faculty</a>
     <a href="results.html">Results</a>
-    <a href="about.html">About Us</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
   <div class="nav-btns">
-    <a href="contact.html" class="btn btn-outline btn-sm">Login</a>
-    <a href="courses.html" class="btn btn-primary btn-sm">Enroll Now →</a>
+    <a href="contact.html" class="btn-demo">Free Demo</a>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-
-<!-- HERO SLIDER -->
-<div class="hero-slider" id="heroSlider">
-  <div class="hero-track" id="heroTrack">
-
-    <!-- Slide 1 -->
-    <div class="hero-slide" style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#7B6EE8 100%)">
-      <div class="hero-slide-content">
-        <div class="hero-slide-tag">🏆 India's #1 Coaching Platform</div>
-        <h2>Crack <em>JEE & NEET</em><br>with Confidence</h2>
-        <p>Live classes by IIT & AIIMS alumni. 200+ IIT selections in 2024. Start your journey today.</p>
-        <div class="hero-slide-actions">
-          <a href="courses.html" class="btn btn-primary btn-lg">Explore Courses →</a>
-          <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">Free Demo Class</a>
-        </div>
-      </div>
-      <div class="hero-slide-right">
-        <div class="slide-card">
-          <div class="slide-card-title">🚀 2024 Highlights</div>
-          <div class="slide-stats">
-            <div class="slide-stat"><div class="slide-stat-num">200+</div><div class="slide-stat-label">IIT Selections</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">98%</div><div class="slide-stat-label">Pass Rate</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">15k+</div><div class="slide-stat-label">Students</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">50+</div><div class="slide-stat-label">Educators</div></div>
-          </div>
-          <div class="slide-features">
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Live + Recorded Classes</div>
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Daily Practice Tests</div>
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>7-Day Free Trial</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="hero-slide" style="background:linear-gradient(135deg,#064e3b 0%,#065f46 50%,#16a34a 100%)">
-      <div class="hero-slide-content">
-        <div class="hero-slide-tag">🏥 NEET 2025 Batches Open</div>
-        <h2>Score <em>700+</em> in NEET<br>with Expert Guidance</h2>
-        <p>NCERT-based Biology, Physics & Chemistry. Full mock tests. AIIMS alumni faculty.</p>
-        <div class="hero-slide-actions">
-          <a href="courses.html" class="btn btn-lg" style="background:#fff;color:#16a34a;font-weight:700">Enroll Now →</a>
-          <a href="results.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">See Results</a>
-        </div>
-      </div>
-      <div class="hero-slide-right">
-        <div class="slide-card">
-          <div class="slide-card-title">🏥 NEET 2024 Results</div>
-          <div class="slide-stats">
-            <div class="slide-stat"><div class="slide-stat-num">450+</div><div class="slide-stat-label">NEET Qualifiers</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">698</div><div class="slide-stat-label">Top Score</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">3</div><div class="slide-stat-label">720/720 Scores</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">4.9★</div><div class="slide-stat-label">Faculty Rating</div></div>
-          </div>
-          <div class="slide-features">
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>NCERT Mastery Method</div>
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>90+ Full Mock Tests</div>
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>24/7 Doubt Support</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="hero-slide" style="background:linear-gradient(135deg,#431407 0%,#9a3412 50%,#f97316 100%)">
-      <div class="hero-slide-content">
-        <div class="hero-slide-tag">📚 New Batch — Class 11 & 12</div>
-        <h2>CBSE Boards + <em>JEE/NEET</em><br>Integrated Program</h2>
-        <p>Score 95%+ in boards while preparing for competitive exams simultaneously.</p>
-        <div class="hero-slide-actions">
-          <a href="courses.html" class="btn btn-lg" style="background:#fff;color:#f97316;font-weight:700">View Batches →</a>
-          <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">Book Free Demo</a>
-        </div>
-      </div>
-      <div class="hero-slide-right">
-        <div class="slide-card">
-          <div class="slide-card-title">📊 Board Results 2024</div>
-          <div class="slide-stats">
-            <div class="slide-stat"><div class="slide-stat-num">99.4%</div><div class="slide-stat-label">Top Score</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">5.8k</div><div class="slide-stat-label">Students</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">350+</div><div class="slide-stat-label">Lectures</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">45%</div><div class="slide-stat-label">Fee Discount</div></div>
-          </div>
-          <div class="slide-features">
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Boards + JEE/NEET Together</div>
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>PDF Notes Included</div>
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Parent Dashboard</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 4 -->
-    <div class="hero-slide" style="background:linear-gradient(135deg,#1e1b4b 0%,#3730a3 50%,#7c3aed 100%)">
-      <div class="hero-slide-content">
-        <div class="hero-slide-tag">🎓 UPSC / SSC / Banking</div>
-        <h2>Clear <em>Government Exams</em><br>on Your First Attempt</h2>
-        <p>Expert faculty, current affairs, answer writing & full-length mock tests. Rank 112 IAS in 2024.</p>
-        <div class="hero-slide-actions">
-          <a href="courses.html" class="btn btn-lg" style="background:#fff;color:#7c3aed;font-weight:700">Start Preparing →</a>
-          <a href="teachers.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">Meet Teachers</a>
-        </div>
-      </div>
-      <div class="hero-slide-right">
-        <div class="slide-card">
-          <div class="slide-card-title">🏛️ Gov Exam Results 2024</div>
-          <div class="slide-stats">
-            <div class="slide-stat"><div class="slide-stat-num">Rank 112</div><div class="slide-stat-label">IAS Topper</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">200+</div><div class="slide-stat-label">SSC Selections</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">10yr</div><div class="slide-stat-label">Avg Experience</div></div>
-            <div class="slide-stat"><div class="slide-stat-num">4.7★</div><div class="slide-stat-label">Rating</div></div>
-          </div>
-          <div class="slide-features">
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Current Affairs Daily</div>
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Answer Writing Practice</div>
-            <div class="slide-feature"><div class="slide-feature-dot">✓</div>Full Mock Test Series</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" class="active">Home</a>
+  <a href="courses.html">Courses</a>
+  <a href="teachers.html">Faculty</a>
+  <a href="results.html">Results</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-nav-btns" style="margin-top:16px">
+    <a href="contact.html" class="btn btn-gold" style="justify-content:center;width:100%">Free Demo Class</a>
   </div>
-
-  <!-- Arrows -->
-  <button class="slider-arrow slider-prev" onclick="heroSlide(-1)">&#8249;</button>
-  <button class="slider-arrow slider-next" onclick="heroSlide(1)">&#8250;</button>
-
-  <!-- Dots -->
-  <div class="slider-dots" id="sliderDots"></div>
 </div>
 
-<script>
-(function(){
-  let cur=0, total=4, timer;
-  const track=document.getElementById('heroTrack');
-  const dotsWrap=document.getElementById('sliderDots');
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">★ India's Top Coaching Institute</div>
+    <h1>Apna Sapna<br><span>Haqeeqat Banao</span></h1>
+    <p>Expert faculty, proven strategies aur personalized guidance ke saath apna selection ensure karo "” IIT, NEET, UPSC, ya Banking.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn btn-gold btn-lg">Free Demo Class</a>
+      <a href="courses.html" class="btn btn-outline-white btn-lg">Courses Dekhein</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="h-stat-num">12,000+</div><div class="h-stat-label">Students Enrolled</div></div>
+      <div class="h-stat-divider"></div>
+      <div><div class="h-stat-num">98%</div><div class="h-stat-label">Success Rate</div></div>
+      <div class="h-stat-divider"></div>
+      <div><div class="h-stat-num">50+</div><div class="h-stat-label">Expert Faculty</div></div>
+    </div>
+  </div>
 
-  // build dots
-  for(let i=0;i<total;i++){
-    const d=document.createElement('button');
-    d.className='slider-dot'+(i===0?' active':'');
-    d.onclick=()=>goTo(i);
-    dotsWrap.appendChild(d);
-  }
+  <!-- RIGHT VISUAL -->
+  <div class="hero-right">
+    <img class="hero-img-main" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&q=80" alt="Students studying">
+    <img class="hero-img-secondary" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&q=80" alt="Classroom">
+    <!-- Float card 1 -->
+    <div class="hero-float-card">
+      <div class="hfc-label">ðŸ† JEE 2024</div>
+      <div class="hfc-value">AIR 38</div>
+      <div class="hfc-sub">Rohan Verma</div>
+    </div>
+    <!-- Float card 2 -->
+    <div class="hero-float-card2">
+      <div class="hfc-label">ðŸ¥ NEET 2024</div>
+      <div class="hfc-value">698/720</div>
+      <div class="hfc-sub">Priya Mehta</div>
+    </div>
+    <!-- Center badge -->
+    <div class="hero-center-badge">â­ 4.9 Rating · 8k+ Reviews</div>
+  </div>
 
-  function goTo(n){
-    cur=(n+total)%total;
-    track.style.transform=`translateX(-${cur*100}%)`;
-    document.querySelectorAll('.slider-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
-  }
-
-  window.heroSlide=function(dir){clearInterval(timer);goTo(cur+dir);startAuto();}
-
-  function startAuto(){timer=setInterval(()=>goTo(cur+1),4500);}
-  startAuto();
-})();
-</script>
+  <div class="scroll-btn" onclick="document.querySelector('.marquee-wrap').scrollIntoView({behavior:'smooth'})">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
 
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee">
-    <div class="marquee-item">🎉 JEE 2024 — <span>AIR 38</span> Rohan V.</div>
-    <div class="marquee-item">🏥 NEET 2024 — <span>Score 698</span> Priya M.</div>
-    <div class="marquee-item">🎓 CBSE Class 12 — <span>99.4%</span> Aarav S.</div>
-    <div class="marquee-item">🏆 UPSC 2024 — <span>Rank 112</span> Ananya K.</div>
-    <div class="marquee-item">⚙️ GATE 2024 — <span>AIR 28</span> Vikram R.</div>
-    <div class="marquee-item">🎉 JEE 2024 — <span>AIR 38</span> Rohan V.</div>
-    <div class="marquee-item">🏥 NEET 2024 — <span>Score 698</span> Priya M.</div>
-    <div class="marquee-item">🎓 CBSE Class 12 — <span>99.4%</span> Aarav S.</div>
-    <div class="marquee-item">🏆 UPSC 2024 — <span>Rank 112</span> Ananya K.</div>
-    <div class="marquee-item">⚙️ GATE 2024 — <span>AIR 28</span> Vikram R.</div>
+    <div class="marquee-item">ðŸŽ‰ JEE 2024 "” AIR 38 Rohan V.</div>
+    <div class="marquee-item">ðŸ¥ NEET 2024 "” Score 698 Priya M.</div>
+    <div class="marquee-item">ðŸŽ“ CBSE Class 12 "” 99.4% Aarav S.</div>
+    <div class="marquee-item">ðŸ† UPSC 2024 "” Rank 112 Ananya K.</div>
+    <div class="marquee-item">âš™ï¸ GATE 2024 "” AIR 28 Vikram R.</div>
+    <div class="marquee-item">ðŸŽ‰ JEE 2024 "” AIR 38 Rohan V.</div>
+    <div class="marquee-item">ðŸ¥ NEET 2024 "” Score 698 Priya M.</div>
+    <div class="marquee-item">ðŸŽ“ CBSE Class 12 "” 99.4% Aarav S.</div>
+    <div class="marquee-item">ðŸ† UPSC 2024 "” Rank 112 Ananya K.</div>
+    <div class="marquee-item">âš™ï¸ GATE 2024 "” AIR 28 Vikram R.</div>
   </div>
 </div>
 
@@ -315,11 +239,11 @@
     <div class="stat-num">15,000+</div><div class="stat-label">Active Students</div>
   </div>
   <div class="stat-item">
-    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h4M7 12h2"/><circle cx="15" cy="10" r="2"/></svg>
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
     <div class="stat-num">50+</div><div class="stat-label">Expert Educators</div>
   </div>
   <div class="stat-item">
-    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/></svg>
     <div class="stat-num">200+</div><div class="stat-label">IIT Selections 2024</div>
   </div>
   <div class="stat-item">
@@ -329,277 +253,291 @@
 </div>
 
 <!-- COURSES -->
-<section class="section">
+<section class="section section-off">
   <div class="section-header">
-    <div class="section-tag">Popular Courses</div>
-    <h2>Choose Your Path to Success</h2>
-    <p>Comprehensive programs for every goal — from school boards to top competitive exams</p>
+    <div class="section-label">Our Programs</div>
+    <h2>Choose Your <span>Perfect Course</span></h2>
+    <div class="gold-divider"></div>
+    <p style="margin-top:16px">Expert-designed programs for every competitive exam "” from school boards to top government exams</p>
   </div>
   <div class="courses-grid">
     <a href="courses.html" style="text-decoration:none">
-    <div class="course-card card card-hover-blue">
+    <div class="course-card">
       <div class="course-thumb">
-        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80" alt="JEE Preparation">
-        <div class="course-thumb-overlay">
-          <span class="course-thumb-title">JEE</span>
-          <span class="thumb-label">Trending</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80" alt="JEE">
+        <div class="course-thumb-overlay"><span class="course-thumb-title">IIT-JEE</span></div><div class="course-thumb-badge">TOP</div>
       </div>
       <div class="course-body">
-        <div class="course-meta"><span class="badge badge-blue">Engineering</span><span class="tag">⭐ 4.9</span></div>
+        <div class="course-meta"><span class="badge badge-navy">Engineering</span><span class="tag">â­ 4.9</span></div>
         <h3>JEE Mains & Advanced</h3>
-        <p>Complete prep with concept videos, DPPs, test series & live mentoring.</p>
-        <div class="course-info"><span>📚 500+ Lectures</span><span>📝 100+ Tests</span><span>👥 3.2k Students</span></div>
+        <p>Complete preparation with concept videos, DPPs, test series & live mentoring by IIT alumni.</p>
+        <div class="course-info"><span>ðŸ“š 500+ Lectures</span><span>ðŸ“ 100+ Tests</span><span>ðŸ‘¥ 3.2k Students</span></div>
         <div class="course-footer">
-          <div class="course-price"><span class="price-new">₹4,999</span><span class="price-old">₹8,999</span><span class="price-off">44% OFF</span></div>
-          <span class="btn btn-primary btn-sm">Enroll</span>
+          <div><span class="price-new">â‚¹4,999</span><span class="price-old">â‚¹8,999</span><span class="price-off">44% OFF</span></div>
+          <a href="courses.html" class="btn btn-gold btn-sm">Enroll</a>
         </div>
       </div>
     </div></a>
+
     <a href="courses.html" style="text-decoration:none">
-    <div class="course-card card card-hover-blue">
+    <div class="course-card">
       <div class="course-thumb">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="NEET Preparation">
-        <div class="course-thumb-overlay">
-          <span class="course-thumb-title">NEET</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="NEET">
+        <div class="course-thumb-overlay"><span class="course-thumb-title">NEET</span></div><div class="course-thumb-badge">HOT</div>
       </div>
       <div class="course-body">
-        <div class="course-meta"><span class="badge badge-green">Medical</span><span class="tag">⭐ 4.8</span></div>
+        <div class="course-meta"><span class="badge badge-green">Medical</span><span class="tag">â­ 4.8</span></div>
         <h3>NEET UG Preparation</h3>
-        <p>Biology, Physics & Chemistry — NCERT-based with full mock tests.</p>
-        <div class="course-info"><span>📚 480+ Lectures</span><span>📝 90+ Tests</span><span>👥 4.1k Students</span></div>
+        <p>NCERT-based Biology, Physics & Chemistry with full mock tests and AIIMS expert guidance.</p>
+        <div class="course-info"><span>ðŸ“š 480+ Lectures</span><span>ðŸ“ 90+ Tests</span><span>ðŸ‘¥ 4.1k Students</span></div>
         <div class="course-footer">
-          <div class="course-price"><span class="price-new">₹4,499</span><span class="price-old">₹7,999</span><span class="price-off">44% OFF</span></div>
-          <span class="btn btn-primary btn-sm">Enroll</span>
+          <div><span class="price-new">â‚¹4,499</span><span class="price-old">â‚¹7,999</span><span class="price-off">44% OFF</span></div>
+          <a href="courses.html" class="btn btn-gold btn-sm">Enroll</a>
         </div>
       </div>
     </div></a>
+
     <a href="courses.html" style="text-decoration:none">
-    <div class="course-card card card-hover-blue">
+    <div class="course-card">
       <div class="course-thumb">
-        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80" alt="CBSE Boards">
-        <div class="course-thumb-overlay">
-          <span class="course-thumb-title">CBSE</span>
-          <span class="thumb-label">New Batch</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80" alt="CBSE">
+        <div class="course-thumb-overlay"><span class="course-thumb-title">CBSE</span></div><div class="course-thumb-badge">NEW</div>
       </div>
       <div class="course-body">
-        <div class="course-meta"><span class="badge badge-orange">Boards</span><span class="tag">⭐ 4.7</span></div>
-        <h3>Class 11th & 12th CBSE</h3>
-        <p>Board mastery with integrated competitive exam preparation.</p>
-        <div class="course-info"><span>📚 350+ Lectures</span><span>📝 60+ Tests</span><span>👥 5.8k Students</span></div>
+        <div class="course-meta"><span class="badge badge-navy">Boards</span><span class="tag">â­ 4.7</span></div>
+        <h3>Class 11 & 12 CBSE</h3>
+        <p>Board mastery with integrated competitive exam preparation for Science & Commerce streams.</p>
+        <div class="course-info"><span>ðŸ“š 350+ Lectures</span><span>ðŸ“ 60+ Tests</span><span>ðŸ‘¥ 5.8k Students</span></div>
         <div class="course-footer">
-          <div class="course-price"><span class="price-new">₹2,999</span><span class="price-old">₹5,499</span><span class="price-off">45% OFF</span></div>
-          <span class="btn btn-primary btn-sm">Enroll</span>
+          <div><span class="price-new">â‚¹2,999</span><span class="price-old">â‚¹5,499</span><span class="price-off">45% OFF</span></div>
+          <a href="courses.html" class="btn btn-gold btn-sm">Enroll</a>
+        </div>
+      </div>
+    </div></a>
+
+    <a href="courses.html" style="text-decoration:none">
+    <div class="course-card">
+      <div class="course-thumb">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="UPSC">
+        <div class="course-thumb-overlay"><span class="course-thumb-title">UPSC</span></div>
+      </div>
+      <div class="course-body">
+        <div class="course-meta"><span class="badge badge-navy">Govt Exam</span><span class="tag">â­ 4.8</span></div>
+        <h3>UPSC Civil Services</h3>
+        <p>Complete Prelims to Interview preparation with experienced IAS mentors and daily current affairs.</p>
+        <div class="course-info"><span>ðŸ“š 600+ Lectures</span><span>ðŸ“ 80+ Tests</span><span>ðŸ‘¥ 1.8k Students</span></div>
+        <div class="course-footer">
+          <div><span class="price-new">â‚¹7,999</span><span class="price-old">â‚¹14,999</span><span class="price-off">47% OFF</span></div>
+          <a href="courses.html" class="btn btn-gold btn-sm">Enroll</a>
+        </div>
+      </div>
+    </div></a>
+
+    <a href="courses.html" style="text-decoration:none">
+    <div class="course-card">
+      <div class="course-thumb">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="SSC Banking">
+        <div class="course-thumb-overlay"><span class="course-thumb-title">SSC</span></div>
+      </div>
+      <div class="course-body">
+        <div class="course-meta"><span class="badge badge-navy">Govt Jobs</span><span class="tag">â­ 4.6</span></div>
+        <h3>SSC & Banking</h3>
+        <p>SSC CGL, CHSL, SBI PO, IBPS "” complete preparation with shortcut tricks and daily practice sets.</p>
+        <div class="course-info"><span>ðŸ“š 400+ Lectures</span><span>ðŸ“ 70+ Tests</span><span>ðŸ‘¥ 3.5k Students</span></div>
+        <div class="course-footer">
+          <div><span class="price-new">â‚¹3,499</span><span class="price-old">â‚¹6,499</span><span class="price-off">46% OFF</span></div>
+          <a href="courses.html" class="btn btn-gold btn-sm">Enroll</a>
+        </div>
+      </div>
+    </div></a>
+
+    <a href="courses.html" style="text-decoration:none">
+    <div class="course-card">
+      <div class="course-thumb">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="Foundation">
+        <div class="course-thumb-overlay"><span class="course-thumb-title">Foundation</span></div>
+      </div>
+      <div class="course-body">
+        <div class="course-meta"><span class="badge badge-navy">Foundation</span><span class="tag">â­ 4.8</span></div>
+        <h3>Foundation 9 & 10</h3>
+        <p>Build a strong academic base for Class 9-10 with Olympiad preparation and critical thinking skills.</p>
+        <div class="course-info"><span>ðŸ“š 280+ Lectures</span><span>ðŸ“ 50+ Tests</span><span>ðŸ‘¥ 2.1k Students</span></div>
+        <div class="course-footer">
+          <div><span class="price-new">â‚¹1,999</span><span class="price-old">â‚¹3,999</span><span class="price-off">50% OFF</span></div>
+          <a href="courses.html" class="btn btn-gold btn-sm">Enroll</a>
         </div>
       </div>
     </div></a>
   </div>
-  <div style="text-align:center;margin-top:28px">
-    <a href="courses.html" class="btn btn-outline">View All 12 Courses →</a>
+  <div style="text-align:center;margin-top:36px">
+    <a href="courses.html" class="btn btn-outline-navy btn-lg">View All Courses â†’</a>
   </div>
 </section>
-
 <!-- WHY US -->
-<section class="why-bg">
+<section class="section section-white">
   <div class="section-header">
-    <div class="section-tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.9)">Why EduRise?</div>
-    <h2 style="color:#fff">Everything You Need to Excel</h2>
-    <p style="color:rgba(255,255,255,.6)">A complete learning ecosystem designed for your success</p>
+    <div class="section-label">Why Choose Us</div>
+    <h2>Everything You Need <span>to Excel</span></h2>
+    <div class="gold-divider"></div>
+    <p style="margin-top:16px">A complete learning ecosystem designed to help you crack any competitive exam</p>
   </div>
   <div class="why-grid">
     <div class="why-card">
-      <img class="why-card-img" src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=400&q=80" alt="Live Classes">
-      <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(123,110,232,.2)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B6EE8" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h4>Live & Recorded Classes</h4>
-        <p>Watch live or replay anytime on mobile, tablet or desktop</p>
-      </div>
+      <div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <h4>Expert Faculty</h4>
+      <p>Learn from IIT & AIIMS alumni who have cracked the same exams and know exactly what it takes.</p>
     </div>
     <div class="why-card">
-      <img class="why-card-img" src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=400&q=80" alt="Practice Tests">
-      <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(22,163,74,.2)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <h4>Daily Practice (DPPs)</h4>
-        <p>Chapter-wise tests, weekly quizzes & full-length mock exams</p>
-      </div>
+      <div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <h4>Daily Practice Tests</h4>
+      <p>Chapter-wise DPPs, weekly quizzes and full-length mock tests to keep you exam-ready at all times.</p>
     </div>
     <div class="why-card">
-      <img class="why-card-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=80" alt="Doubt Support">
-      <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(249,115,22,.2)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <h4>24/7 Doubt Support</h4>
-        <p>Instant answers via chat or scheduled video doubt sessions</p>
-      </div>
+      <div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <h4>Online + Offline Classes</h4>
+      <p>Attend live classes or watch recorded lectures anytime "” on mobile, tablet or desktop.</p>
     </div>
     <div class="why-card">
-      <img class="why-card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="Smart Analytics">
-      <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(124,58,237,.2)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        </div>
-        <h4>Smart Analytics</h4>
-        <p>AI-powered progress tracking with personalized weak-area insights</p>
-      </div>
+      <div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h4>24/7 Doubt Support</h4>
+      <p>Get instant answers via chat or schedule a video doubt session with your teacher anytime.</p>
     </div>
     <div class="why-card">
-      <img class="why-card-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="IIT Alumni">
-      <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(8,145,178,.2)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </div>
-        <h4>IIT & AIIMS Alumni</h4>
-        <p>Learn from 50+ teachers who've cracked the same exams</p>
-      </div>
+      <div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <h4>Smart Analytics</h4>
+      <p>AI-powered progress tracking with personalized insights to identify and improve your weak areas.</p>
     </div>
     <div class="why-card">
-      <img class="why-card-img" src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=400&q=80" alt="Scholarship">
-      <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(220,38,38,.2)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-        </div>
-        <h4>Scholarship Tests</h4>
-        <p>Win upto 100% fee waiver via monthly scholarship exams</p>
-      </div>
-    </div>
-    <div class="why-card">
-      <img class="why-card-img" src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&q=80" alt="Study Material">
-      <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(123,110,232,.2)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7B6EE8" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        </div>
-        <h4>Study Material</h4>
-        <p>PDF notes, formula sheets & revision booklets included</p>
-      </div>
-    </div>
-    <div class="why-card">
-      <img class="why-card-img" src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=400&q=80" alt="Parent Dashboard">
-      <div class="why-card-body">
-        <div class="why-icon" style="background:rgba(22,163,74,.2)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><path d="M6 20a6 6 0 0 0-2-4"/><path d="M18 20a6 6 0 0 1 2-4"/></svg>
-        </div>
-        <h4>Parent Dashboard</h4>
-        <p>Real-time attendance, test scores & progress reports for parents</p>
-      </div>
+      <div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/><path d="M4 22h16"/></svg></div>
+      <h4>Scholarship Tests</h4>
+      <p>Win up to 100% fee waiver through our monthly scholarship exams "” merit always gets rewarded.</p>
     </div>
   </div>
 </section>
-
-<!-- TOP RESULTS -->
-<section class="section" style="background:var(--bg)">
+    <!-- FACULTY -->
+<section class="section section-off">
   <div class="section-header">
-    <div class="section-tag">Hall of Fame</div>
-    <h2>Our Students' Top Results 2024</h2>
-    <p>Hundreds of students achieved their dream ranks with EduRise</p>
+    <div class="section-label">Our Faculty</div>
+    <h2>Meet Our <span>Star Teachers</span></h2>
+    <div class="gold-divider"></div>
+    <p style="margin-top:16px">IIT & AIIMS alumni who share their experience and passion to guide you to success</p>
   </div>
-  <div class="results-grid">
-    <div class="result-card"><div class="result-avatar" style="background:linear-gradient(135deg,#7B6EE8,#7c3aed)">RV</div><div class="result-name">Rohan Verma</div><div class="result-exam">JEE Advanced 2024</div><div class="result-score" style="background:#f0eeff;color:#7B6EE8">AIR 38</div></div>
-    <div class="result-card"><div class="result-avatar" style="background:linear-gradient(135deg,#16a34a,#059669)">PM</div><div class="result-name">Priya Mehta</div><div class="result-exam">NEET UG 2024</div><div class="result-score" style="background:#f0fdf4;color:#16a34a">Score 698</div></div>
-    <div class="result-card"><div class="result-avatar" style="background:linear-gradient(135deg,#f97316,#ef4444)">AS</div><div class="result-name">Aarav Sharma</div><div class="result-exam">CBSE Class 12</div><div class="result-score" style="background:#fff7ed;color:#f97316">99.4%</div></div>
-    <div class="result-card"><div class="result-avatar" style="background:linear-gradient(135deg,#7c3aed,#db2777)">AK</div><div class="result-name">Ananya Kulkarni</div><div class="result-exam">UPSC Civil Services</div><div class="result-score" style="background:#f5f3ff;color:#7c3aed">Rank 112</div></div>
+  <div class="faculty-grid">
+    <div class="faculty-card">
+      <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400&q=80" alt="Ankit Kumar"></div>
+      <div class="faculty-body">
+        <div class="faculty-name">Ankit Kumar</div>
+        <div class="faculty-subject">Physics</div>
+        <div class="faculty-info">IIT Bombay · 9 Years Exp</div>
+      </div>
+    </div>
+    <div class="faculty-card">
+      <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80" alt="Priya Mehta"></div>
+      <div class="faculty-body">
+        <div class="faculty-name">Priya Mehta</div>
+        <div class="faculty-subject">Biology</div>
+        <div class="faculty-info">AIIMS Delhi · 7 Years Exp</div>
+      </div>
+    </div>
+    <div class="faculty-card">
+      <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Rahul Sharma"></div>
+      <div class="faculty-body">
+        <div class="faculty-name">Rahul Sharma</div>
+        <div class="faculty-subject">Mathematics</div>
+        <div class="faculty-info">IIT Delhi · 12 Years Exp</div>
+      </div>
+    </div>
+    <div class="faculty-card">
+      <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Sneha Reddy"></div>
+      <div class="faculty-body">
+        <div class="faculty-name">Sneha Reddy</div>
+        <div class="faculty-subject">Chemistry</div>
+        <div class="faculty-info">IIT Madras · 8 Years Exp</div>
+      </div>
+    </div>
   </div>
-  <div style="text-align:center;margin-top:28px"><a href="results.html" class="btn btn-outline">See All Results →</a></div>
+  <div style="text-align:center;margin-top:36px">
+    <a href="teachers.html" class="btn btn-outline-navy btn-lg">View All Teachers â†’</a>
+  </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="section">
+<section class="section section-gold-bg">
   <div class="section-header">
-    <div class="section-tag">Student Reviews</div>
-    <h2>What Our Students Say</h2>
-    <p>Genuine feedback from students who transformed their career</p>
+    <div class="section-label">Student Reviews</div>
+    <h2>What Our <span>Students Say</span></h2>
+    <div class="gold-divider"></div>
   </div>
-
   <div class="testi-slider-wrap">
     <div class="testi-track" id="testiTrack"></div>
     <div class="testi-dots" id="testiDots"></div>
   </div>
 </section>
 
-<script>
-const reviews=[
-  {text:"EduRise ke teachers bahut amazing hain. Har concept itne achhe se explain karte hain ki doubt hi nahi rehta. JEE mein AIR 38 aaya — completely EduRise ki wajah se!",name:"Rohan Verma",course:"JEE Advanced • AIR 38",av:"RV",color:"#7B6EE8"},
-  {text:"NEET preparation ke liye best platform! Biology ke notes aur daily tests ne mujhe 698 score karne mein help ki. Doubt sessions are a game changer.",name:"Priya Mehta",course:"NEET UG • Score 698",av:"PM",color:"#16a34a"},
-  {text:"Parents ko bhi regular updates milte hain — very transparent platform. Mera beta 12th mein 99.4% laya. Thank you EduRise team!",name:"Sunita Kulkarni",course:"Parent of Class 12 Student",av:"SK",color:"#f97316"},
-  {text:"Maths mein bahut darr lagta tha pehle. Rahul sir ke sessions ke baad sab easy lagne laga. JEE Mains mein 99.2 percentile aaya!",name:"Arjun Patel",course:"JEE Mains • 99.2 Percentile",av:"AP",color:"#0891b2"},
-  {text:"Chemistry ke organic reactions yaad hi nahi hote the. Sneha ma'am ki visual teaching se sab clear ho gaya. NEET mein 340/360 Chemistry mein aaya!",name:"Divya Nair",course:"NEET UG • Chemistry 340/360",av:"DN",color:"#7c3aed"},
-  {text:"UPSC ki preparation ke liye Vikram sir ka guidance best hai. Current affairs aur answer writing dono improve hue. Rank 204 IAS mili!",name:"Karan Mehta",course:"UPSC IAS • Rank 204",av:"KM",color:"#db2777"},
-];
-
-(function(){
-  const track=document.getElementById('testiTrack');
-  const dotsWrap=document.getElementById('testiDots');
-  let cur=0, timer;
-  const visible=3;
-
-  function render(){
-    track.innerHTML='';
-    for(let i=0;i<visible;i++){
-      const r=reviews[(cur+i)%reviews.length];
-      const card=document.createElement('div');
-      card.className='testi-card';
-      card.innerHTML=`
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"${r.text}"</p>
-        <div class="testi-author">
-          <div class="testi-av" style="background:${r.color}">${r.av}</div>
-          <div><div class="testi-name">${r.name}</div><div class="testi-course">${r.course}</div></div>
-        </div>`;
-      track.appendChild(card);
-    }
-    // dots
-    dotsWrap.innerHTML='';
-    reviews.forEach((_,i)=>{
-      const d=document.createElement('button');
-      d.className='testi-dot'+(i===cur?' active':'');
-      d.onclick=()=>{clearInterval(timer);cur=i;render();startAuto();};
-      dotsWrap.appendChild(d);
-    });
-  }
-
-  function startAuto(){timer=setInterval(()=>{cur=(cur+1)%reviews.length;render();},3500);}
-  render();
-  startAuto();
-})();
-</script>
+<!-- CONTACT -->
+<section class="section section-white">
+  <div class="section-header">
+    <div class="section-label">Get In Touch</div>
+    <h2>Contact <span>Us</span></h2>
+    <div class="gold-divider"></div>
+    <p style="margin-top:16px">Book a free demo class or ask us anything "” we are always available to help</p>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info-item">
+        <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><h4>Our Address</h4><p>Nagpur, Maharashtra "” India</p></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg></div>
+        <div><h4>Phone</h4><p>+91 98765 43210</p></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><h4>Email</h4><p>hello@edurise.in</p></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><h4>Timing</h4><p>Mon"“Sat, 9am"“8pm</p></div>
+      </div>
+    </div>
+    <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:32px;border:1px solid var(--border)">
+      <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:20px">Book a Free Demo Class</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Aapka Naam</label><input type="text" placeholder="Full name likhein"></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      </div>
+      <div class="form-group"><label>Course</label>
+        <select><option>Course chunein</option><option>IIT-JEE</option><option>NEET UG</option><option>UPSC</option><option>SSC / Banking</option><option>CBSE Boards</option></select>
+      </div>
+      <div class="form-group"><label>Message (Optional)</label><textarea placeholder="Koi sawaal ho toh likhein..."></textarea></div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px" onclick="this.textContent='âœ“ Submitted! We will call you soon.'">Book Demo Class â†’</button>
+    </div>
+  </div>
 </section>
 
 <!-- CTA -->
-<div class="cta-wrap" style="margin-bottom:60px">
-  <h2>Start Your Success Journey Today 🚀</h2>
-  <p>Join 15,000+ students. 7-day free trial. No credit card required.</p>
+<section class="cta-section">
+  <h2>Start Your <span>Success Journey Today</span> 🎯</h2>
+  <p>Join 15,000+ students who are already on their path to success with EduRise Academy</p>
   <div class="cta-actions">
-    <a href="courses.html" class="btn btn-white btn-lg">Explore Courses →</a>
-    <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)">Book Free Demo</a>
+    <a href="courses.html" class="btn btn-gold btn-lg">Explore Courses â†’</a>
+    <a href="contact.html" class="btn btn-outline-white btn-lg">Book Free Demo</a>
   </div>
-  <div class="cta-note">✓ No credit card &nbsp;•&nbsp; ✓ Cancel anytime &nbsp;•&nbsp; ✓ Free study material</div>
-</div>
+  <div class="cta-note">âœ“ No credit card &nbsp;•&nbsp; âœ“ 7-Day Free Trial &nbsp;•&nbsp; âœ“ Free Study Material</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="margin-bottom:10px;display:inline-flex"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a>
+      <a href="index.html" class="logo" style="display:inline-flex;margin-bottom:12px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a>
       <p>India's trusted coaching platform for JEE, NEET, UPSC & Board exams. Learn from the best, score your best.</p>
-      <div class="social-links" style="margin-top:16px">
-        <a class="social-link" href="#" title="YouTube">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
-        </a>
-        <a class="social-link" href="#" title="Telegram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2-2 9.4c-.1.6-.5.8-1 .5l-2.7-2-1.3 1.2c-.1.1-.3.2-.6.2l.2-2.8 5-4.5c.2-.2 0-.3-.3-.1L6.4 14.5 3.8 13.7c-.6-.2-.6-.6.1-.8l11.6-4.5c.5-.2 1 .1.4.8z"/></svg>
-        </a>
-        <a class="social-link" href="#" title="Instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
-        </a>
-        <a class="social-link" href="#" title="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.7c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg>
-        </a>
+      <div class="social-links">
+        <a class="social-link" href="#" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+        <a class="social-link" href="#" title="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2-2 9.4c-.1.6-.5.8-1 .5l-2.7-2-1.3 1.2c-.1.1-.3.2-.6.2l.2-2.8 5-4.5c.2-.2 0-.3-.3-.1L6.4 14.5 3.8 13.7c-.6-.2-.6-.6.1-.8l11.6-4.5c.5-.2 1 .1.4.8z"/></svg></a>
+        <a class="social-link" href="#" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+        <a class="social-link" href="#" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.7c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -613,7 +551,7 @@ const reviews=[
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
-      <a href="teachers.html">Our Teachers</a>
+      <a href="teachers.html">Our Faculty</a>
       <a href="results.html">Student Results</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
@@ -622,22 +560,10 @@ const reviews=[
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
-      <a href="#" class="footer-contact-link">
-        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Nagpur, Maharashtra
-      </a>
-      <a href="tel:+919876543210" class="footer-contact-link">
-        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>
-        +91 98765 43210
-      </a>
-      <a href="mailto:hello@edurise.in" class="footer-contact-link">
-        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        hello@edurise.in
-      </a>
-      <a href="#" class="footer-contact-link">
-        <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Mon–Sat, 9am–8pm
-      </a>
+      <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nagpur, Maharashtra</a>
+      <a href="tel:+919876543210" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>+91 98765 43210</a>
+      <a href="mailto:hello@edurise.in" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@edurise.in</a>
+      <a href="#" class="footer-contact-link"><svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon"“Sat, 9am"“8pm</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -646,7 +572,49 @@ const reviews=[
   </div>
 </footer>
 
+<script>
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+const reviews=[
+  {text:"EduRise ke teachers bahut amazing hain. JEE mein AIR 38 aaya "” completely EduRise ki wajah se!",name:"Rohan Verma",course:"JEE Advanced • AIR 38",av:"RV",color:"#7B6EE8"},
+  {text:"NEET preparation ke liye best platform! Biology ke notes aur daily tests ne mujhe 698 score karne mein help ki.",name:"Priya Mehta",course:"NEET UG • Score 698",av:"PM",color:"#16a34a"},
+  {text:"Parents ko bhi regular updates milte hain. Mera beta 12th mein 99.4% laya. Thank you EduRise!",name:"Sunita Kulkarni",course:"Parent of Class 12 Student",av:"SK",color:"#f97316"},
+  {text:"Maths mein bahut darr lagta tha. Rahul sir ke sessions ke baad sab easy lagne laga. JEE Mains mein 99.2 percentile!",name:"Arjun Patel",course:"JEE Mains • 99.2 Percentile",av:"AP",color:"#0891b2"},
+  {text:"Chemistry ke organic reactions yaad hi nahi hote the. Sneha ma'am ki visual teaching se sab clear ho gaya!",name:"Divya Nair",course:"NEET UG • Chemistry 340/360",av:"DN",color:"#7c3aed"},
+  {text:"UPSC ki preparation ke liye Vikram sir ka guidance best hai. Rank 204 IAS mili!",name:"Karan Mehta",course:"UPSC IAS • Rank 204",av:"KM",color:"#c9a84c"},
+];
+(function(){
+  const track=document.getElementById('testiTrack');
+  const dotsWrap=document.getElementById('testiDots');
+  let cur=0,timer;
+  const visible=3;
+  function render(){
+    track.innerHTML='';
+    for(let i=0;i<visible;i++){
+      const r=reviews[(cur+i)%reviews.length];
+      const card=document.createElement('div');
+      card.className='testi-card';
+      card.innerHTML=`<div class="testi-stars">★★★★★</div><p class="testi-text">"${r.text}"</p><div class="testi-author"><div class="testi-av" style="background:${r.color}">${r.av}</div><div><div class="testi-name">${r.name}</div><div class="testi-course">${r.course}</div></div></div>`;
+      track.appendChild(card);
+    }
+    dotsWrap.innerHTML='';
+    reviews.forEach((_,i)=>{
+      const d=document.createElement('button');
+      d.className='testi-dot'+(i===cur?' active':'');
+      d.onclick=()=>{clearInterval(timer);cur=i;render();startAuto();};
+      dotsWrap.appendChild(d);
+    });
+  }
+  function startAuto(){timer=setInterval(()=>{cur=(cur+1)%reviews.length;render();},3500);}
+  render();startAuto();
+})();
+</script>
 </body>
 </html>
+
+
+
 
 
