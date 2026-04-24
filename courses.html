@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,12 +6,12 @@
 <title>Courses — EduRise Academy</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.page-hero{background:linear-gradient(135deg,#0f1f3d 0%,#162447 60%,#1a2f5a 100%);color:#fff;padding:64px 48px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;min-height:280px}
+.page-hero{background:linear-gradient(135deg,var(--off-white) 0%,var(--white) 100%);color:var(--text);padding:64px 48px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;min-height:280px;border-bottom:1px solid var(--border)}
 .page-hero-content{position:relative;z-index:2}
-.page-hero::before{content:'';position:absolute;left:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
-.page-hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;margin-bottom:14px;position:relative;line-height:1.1}
+.page-hero::before{content:'';position:absolute;left:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%);pointer-events:none}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:var(--navy);margin-bottom:14px;position:relative;line-height:1.1}
 .page-hero h1 span{color:var(--gold)}
-.page-hero p{color:rgba(255,255,255,.7);font-size:15px;max-width:520px;position:relative;margin-bottom:28px}
+.page-hero p{color:var(--text-muted);font-size:15px;max-width:520px;position:relative;margin-bottom:28px}
 .hero-graphic{position:relative;z-index:2;flex-shrink:0;width:340px;display:flex;align-items:center;justify-content:center}
 .hero-graphic svg{width:100%;height:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.3))}
 @media(max-width:900px){.page-hero{grid-template-columns:1fr;gap:24px;padding:48px 32px;min-height:auto}.hero-graphic{width:260px;margin:0 auto}}
@@ -48,11 +48,11 @@
 .modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted)}
 .modal h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px}
 .modal .modal-sub{font-size:13px;color:var(--text-muted);margin-bottom:24px}
-.cta-section{background:linear-gradient(135deg,var(--navy) 0%,#1a2f6a 50%,#0d1b3e 100%);padding:72px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-section{background:linear-gradient(135deg,var(--off-white) 0%,var(--white) 100%);padding:72px 48px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border)}
 .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(201,168,76,.1) 0%,transparent 65%)}
-.cta-section h2{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#fff;margin-bottom:14px;position:relative}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:var(--navy);margin-bottom:14px;position:relative}
 .cta-section h2 span{color:var(--gold)}
-.cta-section p{color:rgba(255,255,255,.65);font-size:15px;margin-bottom:32px;position:relative}
+.cta-section p{color:var(--text-muted);font-size:15px;margin-bottom:32px;position:relative}
 .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
 .cta-note{margin-top:18px;font-size:12px;color:rgba(255,255,255,.35);position:relative}
 @media(max-width:900px){.courses-grid{grid-template-columns:repeat(2,1fr)}}
@@ -72,7 +72,6 @@
 </div>
 <div class="page-hero">
   <div class="page-hero-content">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Courses</span></div>
     <h1>Choose Your <span>Perfect Course</span></h1>
     <p>Specially designed curriculum for every exam — JEE, NEET, UPSC, Boards and more</p>
     <div class="search-bar"><input type="text" id="searchInput" placeholder="Search courses..." oninput="filterCourses()"><button onclick="filterCourses()">Search</button></div>
@@ -152,14 +151,14 @@
 <section class="cta-section">
   <h2>Enroll Now and <span>Achieve Your Goals</span></h2>
   <p>Join 15,000+ students already learning with EduRise</p>
-  <div class="cta-actions"><a href="contact.html" class="btn btn-gold btn-lg">Book a Free Demo</a><a href="about.html" class="btn btn-outline-white btn-lg">About Us</a></div>
+  <div class="cta-actions"><a href="contact.html" class="btn btn-gold btn-lg">Book a Free Demo</a><a href="about.html" class="btn btn-outline-navy btn-lg">About Us</a></div>
   <div class="cta-note">No credit card &nbsp;•&nbsp; 7-Day Free Trial &nbsp;•&nbsp; Free Study Material</div>
 </section>
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="display:inline-flex;margin-bottom:12px"><div class="logo-icon">E</div><div class="logo-text" style="color:#fff"><span>Edu</span>Rise Academy</div></a>
+      <a href="index.html" class="logo" style="display:inline-flex;margin-bottom:12px"><div class="logo-icon">E</div><div class="logo-text" style="color:var(--navy)"><span>Edu</span>Rise Academy</div></a>
       <p>India's trusted coaching platform for JEE, NEET, UPSC & Board exams. Learn from the best, score your best.</p>
       <div class="social-links">
         <a class="social-link" href="#" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
