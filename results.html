@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -342,8 +342,187 @@ function toggleMenu() {
   document.getElementById('hamburger').classList.toggle('open');
   document.getElementById('mobileNav').classList.toggle('open');
 }
-
 renderResults('2024');
+// ENHANCED SCROLL ANIMATION SCRIPT
+// Replace old IntersectionObserver block with this full script
+
+(function(){
+  // ── CSS for all animation variants ──
+  var style = document.createElement('style');
+  style.textContent = `
+    /* Base reveal state */
+    .sa{opacity:0;transition-property:opacity,transform;transition-timing-function:cubic-bezier(.22,.8,.44,1);transition-duration:.55s;will-change:opacity,transform}
+    .sa.visible{opacity:1;transform:none!important}
+
+    /* Variants */
+    .sa-up{transform:translateY(32px)}
+    .sa-down{transform:translateY(-24px)}
+    .sa-left{transform:translateX(-36px)}
+    .sa-right{transform:translateX(36px)}
+    .sa-scale{transform:scale(.88)}
+    .sa-fade{transform:none}
+
+    /* Stagger delays */
+    .sa-d1{transition-delay:.05s}
+    .sa-d2{transition-delay:.12s}
+    .sa-d3{transition-delay:.19s}
+    .sa-d4{transition-delay:.26s}
+    .sa-d5{transition-delay:.33s}
+    .sa-d6{transition-delay:.40s}
+    .sa-d7{transition-delay:.47s}
+    .sa-d8{transition-delay:.54s}
+  `;
+  document.head.appendChild(style);
+
+  // ── Tag individual elements with animation classes ──
+  function tagElements(){
+    // Section headers
+    document.querySelectorAll('.section-label').forEach(function(el){
+      addClass(el,'sa sa-up sa-d1');
+    });
+    document.querySelectorAll('.section-header h2').forEach(function(el){
+      addClass(el,'sa sa-up sa-d2');
+    });
+    document.querySelectorAll('.section-header p, .section-header .gold-divider').forEach(function(el){
+      addClass(el,'sa sa-up sa-d3');
+    });
+
+    // Stat items — staggered
+    document.querySelectorAll('.stats-bar').forEach(function(bar){
+      bar.querySelectorAll('.stat-item').forEach(function(el,i){
+        addClass(el,'sa sa-up sa-d'+(i+1));
+      });
+    });
+
+    // Course cards — staggered
+    document.querySelectorAll('.courses-grid .course-card, .courses-grid > a').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+1));
+    });
+
+    // Why / value cards
+    document.querySelectorAll('.why-card, .value-card').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+1));
+    });
+
+    // Faculty / Team cards
+    document.querySelectorAll('.faculty-card, .team-card').forEach(function(el,i){
+      addClass(el,'sa sa-scale sa-d'+(Math.min(i%4,5)+1));
+    });
+
+    // Testimonial cards
+    document.querySelectorAll('.testi-card').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+1));
+    });
+
+    // Award cards
+    document.querySelectorAll('.award-card').forEach(function(el,i){
+      addClass(el,'sa sa-left sa-d'+(Math.min(i%3,5)+1));
+    });
+
+    // Timeline items
+    document.querySelectorAll('.timeline-item').forEach(function(el,i){
+      addClass(el,'sa sa-left sa-d'+(Math.min(i,5)+1));
+    });
+
+    // Contact info items
+    document.querySelectorAll('.contact-info-item').forEach(function(el,i){
+      addClass(el,'sa sa-left sa-d'+(i+1));
+    });
+
+    // Contact form (slide from right)
+    document.querySelectorAll('.contact-form-card, .contact-map-card').forEach(function(el){
+      addClass(el,'sa sa-right sa-d2');
+    });
+
+    // Hero elements
+    document.querySelectorAll('.hero-badge, .hero-content .btn, .hero-content h1').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(i+1));
+    });
+    document.querySelectorAll('.hero-right, .hero-graphic').forEach(function(el){
+      addClass(el,'sa sa-scale sa-d2');
+    });
+    document.querySelectorAll('.hero-float-card').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(i+3));
+    });
+    document.querySelectorAll('.hero-float-card2').forEach(function(el){
+      addClass(el,'sa sa-up sa-d4');
+    });
+    document.querySelectorAll('.h-stat-divider,.h-stat-num,.h-stat-label').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+3));
+    });
+
+    // Page hero (inner page)
+    document.querySelectorAll('.page-hero-content').forEach(function(el){
+      addClass(el,'sa sa-left sa-d1');
+    });
+
+    // Result / topper cards
+    document.querySelectorAll('.result-card, .topper-card').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(Math.min(i%4,5)+1));
+    });
+
+    // Teacher cards
+    document.querySelectorAll('.teacher-card').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+1));
+    });
+
+    // CTA section inner content
+    document.querySelectorAll('.cta-section h2, .cta-section p, .cta-section .btn').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(i+1));
+    });
+
+    // Footer columns
+    document.querySelectorAll('.footer-grid > div').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(i+1));
+    });
+
+    // FAQ items
+    document.querySelectorAll('.faq-item').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(Math.min(i%5,5)+1));
+    });
+
+    // Social contact grid items
+    document.querySelectorAll('.social-contact-grid > div').forEach(function(el,i){
+      addClass(el,'sa sa-up sa-d'+(i+1));
+    });
+
+    // Chart section
+    document.querySelectorAll('.chart-section').forEach(function(el){
+      addClass(el,'sa sa-up sa-d1');
+    });
+
+    // Gold divider lines
+    document.querySelectorAll('.gold-divider').forEach(function(el){
+      addClass(el,'sa sa-scale sa-d3');
+    });
+  }
+
+  function addClass(el, classes){
+    // Don't double-tag
+    if(el.classList.contains('sa')) return;
+    classes.split(' ').forEach(function(c){ if(c) el.classList.add(c); });
+  }
+
+  // ── IntersectionObserver ──
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0, rootMargin:'0px 0px -40px 0px'});
+
+  function observeAll(){
+    document.querySelectorAll('.sa').forEach(function(el){
+      observer.observe(el);
+    });
+  }
+
+  // Run after DOM
+  tagElements();
+  observeAll();
+})();
 </script>
 </body>
 </html>
