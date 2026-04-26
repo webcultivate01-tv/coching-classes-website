@@ -73,7 +73,7 @@
 <div class="page-hero">
   <div class="page-hero-content">
     <h1>Choose Your <span>Perfect Course</span></h1>
-    <p>Specially designed curriculum for every exam — JEE, NEET, UPSC, Boards and more</p>
+    <p>Specially designed curriculum for every exam — JEE, NEET, Boards and more</p>
     <div class="search-bar"><input type="text" id="searchInput" placeholder="Search courses..." oninput="filterCourses()"><button onclick="filterCourses()">Search</button></div>
   </div>
   <div class="hero-graphic">
@@ -143,7 +143,7 @@
   <button class="filter-btn" onclick="setFilter('engineering',this)">Engineering</button>
   <button class="filter-btn" onclick="setFilter('medical',this)">Medical</button>
   <button class="filter-btn" onclick="setFilter('boards',this)">Boards</button>
-  <button class="filter-btn" onclick="setFilter('govt',this)">Govt Exams</button>
+
   <button class="filter-btn" onclick="setFilter('foundation',this)">Foundation</button>
   <span class="filter-count" id="filterCount">8 courses</span>
 </div>
@@ -172,7 +172,6 @@
       <a href="courses.html">JEE Preparation</a>
       <a href="courses.html">NEET Preparation</a>
       <a href="courses.html">CBSE Boards</a>
-      <a href="courses.html">UPSC / IAS</a>
       <a href="courses.html">SSC / Banking</a>
       <a href="courses.html">Foundation 9-10</a>
     </div>
@@ -211,10 +210,8 @@ const courses=[
   {id:2,cat:'medical',title:'NEET UG Preparation',short:'NEET',desc:'Biology, Physics & Chemistry — fulfill your MBBS dream with us',img:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',badge:'HOT',catBadge:'Medical',catClass:'badge-green',rating:'4.8',lectures:'480+',tests:'90+',students:'4.1k',price:'4,499',oldPrice:'7,999',off:'44% OFF'},
   {id:3,cat:'boards',title:'CBSE Class 11-12',short:'CBSE',desc:'Complete board preparation for Science and Commerce streams',img:'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80',badge:'',catBadge:'Boards',catClass:'badge-navy',rating:'4.7',lectures:'350+',tests:'60+',students:'5.8k',price:'2,999',oldPrice:'5,499',off:'45% OFF'},
   {id:4,cat:'foundation',title:'Foundation 9-10',short:'Foundation',desc:'Build a strong base for Class 9-10 — start preparing for future exams now',img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80',badge:'NEW',catBadge:'Foundation',catClass:'badge-navy',rating:'4.8',lectures:'280+',tests:'50+',students:'2.1k',price:'1,999',oldPrice:'3,999',off:'50% OFF'},
-  {id:5,cat:'govt',title:'UPSC Civil Services',short:'UPSC',desc:'IAS/IPS aspirants — complete guidance from Prelims to Interview',img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80',badge:'',catBadge:'Govt Exam',catClass:'badge-navy',rating:'4.8',lectures:'600+',tests:'80+',students:'1.8k',price:'7,999',oldPrice:'14,999',off:'47% OFF'},
-  {id:6,cat:'govt',title:'SSC & Banking',short:'SSC',desc:'SSC CGL, CHSL, SBI PO, IBPS — complete preparation all in one place',img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80',badge:'',catBadge:'Govt Exam',catClass:'badge-navy',rating:'4.6',lectures:'400+',tests:'70+',students:'3.5k',price:'3,499',oldPrice:'6,499',off:'46% OFF'},
-  {id:7,cat:'engineering',title:'JEE Crash Course',short:'JEE Crash',desc:'Intensive JEE revision in the last 3 months — revision and mock tests',img:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',badge:'FAST',catBadge:'Engineering',catClass:'badge-navy',rating:'4.7',lectures:'200+',tests:'40+',students:'1.2k',price:'2,499',oldPrice:'4,999',off:'50% OFF'},
-  {id:8,cat:'engineering',title:'GATE Preparation',short:'GATE',desc:'GATE exam for engineering graduates — your path to PSU and M.Tech',img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80',badge:'',catBadge:'Engineering',catClass:'badge-navy',rating:'4.7',lectures:'450+',tests:'65+',students:'980',price:'5,499',oldPrice:'9,999',off:'45% OFF'}
+  {id:5,cat:'engineering',title:'JEE Crash Course',short:'JEE Crash',desc:'Intensive JEE revision in the last 3 months — revision and mock tests',img:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',badge:'FAST',catBadge:'Engineering',catClass:'badge-navy',rating:'4.7',lectures:'200+',tests:'40+',students:'1.2k',price:'2,499',oldPrice:'4,999',off:'50% OFF'},
+  {id:6,cat:'foundation',title:'SSC & Banking',short:'SSC',desc:'SSC CGL, CHSL, SBI PO, IBPS — complete preparation all in one place',img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80',badge:'',catBadge:'Govt Exam',catClass:'badge-navy',rating:'4.6',lectures:'400+',tests:'70+',students:'3.5k',price:'3,499',oldPrice:'6,499',off:'46% OFF'}
 ];
 let activeFilter='all';
 function renderCourses(list){
@@ -229,186 +226,7 @@ function submitEnroll(btn){btn.textContent='Submitted! We will call you soon.';b
 document.getElementById('enrollModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 function toggleMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileNav').classList.toggle('open');}
 renderCourses(courses);
-// ENHANCED SCROLL ANIMATION SCRIPT
-// Replace old IntersectionObserver block with this full script
-
-(function(){
-  // ── CSS for all animation variants ──
-  var style = document.createElement('style');
-  style.textContent = `
-    /* Base reveal state */
-    .sa{opacity:0;transition-property:opacity,transform;transition-timing-function:cubic-bezier(.22,.8,.44,1);transition-duration:.55s;will-change:opacity,transform}
-    .sa.visible{opacity:1;transform:none!important}
-
-    /* Variants */
-    .sa-up{transform:translateY(32px)}
-    .sa-down{transform:translateY(-24px)}
-    .sa-left{transform:translateX(-36px)}
-    .sa-right{transform:translateX(36px)}
-    .sa-scale{transform:scale(.88)}
-    .sa-fade{transform:none}
-
-    /* Stagger delays */
-    .sa-d1{transition-delay:.05s}
-    .sa-d2{transition-delay:.12s}
-    .sa-d3{transition-delay:.19s}
-    .sa-d4{transition-delay:.26s}
-    .sa-d5{transition-delay:.33s}
-    .sa-d6{transition-delay:.40s}
-    .sa-d7{transition-delay:.47s}
-    .sa-d8{transition-delay:.54s}
-  `;
-  document.head.appendChild(style);
-
-  // ── Tag individual elements with animation classes ──
-  function tagElements(){
-    // Section headers
-    document.querySelectorAll('.section-label').forEach(function(el){
-      addClass(el,'sa sa-up sa-d1');
-    });
-    document.querySelectorAll('.section-header h2').forEach(function(el){
-      addClass(el,'sa sa-up sa-d2');
-    });
-    document.querySelectorAll('.section-header p, .section-header .gold-divider').forEach(function(el){
-      addClass(el,'sa sa-up sa-d3');
-    });
-
-    // Stat items — staggered
-    document.querySelectorAll('.stats-bar').forEach(function(bar){
-      bar.querySelectorAll('.stat-item').forEach(function(el,i){
-        addClass(el,'sa sa-up sa-d'+(i+1));
-      });
-    });
-
-    // Course cards — staggered
-    document.querySelectorAll('.courses-grid .course-card, .courses-grid > a').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+1));
-    });
-
-    // Why / value cards
-    document.querySelectorAll('.why-card, .value-card').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+1));
-    });
-
-    // Faculty / Team cards
-    document.querySelectorAll('.faculty-card, .team-card').forEach(function(el,i){
-      addClass(el,'sa sa-scale sa-d'+(Math.min(i%4,5)+1));
-    });
-
-    // Testimonial cards
-    document.querySelectorAll('.testi-card').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+1));
-    });
-
-    // Award cards
-    document.querySelectorAll('.award-card').forEach(function(el,i){
-      addClass(el,'sa sa-left sa-d'+(Math.min(i%3,5)+1));
-    });
-
-    // Timeline items
-    document.querySelectorAll('.timeline-item').forEach(function(el,i){
-      addClass(el,'sa sa-left sa-d'+(Math.min(i,5)+1));
-    });
-
-    // Contact info items
-    document.querySelectorAll('.contact-info-item').forEach(function(el,i){
-      addClass(el,'sa sa-left sa-d'+(i+1));
-    });
-
-    // Contact form (slide from right)
-    document.querySelectorAll('.contact-form-card, .contact-map-card').forEach(function(el){
-      addClass(el,'sa sa-right sa-d2');
-    });
-
-    // Hero elements
-    document.querySelectorAll('.hero-badge, .hero-content .btn, .hero-content h1').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(i+1));
-    });
-    document.querySelectorAll('.hero-right, .hero-graphic').forEach(function(el){
-      addClass(el,'sa sa-scale sa-d2');
-    });
-    document.querySelectorAll('.hero-float-card').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(i+3));
-    });
-    document.querySelectorAll('.hero-float-card2').forEach(function(el){
-      addClass(el,'sa sa-up sa-d4');
-    });
-    document.querySelectorAll('.h-stat-divider,.h-stat-num,.h-stat-label').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+3));
-    });
-
-    // Page hero (inner page)
-    document.querySelectorAll('.page-hero-content').forEach(function(el){
-      addClass(el,'sa sa-left sa-d1');
-    });
-
-    // Result / topper cards
-    document.querySelectorAll('.result-card, .topper-card').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(Math.min(i%4,5)+1));
-    });
-
-    // Teacher cards
-    document.querySelectorAll('.teacher-card').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(Math.min(i%3,5)+1));
-    });
-
-    // CTA section inner content
-    document.querySelectorAll('.cta-section h2, .cta-section p, .cta-section .btn').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(i+1));
-    });
-
-    // Footer columns
-    document.querySelectorAll('.footer-grid > div').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(i+1));
-    });
-
-    // FAQ items
-    document.querySelectorAll('.faq-item').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(Math.min(i%5,5)+1));
-    });
-
-    // Social contact grid items
-    document.querySelectorAll('.social-contact-grid > div').forEach(function(el,i){
-      addClass(el,'sa sa-up sa-d'+(i+1));
-    });
-
-    // Chart section
-    document.querySelectorAll('.chart-section').forEach(function(el){
-      addClass(el,'sa sa-up sa-d1');
-    });
-
-    // Gold divider lines
-    document.querySelectorAll('.gold-divider').forEach(function(el){
-      addClass(el,'sa sa-scale sa-d3');
-    });
-  }
-
-  function addClass(el, classes){
-    // Don't double-tag
-    if(el.classList.contains('sa')) return;
-    classes.split(' ').forEach(function(c){ if(c) el.classList.add(c); });
-  }
-
-  // ── IntersectionObserver ──
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },{threshold:0, rootMargin:'0px 0px -40px 0px'});
-
-  function observeAll(){
-    document.querySelectorAll('.sa').forEach(function(el){
-      observer.observe(el);
-    });
-  }
-
-  // Run after DOM
-  tagElements();
-  observeAll();
-})();
+(function(){var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting){n.target.classList.add('visible');o.unobserve(n.target);}});},{threshold:0,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.section,.stats-bar,.cta-section,.filter-bar,.chart-section,.page-hero').forEach(function(el){el.classList.add('reveal');o.observe(el);});})();
 </script>
 </body>
 </html>
