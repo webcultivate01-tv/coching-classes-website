@@ -562,7 +562,61 @@ const reviews=[
   function startAuto(){timer=setInterval(()=>{cur=(cur+1)%reviews.length;render();},3500);}
   render();startAuto();
 })();
-(function(){var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting){n.target.classList.add('visible');o.unobserve(n.target);}});},{threshold:0,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.section,.stats-bar,.cta-section,.marquee-wrap').forEach(function(el){el.classList.add('reveal');o.observe(el);});})();
+(function(){
+  function observe(el){
+    var io=new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting){entries[0].target.classList.add('visible');io.disconnect();}
+    },{threshold:0.12,rootMargin:'0px 0px -50px 0px'});
+    io.observe(el);
+  }
+
+  // Section headers — each word fades in
+  document.querySelectorAll('.section-header').forEach(function(el){
+    el.classList.add('reveal');observe(el);
+  });
+
+  // Stats — one by one
+  document.querySelectorAll('.stat-item').forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay=(i*0.12)+'s';
+    observe(el);
+  });
+
+  // Course cards — one by one
+  document.querySelectorAll('.course-card').forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay=(i*0.13)+'s';
+    observe(el);
+  });
+
+  // Why cards — one by one
+  document.querySelectorAll('.why-card').forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay=(i*0.12)+'s';
+    observe(el);
+  });
+
+  // Faculty cards — scale up one by one
+  document.querySelectorAll('.faculty-card').forEach(function(el,i){
+    el.classList.add('reveal-scale');
+    el.style.transitionDelay=(i*0.13)+'s';
+    observe(el);
+  });
+
+  // CTA
+  document.querySelectorAll('.cta-section h2,.cta-section p,.cta-actions,.cta-note').forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay=(i*0.15)+'s';
+    observe(el);
+  });
+
+  // Footer columns
+  document.querySelectorAll('.footer-grid > div').forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay=(i*0.1)+'s';
+    observe(el);
+  });
+})();
 </script>
 </body>
 </html>
