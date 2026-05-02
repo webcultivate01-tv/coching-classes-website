@@ -6,7 +6,7 @@
 <title>Contact — EduRise Academy</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.page-hero{background:linear-gradient(135deg,var(--off-white) 0%,var(--white) 100%);color:var(--text);padding:64px 48px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;min-height:280px;border-bottom:1px solid var(--border)}
+.page-hero{background:linear-gradient(135deg,var(--off-white) 0%,var(--white) 100%);color:var(--text);padding:72px 100px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;min-height:300px;border-bottom:1px solid var(--border)}
 .page-hero-content{position:relative;z-index:2}
 .page-hero::before{content:'';position:absolute;left:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%);pointer-events:none}
 .page-hero h1{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:var(--navy);margin-bottom:14px;position:relative;line-height:1.1}
@@ -18,17 +18,17 @@
 @media(max-width:768px){.page-hero{padding:36px 20px}.page-hero h1{font-size:28px}.hero-graphic{width:200px}}
 @media(max-width:480px){.hero-graphic{width:160px}}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.contact-info-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
-.contact-icon-wrap{width:44px;height:44px;border-radius:12px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.contact-icon-wrap svg{width:20px;height:20px;color:var(--gold)}
-.contact-info-item h4{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px}
-.contact-info-item p{font-size:13px;color:var(--text-muted)}
-.contact-info-item a{color:var(--text-muted);text-decoration:none;font-size:13px;transition:color .2s}
+.contact-info-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px}
+.contact-icon-wrap{width:38px;height:38px;border-radius:10px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon-wrap svg{width:18px;height:18px;color:var(--gold)}
+.contact-info-item h4{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.contact-info-item p{font-size:12px;color:var(--text-muted)}
+.contact-info-item a{color:var(--text-muted);text-decoration:none;font-size:12px;transition:color .2s}
 .contact-info-item a:hover{color:var(--gold)}
-.map-placeholder{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:var(--radius-lg);height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:1px solid rgba(201,168,76,.2);margin-top:28px}
-.map-placeholder svg{width:40px;height:40px;color:var(--gold)}
-.map-placeholder p{color:rgba(255,255,255,.6);font-size:14px}
-.map-placeholder a{color:var(--gold);font-size:13px;font-weight:600;text-decoration:none}
+.map-placeholder{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:var(--radius-lg);height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border:1px solid rgba(201,168,76,.2);margin-top:20px}
+.map-placeholder svg{width:28px;height:28px;color:var(--gold)}
+.map-placeholder p{color:rgba(255,255,255,.6);font-size:13px}
+.map-placeholder a{color:var(--gold);font-size:12px;font-weight:600;text-decoration:none}
 .map-placeholder a:hover{text-decoration:underline}
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
@@ -45,10 +45,13 @@
 .social-contact-card svg{width:28px;height:28px;margin:0 auto 10px;display:block}
 .social-contact-card .sc-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
 .social-contact-card .sc-handle{font-size:12px;color:var(--text-muted)}
+.hero-photo-wrap{position:relative;width:380px;height:320px;border-radius:20px;overflow:hidden;border:3px solid rgba(201,168,76,.3);box-shadow:0 20px 60px rgba(0,0,0,.15);flex-shrink:0}
 @media(max-width:900px){
   .contact-grid{grid-template-columns:1fr}
   .faq-grid{grid-template-columns:1fr}
   .social-contact-grid{grid-template-columns:repeat(2,1fr)}
+  .page-hero{grid-template-columns:1fr;padding:48px 40px}
+  .hero-photo-wrap{width:100%;height:240px}
 }
 @media(max-width:768px){
   .page-hero{padding:36px 20px}
@@ -64,10 +67,10 @@
   </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
+    <a href="about.html">About</a>
     <a href="courses.html">Courses</a>
     <a href="teachers.html">Faculty</a>
     <a href="results.html">Results</a>
-    <a href="about.html">About</a>
     <a href="contact.html" class="active">Contact</a>
   </div>
   <div class="nav-btns">
@@ -79,10 +82,10 @@
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
+  <a href="about.html">About</a>
   <a href="courses.html">Courses</a>
   <a href="teachers.html">Faculty</a>
   <a href="results.html">Results</a>
-  <a href="about.html">About</a>
   <a href="contact.html" class="active">Contact</a>
   <div class="mobile-nav-btns" style="margin-top:16px">
     <a href="contact.html" class="btn btn-gold" style="justify-content:center;width:100%">Free Demo Class</a>
@@ -91,14 +94,33 @@
 
 <div class="page-hero">
   <div class="page-hero-content">
-
+    <div class="hero-badge" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold-bg);border:1px solid var(--gold);color:var(--gold);padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600;margin-bottom:20px">&#128222; We reply within 24 hours &nbsp;&bull;&nbsp; Mon-Sat 9am-8pm</div>
     <h1>Get In <span>Touch With Us</span></h1>
-    <p>Book a free demo class or ask any question — we are always available for you</p>
+    <p>Have questions about courses, fees or admissions? Book a free demo class or reach out directly — our team is always ready to help.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+      <a href="tel:+919876543210" class="btn btn-gold">&#128222; Call Us Now</a>
+      <a href="courses.html" class="btn btn-outline-navy">View Courses</a>
+    </div>
+    <div style="display:flex;gap:32px;margin-top:28px;flex-wrap:wrap">
+      <div><div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--navy)">24hrs</div><div style="font-size:12px;color:var(--text-muted)">Response Time</div></div>
+      <div style="width:1px;background:var(--border)"></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--navy)">100%</div><div style="font-size:12px;color:var(--text-muted)">Free Demo</div></div>
+      <div style="width:1px;background:var(--border)"></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--navy)">6 Days</div><div style="font-size:12px;color:var(--text-muted)">Office Open</div></div>
+    </div>
   </div>
-  <div class="hero-graphic">
-    <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
-      <!-- Glow -->
-      <circle cx="160" cy="140" r="115" fill="rgba(201,168,76,0.05)"/>
+  <div class="hero-photo-wrap">
+    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80" alt="Contact" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+    <div style="position:absolute;bottom:20px;left:20px;background:rgba(255,255,255,.95);border-radius:14px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.12)">
+      <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase">Response Time</div>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:var(--navy)">Within 24 Hours</div>
+      <div style="font-size:12px;color:var(--text-muted)">Mon-Sat, 9am-8pm</div>
+    </div>
+    <div style="position:absolute;top:20px;right:20px;background:var(--gold);border-radius:12px;padding:10px 16px">
+      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:var(--navy)">100%</div>
+      <div style="font-size:11px;color:var(--navy);font-weight:600">Free Demo</div>
+    </div>
+  </div>
       <!-- Phone device -->
       <rect x="118" y="64" width="84" height="148" rx="14" fill="#1a3060" stroke="rgba(201,168,76,0.4)" stroke-width="2"/>
       <rect x="122" y="68" width="76" height="140" rx="11" fill="#0f1f3d"/>
@@ -141,34 +163,53 @@
       <circle cx="48" cy="182" r="2" fill="rgba(201,168,76,0.25)"/>
       <circle cx="282" cy="220" r="3" fill="rgba(201,168,76,0.35)"/>
       <circle cx="268" cy="230" r="2" fill="rgba(201,168,76,0.2)"/>
-      <!-- Wifi / signal arcs -->
-      <path d="M152 230 Q160 222 168 230" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="2" stroke-linecap="round"/>
-      <path d="M146 238 Q160 226 174 238" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="160" cy="244" r="2.5" fill="rgba(201,168,76,0.5)"/>
-    </svg>
-  </div>
+
 </div>
 
 <!-- CONTACT GRID -->
 <section class="section section-white">
   <div class="contact-grid">
+    <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:36px;border:1px solid var(--border)">
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px">Book a Free Demo</h3>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:24px">Fill in your details — we will call you within 24 hours</p>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name *</label><input type="text" placeholder="Enter your full name" required></div>
+        <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="email@example.com"></div>
+      <div class="form-row">
+        <div class="form-group"><label>Course *</label>
+          <select required>
+            <option value="">Select a course</option>
+            <option>IIT-JEE (Mains &amp; Advanced)</option>
+            <option>NEET UG</option>
+            <option>CBSE Class 11-12</option>
+            <option>Foundation 9-10</option>
+            <option>SSC &amp; Banking</option>
+          </select>
+        </div>
+        <div class="form-group"><label>City</label><input type="text" placeholder="Your city"></div>
+      </div>
+      <div class="form-group"><label>Message (Optional)</label><textarea placeholder="Write any questions you have..."></textarea></div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px;padding:14px" onclick="submitForm(this)">Book Demo Class &rarr;</button>
+      <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:14px">&#10003; No spam &nbsp;&bull;&nbsp; &#10003; 100% Free &nbsp;&bull;&nbsp; &#10003; No commitment</p>
+    </div>
     <div>
-      <div class="section-label" style="margin-bottom:20px">Get In Touch</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--navy);margin-bottom:24px">Reach Out <span style="color:var(--gold)">Directly</span></h2>
+      <div class="section-label" style="margin-bottom:16px">Get In Touch</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--navy);margin-bottom:20px">Reach Out <span style="color:var(--gold)">Directly</span></h2>
       <div class="contact-info-item">
         <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div>
           <h4>Our Address</h4>
-          <p>EduRise Academy, Civil Lines</p>
-          <p>Nagpur, Maharashtra — 440001</p>
+          <p>EduRise Academy, Civil Lines, Nagpur, Maharashtra &mdash; 440001</p>
         </div>
       </div>
       <div class="contact-info-item">
         <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg></div>
         <div>
           <h4>Phone / WhatsApp</h4>
-          <a href="tel:+91 xxxxx xxxxx">+91 xxxxx xxxxx</a><br>
-          <a href="tel:+91 xxxxx xxxxx">+91 xxxxx xxxxx</a>
+          <a href="tel:+91xxxxxxxxxxx">+91 xxxxx xxxxx</a><br>
+          <a href="tel:+91xxxxxxxxxxx">+91 xxxxx xxxxx</a>
         </div>
       </div>
       <div class="contact-info-item">
@@ -183,8 +224,8 @@
         <div class="contact-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div>
           <h4>Office Hours</h4>
-          <p>Monday – Saturday: 9:00 AM – 8:00 PM</p>
-          <p>Sunday: 10:00 AM – 2:00 PM</p>
+          <p>Mon &ndash; Sat: 9:00 AM &ndash; 8:00 PM</p>
+          <p>Sunday: 10:00 AM &ndash; 2:00 PM</p>
         </div>
       </div>
       <div class="map-placeholder">
@@ -192,33 +233,6 @@
         <p>EduRise Academy, Nagpur</p>
         <a href="https://maps.google.com" target="_blank" rel="noopener">View on Google Maps &#8599;</a>
       </div>
-    </div>
-    <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:36px;border:1px solid var(--border)">
-      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px">Book a Free Demo</h3>
-      <p style="font-size:13px;color:var(--text-muted);margin-bottom:24px">Fill in your details — we will call you within 24 hours</p>
-      <div class="form-row">
-        <div class="form-group"><label>Your Name *</label><input type="text" placeholder="Enter your full name" required></div>
-        <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
-      </div>
-      <div class="form-group"><label>Email Address</label><input type="email" placeholder="email@example.com"></div>
-      <div class="form-row">
-        <div class="form-group"><label>Course *</label>
-          <select required>
-            <option value="">Select a course</option>
-            <option>IIT-JEE (Mains & Advanced)</option>
-            <option>NEET UG</option>
-            <option>CBSE Class 11-12</option>
-            <option>Foundation 9-10</option>
-            <option>UPSC Civil Services</option>
-            <option>SSC & Banking</option>
-            <option>GATE</option>
-          </select>
-        </div>
-        <div class="form-group"><label>City</label><input type="text" placeholder="Your city"></div>
-      </div>
-      <div class="form-group"><label>Message (Optional)</label><textarea placeholder="Write any questions you have..."></textarea></div>
-      <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px;padding:14px" onclick="submitForm(this)">Book Demo Class &#8594;</button>
-      <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:14px">&#10003; No spam &nbsp;•&nbsp; &#10003; 100% Free &nbsp;•&nbsp; &#10003; No commitment</p>
     </div>
   </div>
 </section>
