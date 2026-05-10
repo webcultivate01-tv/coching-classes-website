@@ -112,6 +112,12 @@
 .marquee-item{padding:0 28px;color:var(--navy);font-size:13px;font-weight:600;border-right:1px solid rgba(15,31,61,.2)}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
+/* HOME PAGE - reduced side padding */
+.hero{padding-left:80px!important;padding-right:80px!important}
+.section{padding-left:24px!important;padding-right:24px!important}
+.stats-bar{padding-left:24px!important;padding-right:24px!important}
+.marquee-wrap,.cta-section{padding-left:0!important;padding-right:0!important}
+
 @media(max-width:900px){
   .hero-right{display:none}
   .courses-grid{grid-template-columns:repeat(2,1fr)}
@@ -135,8 +141,8 @@
   .faculty-grid{grid-template-columns:repeat(2,1fr)}
   .why-grid{grid-template-columns:1fr}
   .testi-track{grid-template-columns:1fr}
-  .stats-bar{grid-template-columns:repeat(2,1fr);padding:14px 20px}
-  .section{padding:44px 20px}
+  
+  .section{padding:44px 16px}
   .cta-section{padding:48px 20px}
   .cta-section h2{font-size:26px}
   .footer-grid{grid-template-columns:1fr;gap:24px}
@@ -351,6 +357,7 @@
   <div style="text-align:center;margin-top:36px">
     <a href="courses.html" class="btn btn-outline-navy btn-lg">View All Courses &rarr;</a>
   </div>
+</section>
 <!-- WHY US -->
 <section class="section section-white">
   <div class="section-header">
@@ -584,26 +591,10 @@ const reviews=[
     observe(el);
   });
 
-  // CTA
-  document.querySelectorAll('.cta-section h2,.cta-section p,.cta-actions,.cta-note').forEach(function(el,i){
-    el.classList.add('reveal');
-    el.style.transitionDelay=(i*0.15)+'s';
-    observe(el);
-  });
-
-  // Footer columns
-  document.querySelectorAll('.footer-grid > div').forEach(function(el,i){
-    el.classList.add('reveal');
-    el.style.transitionDelay=(i*0.1)+'s';
-    observe(el);
-  });
+  // CTA - no reveal animation to avoid space issues
+  // Footer columns - no reveal animation to avoid space issues
 })();
 </script>
 </body>
 </html>
-
-
-
-
-
 
