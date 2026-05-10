@@ -66,7 +66,7 @@
 .faculty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .faculty-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;text-align:center;transition:all .25s;cursor:pointer}
 .faculty-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--gold)}
-.faculty-photo{height:200px;overflow:hidden;position:relative}
+.faculty-photo{height:240px;overflow:hidden;position:relative}
 .faculty-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
 .faculty-card:hover .faculty-photo img{transform:scale(1.05)}
 .faculty-body{padding:18px 16px}
@@ -139,6 +139,8 @@
   .scroll-btn{display:none}
   .courses-grid{grid-template-columns:1fr}
   .faculty-grid{grid-template-columns:repeat(2,1fr)}
+  .faculty-photo{height:240px}
+  .faculty-photo img{object-position:center center}
   .why-grid{grid-template-columns:1fr}
   .testi-track{grid-template-columns:1fr}
   
@@ -154,6 +156,7 @@
   .hero-stats{gap:14px}
   .h-stat-divider{display:none}
   .faculty-grid{grid-template-columns:1fr}
+  .faculty-photo{height:280px}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
 }
 
@@ -492,12 +495,12 @@
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
-      <a href="teachers.html">Our Faculty</a>
-      <a href="results.html">Student Results</a>
-      <a href="about.html">About Us</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="teachers.html">Faculty</a>
+      <a href="results.html">Results</a>
       <a href="contact.html">Contact</a>
-      <a href="#">Blog</a>
-      <a href="#">Scholarship Test</a>
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
@@ -591,8 +594,11 @@ const reviews=[
     observe(el);
   });
 
-  // CTA - no reveal animation to avoid space issues
-  // Footer columns - no reveal animation to avoid space issues
+  document.querySelectorAll('.value-card,.team-card,.award-card,.testi-card,.result-card,.teacher-card').forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay=(i*0.08)+'s';
+    observe(el);
+  });
 })();
 </script>
 </body>

@@ -52,8 +52,9 @@
 .cta-section p{color:var(--text-muted);font-size:15px;margin-bottom:32px;position:relative}
 .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
 .cta-note{margin-top:18px;font-size:12px;color:var(--text-light);position:relative}
-.hero-photo-wrap{position:relative;width:380px;height:320px;border-radius:20px;overflow:hidden;border:3px solid rgba(201,168,76,.3);box-shadow:0 20px 60px rgba(0,0,0,.15);flex-shrink:0}
-@media(max-width:900px){.results-grid{grid-template-columns:repeat(2,1fr)}.page-hero{grid-template-columns:1fr;padding:48px 40px}.hero-photo-wrap{width:100%;height:240px}}
+.hero-photo-wrap{position:relative;width:420px;height:380px;border-radius:20px;overflow:hidden;border:3px solid rgba(201,168,76,.4);box-shadow:0 24px 64px rgba(0,0,0,.22);flex-shrink:0}
+.hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(15,31,61,.45) 0%,transparent 55%);pointer-events:none}
+@media(max-width:900px){.results-grid{grid-template-columns:repeat(2,1fr)}.page-hero{grid-template-columns:1fr;padding:48px 40px}.hero-photo-wrap{width:100%;height:300px}}
 @media(max-width:768px){
   .page-hero{padding:36px 20px}
   .page-hero h1{font-size:28px}
@@ -119,7 +120,16 @@
     </div>
   </div>
   <div class="hero-photo-wrap">
-    <img src="https://images.unsplash.com/photo-1627556704302-624286467c65?w=600&q=80" alt="Results" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+    <img src="https://images.unsplash.com/photo-1627556704302-624286467c65?w=800&q=85" alt="Results" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+    <div style="position:absolute;bottom:20px;left:20px;background:rgba(255,255,255,.96);border-radius:14px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.18);z-index:2">
+      <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase">2024 Results</div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--navy)">98% Pass Rate</div>
+      <div style="font-size:12px;color:var(--text-muted)">100+ IIT · 250+ NEET Selections</div>
+    </div>
+    <div style="position:absolute;top:20px;right:20px;background:var(--gold);border-radius:12px;padding:10px 16px;z-index:2;box-shadow:0 4px 16px rgba(201,168,76,.4)">
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--navy)">1,000+</div>
+      <div style="font-size:11px;color:var(--navy);font-weight:600">Total Students</div>
+    </div>
   </div>
       <!-- Trophy large -->
       <path d="M114 60 Q114 118 136 130 L148 134 L148 154 L132 162 L132 172 L188 172 L188 162 L172 154 L172 134 L184 130 Q206 118 206 60 Z" fill="url(#trophyGrad)" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
@@ -234,12 +244,12 @@
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
-      <a href="teachers.html">Our Faculty</a>
-      <a href="results.html">Student Results</a>
-      <a href="about.html">About Us</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="teachers.html">Faculty</a>
+      <a href="results.html">Results</a>
       <a href="contact.html">Contact</a>
-      <a href="#">Blog</a>
-      <a href="#">Scholarship Test</a>
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
@@ -320,7 +330,7 @@ function toggleMenu() {
   document.getElementById('mobileNav').classList.toggle('open');
 }
 renderResults('2024');
-(function(){var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting){n.target.classList.add('visible');o.unobserve(n.target);}});},{threshold:0,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.section,.stats-bar,.cta-section,.filter-bar,.chart-section,.page-hero,.year-tabs').forEach(function(el){el.classList.add('reveal');o.observe(el);});})();
+(function(){var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting){n.target.classList.add('visible');o.unobserve(n.target);}});},{threshold:0,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.section,.stats-bar,.cta-section,.filter-bar,.chart-section,.page-hero,.year-tabs,.result-card').forEach(function(el,i){el.classList.add('reveal');el.style.transitionDelay=(i*0.06)+'s';o.observe(el);});})();
 </script>
 </body>
 </html>

@@ -45,13 +45,14 @@
 .social-contact-card svg{width:28px;height:28px;margin:0 auto 10px;display:block}
 .social-contact-card .sc-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
 .social-contact-card .sc-handle{font-size:12px;color:var(--text-muted)}
-.hero-photo-wrap{position:relative;width:380px;height:320px;border-radius:20px;overflow:hidden;border:3px solid rgba(201,168,76,.3);box-shadow:0 20px 60px rgba(0,0,0,.15);flex-shrink:0}
+.hero-photo-wrap{position:relative;width:420px;height:380px;border-radius:20px;overflow:hidden;border:3px solid rgba(201,168,76,.4);box-shadow:0 24px 64px rgba(0,0,0,.22);flex-shrink:0}
+.hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(15,31,61,.45) 0%,transparent 55%);pointer-events:none}
 @media(max-width:900px){
   .contact-grid{grid-template-columns:1fr}
   .faq-grid{grid-template-columns:1fr}
   .social-contact-grid{grid-template-columns:repeat(2,1fr)}
   .page-hero{grid-template-columns:1fr;padding:48px 40px}
-  .hero-photo-wrap{width:100%;height:240px}
+  .hero-photo-wrap{width:100%;height:300px}
 }
 @media(max-width:768px){
   .page-hero{padding:36px 20px}
@@ -94,11 +95,11 @@
 
 <div class="page-hero">
   <div class="page-hero-content">
-    <div class="hero-badge" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold-bg);border:1px solid var(--gold);color:var(--gold);padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600;margin-bottom:20px">&#128222; We reply within 24 hours &nbsp;&bull;&nbsp; Mon-Sat 9am-8pm</div>
+    <div class="hero-badge" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold-bg);border:1px solid var(--gold);color:var(--gold);padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600;margin-bottom:20px"> We reply within 24 hours &nbsp;&bull;&nbsp; Mon-Sat 9am-8pm</div>
     <h1>Get In <span>Touch With Us</span></h1>
     <p>Have questions about courses, fees or admissions? Book a free demo class or reach out directly — our team is always ready to help.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
-      <a href="tel:+919876543210" class="btn btn-gold">&#128222; Call Us Now</a>
+      <a href="tel:+919876543210" class="btn btn-gold"> Call Us Now</a>
       <a href="courses.html" class="btn btn-outline-navy">View Courses</a>
     </div>
     <div style="display:flex;gap:32px;margin-top:28px;flex-wrap:wrap">
@@ -110,15 +111,15 @@
     </div>
   </div>
   <div class="hero-photo-wrap">
-    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80" alt="Contact" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
-    <div style="position:absolute;bottom:20px;left:20px;background:rgba(255,255,255,.95);border-radius:14px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.12)">
+    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=85" alt="Contact" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+    <div style="position:absolute;bottom:20px;left:20px;background:rgba(255,255,255,.96);border-radius:14px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.18);z-index:2">
       <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase">Response Time</div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:var(--navy)">Within 24 Hours</div>
-      <div style="font-size:12px;color:var(--text-muted)">Mon-Sat, 9am-8pm</div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--navy)">Within 24 Hours</div>
+      <div style="font-size:12px;color:var(--text-muted)">Mon–Sat, 9am–8pm · 6 Days Open</div>
     </div>
-    <div style="position:absolute;top:20px;right:20px;background:var(--gold);border-radius:12px;padding:10px 16px">
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:var(--navy)">100%</div>
-      <div style="font-size:11px;color:var(--navy);font-weight:600">Free Demo</div>
+    <div style="position:absolute;top:20px;right:20px;background:var(--gold);border-radius:12px;padding:10px 16px;z-index:2;box-shadow:0 4px 16px rgba(201,168,76,.4)">
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--navy)">100%</div>
+      <div style="font-size:11px;color:var(--navy);font-weight:600">Free Demo Class</div>
     </div>
   </div>
       <!-- Phone device -->
@@ -347,12 +348,12 @@
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
-      <a href="teachers.html">Our Faculty</a>
-      <a href="results.html">Student Results</a>
-      <a href="about.html">About Us</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="teachers.html">Faculty</a>
+      <a href="results.html">Results</a>
       <a href="contact.html">Contact</a>
-      <a href="#">Blog</a>
-      <a href="#">Scholarship Test</a>
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
@@ -391,7 +392,7 @@ function toggleMenu() {
   document.getElementById('hamburger').classList.toggle('open');
   document.getElementById('mobileNav').classList.toggle('open');
 }
-(function(){var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting){n.target.classList.add('visible');o.unobserve(n.target);}});},{threshold:0,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.section,.cta-section,.page-hero').forEach(function(el){el.classList.add('reveal');o.observe(el);});})();
+(function(){var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting){n.target.classList.add('visible');o.unobserve(n.target);}});},{threshold:0,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.section,.cta-section,.page-hero,.social-contact-card,.faq-item').forEach(function(el,i){el.classList.add('reveal');el.style.transitionDelay=(i*0.07)+'s';o.observe(el);});})();
 </script>
 </body>
 </html>
